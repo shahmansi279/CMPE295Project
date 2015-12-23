@@ -10,7 +10,7 @@ import UIKit
 
 class MenuTableViewController: UITableViewController {
     
-    var menuArray =  ["Shop","Check in","Account","Contact" ]
+    var menuArray =  ["Shop","Check in","Account","Contact" ,"List"]
     
         
         
