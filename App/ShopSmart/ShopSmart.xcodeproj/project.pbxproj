@@ -14,6 +14,9 @@
 		B13FF5EE1C26466C00D0FDF1 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */; };
 		B13FF5F01C26472E00D0FDF1 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5EF1C26472E00D0FDF1 /* CheckInViewController.swift */; };
 		B13FF5F21C26474700D0FDF1 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F11C26474700D0FDF1 /* ContactViewController.swift */; };
+		B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */; };
+		B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */; };
+		B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */; };
 		B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCC9F1C18BE1D005CFFCE /* AppDelegate.swift */; };
 		B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCA11C18BE1D005CFFCE /* ViewController.swift */; };
 		B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCA31C18BE1D005CFFCE /* Main.storyboard */; };
@@ -45,12 +48,15 @@
 		B13FF5DF1C26269400D0FDF1 /* ShopSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		B13FF5E01C26269400D0FDF1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B13FF5E11C26269400D0FDF1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-toggle-menu.png"; sourceTree = "<group>"; };
+		B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-toggle-menu.png"; path = "ShopSmart/btn-toggle-menu.png"; sourceTree = SOURCE_ROOT; };
 		B13FF5E91C26330400D0FDF1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		B13FF5EB1C2634B300D0FDF1 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuItems.swift; path = ../MenuItems.swift; sourceTree = "<group>"; };
 		B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		B13FF5EF1C26472E00D0FDF1 /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInViewController.swift; path = ../CheckInViewController.swift; sourceTree = "<group>"; };
 		B13FF5F11C26474700D0FDF1 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
+		B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-25.png"; sourceTree = "<group>"; };
 		B18DCC9C1C18BE1D005CFFCE /* ShopSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18DCC9F1C18BE1D005CFFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18DCCA11C18BE1D005CFFCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +112,7 @@
 		B13FF5E81C26306D00D0FDF1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */,
 				B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */,
 			);
 			name = Images;
@@ -140,7 +147,9 @@
 				B13FF5EF1C26472E00D0FDF1 /* CheckInViewController.swift */,
 				B18DCCA11C18BE1D005CFFCE /* ViewController.swift */,
 				B13FF5E91C26330400D0FDF1 /* MenuTableViewController.swift */,
+				B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */,
 				B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */,
+				B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */,
 				B13FF5E81C26306D00D0FDF1 /* Images */,
 				B18DCCA31C18BE1D005CFFCE /* Main.storyboard */,
 				B18DCCA91C18BE1D005CFFCE /* Assets.xcassets */,
@@ -277,6 +286,7 @@
 				B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */,
 				B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */,
 				B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */,
+				B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,9 +315,11 @@
 				B18DCCA81C18BE1D005CFFCE /* ShopSmart.xcdatamodeld in Sources */,
 				B13FF5F01C26472E00D0FDF1 /* CheckInViewController.swift in Sources */,
 				B13FF5EE1C26466C00D0FDF1 /* AccountViewController.swift in Sources */,
+				B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */,
 				B13FF5EA1C26330400D0FDF1 /* MenuTableViewController.swift in Sources */,
 				B13FF5F21C26474700D0FDF1 /* ContactViewController.swift in Sources */,
 				B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */,
+				B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */,
 				B13FF5E21C26269400D0FDF1 /* SWRevealViewController.m in Sources */,
 				B13FF5EC1C2634B300D0FDF1 /* MenuItems.swift in Sources */,
 			);
