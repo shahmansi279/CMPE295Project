@@ -34,11 +34,9 @@ class ProductFilter(generics.ListAPIView):
 
     def get_queryset(self):
 
-        queryset = Product.objects.all()
-        category = self.request.query_params.get('category', None)
-        if category is not None:
-            queryset = queryset.filter(product_category_id=category)
-        return queryset
+        category = self.kwargs['category']
+        return Product.objects.filter(product_category_id=category)
+
 
 
 
