@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ProductsViewController: UIViewController {
+class ProductsViewController: UICollectionViewController {
 
     
+    
+    var classArr=["Category1","Category2"]
     @IBOutlet var Menu: UIBarButtonItem!{
     
         
@@ -46,7 +48,33 @@ class ProductsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    
+        return classArr.count;
+        
+    }
+    
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+        
+       
+        
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier( "cat", forIndexPath: indexPath)
+        
+        // "\(classArr[indexPath.row])"
+        
+        return cell
+    
+    }
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    {
+        
+        return 1;
+    }
+    
     /*
     // MARK: - Navigation
 

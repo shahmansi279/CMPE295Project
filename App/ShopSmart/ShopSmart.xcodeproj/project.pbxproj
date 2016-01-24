@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10411471C30ECEE00B416F6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10411461C30ECEE00B416F6 /* CartViewController.swift */; };
 		B13FF5E21C26269400D0FDF1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5E11C26269400D0FDF1 /* SWRevealViewController.m */; };
 		B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */; };
 		B13FF5EA1C26330400D0FDF1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5E91C26330400D0FDF1 /* MenuTableViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B10411461C30ECEE00B416F6 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B13FF5DF1C26269400D0FDF1 /* ShopSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		B13FF5E01C26269400D0FDF1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B13FF5E11C26269400D0FDF1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				B18DCCA11C18BE1D005CFFCE /* ViewController.swift */,
 				B13FF5E91C26330400D0FDF1 /* MenuTableViewController.swift */,
 				B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */,
+				B10411461C30ECEE00B416F6 /* CartViewController.swift */,
 				B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */,
 				B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */,
 				B13FF5E81C26306D00D0FDF1 /* Images */,
@@ -315,6 +318,7 @@
 				B18DCCA81C18BE1D005CFFCE /* ShopSmart.xcdatamodeld in Sources */,
 				B13FF5F01C26472E00D0FDF1 /* CheckInViewController.swift in Sources */,
 				B13FF5EE1C26466C00D0FDF1 /* AccountViewController.swift in Sources */,
+				B10411471C30ECEE00B416F6 /* CartViewController.swift in Sources */,
 				B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */,
 				B13FF5EA1C26330400D0FDF1 /* MenuTableViewController.swift in Sources */,
 				B13FF5F21C26474700D0FDF1 /* ContactViewController.swift in Sources */,
