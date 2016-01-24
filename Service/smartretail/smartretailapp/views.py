@@ -28,6 +28,18 @@ class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
 
+
+class ProductFilter(generics.ListAPIView):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+
+        category = self.kwargs['category']
+        return Product.objects.filter(product_category_id=category)
+
+
+
+
 def home(request):
 
     return HttpResponse("Hello World")
