@@ -26,6 +26,18 @@
 		B18DCCAD1C18BE1D005CFFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCAB1C18BE1D005CFFCE /* LaunchScreen.storyboard */; };
 		B18DCCB81C18BE1D005CFFCE /* ShopSmartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCB71C18BE1D005CFFCE /* ShopSmartTests.swift */; };
 		B18DCCC31C18BE1D005CFFCE /* ShopSmartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCC21C18BE1D005CFFCE /* ShopSmartUITests.swift */; };
+		B1A776C31C631E2B008CFA84 /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A776C21C631E2B008CFA84 /* EstimoteSDK.framework */; };
+		B1A776E21C631ED2008CFA84 /* libEstimoteIndoorSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A776D61C631ED2008CFA84 /* libEstimoteIndoorSDK.a */; };
+		B1A776E31C631ED2008CFA84 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776D81C631ED2008CFA84 /* avatar.png */; };
+		B1A776E41C631ED2008CFA84 /* avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776D91C631ED2008CFA84 /* avatar@2x.png */; };
+		B1A776E51C631ED2008CFA84 /* avatar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DA1C631ED2008CFA84 /* avatar@3x.png */; };
+		B1A776E61C631ED2008CFA84 /* beacon_grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DB1C631ED2008CFA84 /* beacon_grey@2x.png */; };
+		B1A776E71C631ED2008CFA84 /* beaconBlueberrySmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DC1C631ED2008CFA84 /* beaconBlueberrySmall.png */; };
+		B1A776E81C631ED2008CFA84 /* beaconBlueberrySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DD1C631ED2008CFA84 /* beaconBlueberrySmall@2x.png */; };
+		B1A776E91C631ED2008CFA84 /* beaconIcySmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DE1C631ED2008CFA84 /* beaconIcySmall.png */; };
+		B1A776EA1C631ED2008CFA84 /* beaconIcySmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776DF1C631ED2008CFA84 /* beaconIcySmall@2x.png */; };
+		B1A776EB1C631ED2008CFA84 /* beaconMintSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776E01C631ED2008CFA84 /* beaconMintSmall.png */; };
+		B1A776EC1C631ED2008CFA84 /* beaconMintSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A776E11C631ED2008CFA84 /* beaconMintSmall@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +85,34 @@
 		B18DCCBE1C18BE1D005CFFCE /* ShopSmartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopSmartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18DCCC21C18BE1D005CFFCE /* ShopSmartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopSmartUITests.swift; sourceTree = "<group>"; };
 		B18DCCC41C18BE1D005CFFCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1A776C21C631E2B008CFA84 /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+		B1A776C61C631ED2008CFA84 /* EILIndoorLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILIndoorLocationManager.h; sourceTree = "<group>"; };
+		B1A776C71C631ED2008CFA84 /* EILIndoorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILIndoorLocationView.h; sourceTree = "<group>"; };
+		B1A776C81C631ED2008CFA84 /* EILIndoorSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILIndoorSDK.h; sourceTree = "<group>"; };
+		B1A776C91C631ED2008CFA84 /* EILLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILLocation.h; sourceTree = "<group>"; };
+		B1A776CA1C631ED2008CFA84 /* EILLocationBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILLocationBuilder.h; sourceTree = "<group>"; };
+		B1A776CB1C631ED2008CFA84 /* EILLocationLinearObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILLocationLinearObject.h; sourceTree = "<group>"; };
+		B1A776CC1C631ED2008CFA84 /* EILOrientedLineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILOrientedLineSegment.h; sourceTree = "<group>"; };
+		B1A776CD1C631ED2008CFA84 /* EILOrientedPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILOrientedPoint.h; sourceTree = "<group>"; };
+		B1A776CE1C631ED2008CFA84 /* EILPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILPoint.h; sourceTree = "<group>"; };
+		B1A776CF1C631ED2008CFA84 /* EILPositionedBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILPositionedBeacon.h; sourceTree = "<group>"; };
+		B1A776D01C631ED2008CFA84 /* EILPositionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILPositionView.h; sourceTree = "<group>"; };
+		B1A776D11C631ED2008CFA84 /* EILRequestAddLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILRequestAddLocation.h; sourceTree = "<group>"; };
+		B1A776D21C631ED2008CFA84 /* EILRequestFetchLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILRequestFetchLocation.h; sourceTree = "<group>"; };
+		B1A776D31C631ED2008CFA84 /* EILRequestFetchLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILRequestFetchLocations.h; sourceTree = "<group>"; };
+		B1A776D41C631ED2008CFA84 /* EILRequestFetchPublicLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILRequestFetchPublicLocations.h; sourceTree = "<group>"; };
+		B1A776D51C631ED2008CFA84 /* EILRequestRemoveLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EILRequestRemoveLocation.h; sourceTree = "<group>"; };
+		B1A776D61C631ED2008CFA84 /* libEstimoteIndoorSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteIndoorSDK.a; sourceTree = "<group>"; };
+		B1A776D81C631ED2008CFA84 /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		B1A776D91C631ED2008CFA84 /* avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@2x.png"; sourceTree = "<group>"; };
+		B1A776DA1C631ED2008CFA84 /* avatar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar@3x.png"; sourceTree = "<group>"; };
+		B1A776DB1C631ED2008CFA84 /* beacon_grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beacon_grey@2x.png"; sourceTree = "<group>"; };
+		B1A776DC1C631ED2008CFA84 /* beaconBlueberrySmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconBlueberrySmall.png; sourceTree = "<group>"; };
+		B1A776DD1C631ED2008CFA84 /* beaconBlueberrySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconBlueberrySmall@2x.png"; sourceTree = "<group>"; };
+		B1A776DE1C631ED2008CFA84 /* beaconIcySmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconIcySmall.png; sourceTree = "<group>"; };
+		B1A776DF1C631ED2008CFA84 /* beaconIcySmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconIcySmall@2x.png"; sourceTree = "<group>"; };
+		B1A776E01C631ED2008CFA84 /* beaconMintSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beaconMintSmall.png; sourceTree = "<group>"; };
+		B1A776E11C631ED2008CFA84 /* beaconMintSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "beaconMintSmall@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A776C31C631E2B008CFA84 /* EstimoteSDK.framework in Frameworks */,
+				B1A776E21C631ED2008CFA84 /* libEstimoteIndoorSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +145,8 @@
 		B13FF5E31C2626B200D0FDF1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1A776C41C631ED2008CFA84 /* EstimoteIndoorLocationSDK */,
+				B1A776C11C631E2B008CFA84 /* EstimoteSDK */,
 				B13FF5E11C26269400D0FDF1 /* SWRevealViewController.m */,
 				B13FF5DF1C26269400D0FDF1 /* ShopSmart-Bridging-Header.h */,
 				B13FF5E01C26269400D0FDF1 /* SWRevealViewController.h */,
@@ -179,6 +223,64 @@
 				B18DCCC41C18BE1D005CFFCE /* Info.plist */,
 			);
 			path = ShopSmartUITests;
+			sourceTree = "<group>";
+		};
+		B1A776C11C631E2B008CFA84 /* EstimoteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B1A776C21C631E2B008CFA84 /* EstimoteSDK.framework */,
+			);
+			path = EstimoteSDK;
+			sourceTree = "<group>";
+		};
+		B1A776C41C631ED2008CFA84 /* EstimoteIndoorLocationSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B1A776C51C631ED2008CFA84 /* Headers */,
+				B1A776D61C631ED2008CFA84 /* libEstimoteIndoorSDK.a */,
+				B1A776D71C631ED2008CFA84 /* Resources */,
+			);
+			path = EstimoteIndoorLocationSDK;
+			sourceTree = "<group>";
+		};
+		B1A776C51C631ED2008CFA84 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B1A776C61C631ED2008CFA84 /* EILIndoorLocationManager.h */,
+				B1A776C71C631ED2008CFA84 /* EILIndoorLocationView.h */,
+				B1A776C81C631ED2008CFA84 /* EILIndoorSDK.h */,
+				B1A776C91C631ED2008CFA84 /* EILLocation.h */,
+				B1A776CA1C631ED2008CFA84 /* EILLocationBuilder.h */,
+				B1A776CB1C631ED2008CFA84 /* EILLocationLinearObject.h */,
+				B1A776CC1C631ED2008CFA84 /* EILOrientedLineSegment.h */,
+				B1A776CD1C631ED2008CFA84 /* EILOrientedPoint.h */,
+				B1A776CE1C631ED2008CFA84 /* EILPoint.h */,
+				B1A776CF1C631ED2008CFA84 /* EILPositionedBeacon.h */,
+				B1A776D01C631ED2008CFA84 /* EILPositionView.h */,
+				B1A776D11C631ED2008CFA84 /* EILRequestAddLocation.h */,
+				B1A776D21C631ED2008CFA84 /* EILRequestFetchLocation.h */,
+				B1A776D31C631ED2008CFA84 /* EILRequestFetchLocations.h */,
+				B1A776D41C631ED2008CFA84 /* EILRequestFetchPublicLocations.h */,
+				B1A776D51C631ED2008CFA84 /* EILRequestRemoveLocation.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		B1A776D71C631ED2008CFA84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1A776D81C631ED2008CFA84 /* avatar.png */,
+				B1A776D91C631ED2008CFA84 /* avatar@2x.png */,
+				B1A776DA1C631ED2008CFA84 /* avatar@3x.png */,
+				B1A776DB1C631ED2008CFA84 /* beacon_grey@2x.png */,
+				B1A776DC1C631ED2008CFA84 /* beaconBlueberrySmall.png */,
+				B1A776DD1C631ED2008CFA84 /* beaconBlueberrySmall@2x.png */,
+				B1A776DE1C631ED2008CFA84 /* beaconIcySmall.png */,
+				B1A776DF1C631ED2008CFA84 /* beaconIcySmall@2x.png */,
+				B1A776E01C631ED2008CFA84 /* beaconMintSmall.png */,
+				B1A776E11C631ED2008CFA84 /* beaconMintSmall@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +387,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1A776E81C631ED2008CFA84 /* beaconBlueberrySmall@2x.png in Resources */,
+				B1A776E31C631ED2008CFA84 /* avatar.png in Resources */,
+				B1A776E61C631ED2008CFA84 /* beacon_grey@2x.png in Resources */,
+				B1A776E91C631ED2008CFA84 /* beaconIcySmall.png in Resources */,
 				B18DCCAD1C18BE1D005CFFCE /* LaunchScreen.storyboard in Resources */,
+				B1A776EB1C631ED2008CFA84 /* beaconMintSmall.png in Resources */,
+				B1A776EC1C631ED2008CFA84 /* beaconMintSmall@2x.png in Resources */,
+				B1A776E51C631ED2008CFA84 /* avatar@3x.png in Resources */,
 				B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */,
 				B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */,
+				B1A776E41C631ED2008CFA84 /* avatar@2x.png in Resources */,
 				B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */,
+				B1A776EA1C631ED2008CFA84 /* beaconIcySmall@2x.png in Resources */,
+				B1A776E71C631ED2008CFA84 /* beaconBlueberrySmall.png in Resources */,
 				B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,8 +578,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopSmart/EstimoteSDK",
+				);
 				INFOPLIST_FILE = ShopSmart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopSmart/EstimoteIndoorLocationSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sjsu.edu.ShopSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShopSmart/ShopSmart-Bridging-Header.h";
@@ -480,8 +600,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopSmart/EstimoteSDK",
+				);
 				INFOPLIST_FILE = ShopSmart/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ShopSmart/EstimoteIndoorLocationSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sjsu.edu.ShopSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ShopSmart/ShopSmart-Bridging-Header.h";
