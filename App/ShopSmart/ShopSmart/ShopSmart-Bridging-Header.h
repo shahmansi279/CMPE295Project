@@ -4,3 +4,8 @@
 
 
 #import "SWRevealViewController.h"
+#import "EILIndoorLocationManager.h"
+#import "EILLocation.h"
+#import "EILIndoorLocationView.h"
+#import "EILLocationBuilder.h"
+#import "EILIndoorSDK.h"
