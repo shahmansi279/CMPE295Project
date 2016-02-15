@@ -12,6 +12,8 @@ import UIKit
 
 class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
     
+    @IBOutlet weak var myLocationView: EILIndoorLocationView!
+     @IBOutlet weak var myLabel: UILabel!
     let locationManager = EILIndoorLocationManager()
     var location: EILLocation!
     
@@ -44,6 +46,9 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
             if location != nil {
                 self.location = location!
                 self.locationManager.startPositionUpdatesForLocation(self.location)
+                self.myLocationView.drawLocation(location)
+                self.myLocationView.showTrace=true
+                self.myLocationView.traceColor=UIColor.yellowColor()
             } else {
                 print("can't fetch location: \(error)")
             }
@@ -54,6 +59,13 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+       
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,6 +91,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
             }
             print(String(format: "x: %5.2f, y: %5.2f, orientation: %3.0f, accuracy: %@",
                 position.x, position.y, position.orientation, accuracy))
+            
+            myLocationView.updatePosition(position)
     }
     
     
