@@ -10,6 +10,46 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    enum JSONError: String, ErrorType {
+        case NoData = "ERROR: no data"
+        case ConversionFailed = "ERROR: conversion from JSON failed"
+    }
+
+    
+    @IBAction func loginButton(sender: UIButton) {
+        
+        var usernameText = username.text
+        var passwordText = password.text
+        
+        
+        let urlPath = "http://127.0.0.1:8000/smartretailapp/login/?username=Cust_0002&password=123"
+        guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
+        let request = NSMutableURLRequest(URL:endpoint)
+        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            do {
+                guard let dat = data else { throw JSONError.NoData }
+                guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
+                print(json)
+                guard let item = json[0] as? [String: AnyObject],
+                    let result = item["Response"] as? [String: AnyObject] else {
+                        return;
+                }
+                
+                print("Response is \(result)")
+            } catch let error as JSONError {
+                print(error.rawValue)
+            } catch {
+                print(error)
+            }
+            }.resume()
+        
+        
+    }
+    @IBAction func resetPasswordButton(sender: UIButton) {
+    }
     @IBOutlet var Menu: UIBarButtonItem!{
         
         
