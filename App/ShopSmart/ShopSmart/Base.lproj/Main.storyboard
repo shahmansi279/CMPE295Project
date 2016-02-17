@@ -123,27 +123,25 @@
             </objects>
             <point key="canvasLocation" x="2750" y="-419"/>
         </scene>
-        <!--View Controller-->
+        <!--Deals View Controller-->
         <scene sceneID="jAo-zR-i6L">
             <objects>
-                <viewController id="7Bj-ZP-jJC" customClass="ViewController" customModule="ShopSmart" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4j4-fq-sWF"/>
-                        <viewControllerLayoutGuide type="bottom" id="mo9-EN-mhp"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tOl-c6-Xwi">
+                <viewController id="7Bj-ZP-jJC" customClass="DealsViewController" customModule="ShopSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="bkk-dE-aj7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop Deals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQy-rs-Exq">
-                                <rect key="frame" x="150" y="175" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="offer1" id="Obm-Hw-RtB">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Obm-Hw-RtB" id="D9g-gG-8dI">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" id="x5R-z1-s2s">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="X2T-uN-PUd"/>
                     </navigationItem>
@@ -153,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEb-Og-1Zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="1870"/>
+            <point key="canvasLocation" x="1387" y="1830"/>
         </scene>
         <!--Check In View Controller-->
         <scene sceneID="vJQ-1u-YPy">
