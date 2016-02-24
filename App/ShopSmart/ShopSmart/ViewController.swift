@@ -16,7 +16,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var data: [String] = []
     
     @IBOutlet var collectionView: UICollectionView!
-    
     @IBOutlet var Menu: UIBarButtonItem!{
         
         
@@ -33,6 +32,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.viewDidLoad()
         
         //Add the pan gesture to the view.
+        self.collectionView.delegate=self
+        self.collectionView.dataSource=self
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         // Do any additional setup after loading the view, typically from a nib.
@@ -46,18 +47,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     
                     let url = dict["offer_img_url"] as? String
                     
-                    
-                    self.data.append(url! as String)
-                    
-                    
+                    self.data.append(url!)
                     
                 }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    
+                    self.collectionView.reloadData()
+                    
+                    
+                };
+                
         }
-        print(self.data)
         
-        collectionView.reloadData()
+        
         
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -66,31 +73,40 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //Collection View methods
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //#warning Incomplete method implementation -- Return the number of items in the section
-        return data.count
+        print(self.data.count)
+        return self.data.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! CollectionViewCell
         
         
-        
-        let url = NSURL(string: "\(data[indexPath.row])")
-        print(url)
-        
+        let url = NSURL(string: "\(self.data[indexPath.row])")
         let imageData: NSData = NSData(contentsOfURL: url!)!
-        let bgImage = UIImage(data:imageData)
-        
-        cell.imgView.image = bgImage
-        
-        // cell.imgView.image = UIImage(named: array[indexPath.row])
         
         
+        dispatch_async(dispatch_get_main_queue()){
+            
+            let bgImage = UIImage(data:imageData)
+            
+            
+            cell.imgView.image = bgImage
+            
+            
+            
+        }
         
         return cell
+        
+        
     }
-    
-    
 }
-
