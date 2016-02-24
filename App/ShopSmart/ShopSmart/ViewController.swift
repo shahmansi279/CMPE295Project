@@ -14,6 +14,7 @@ import Alamofire
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var data: [String] = []
+   
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var Menu: UIBarButtonItem!{
@@ -37,34 +38,59 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         // Do any additional setup after loading the view, typically from a nib.
-        Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?format=json")
-            .responseJSON {response in
-                
-                let jsonArray = response.result.value as! NSMutableArray
-                for item in jsonArray{
-                    
-                    let dict = item as! NSMutableDictionary
-                    
-                    let url = dict["offer_img_url"] as? String
-                    
-                    self.data.append(url!)
-                    
-                }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    
-                    self.collectionView.reloadData()
-                    
-                    
-                };
-                
-        }
+    
         
+        //Fetch the data from Smart Retail Service
+        loadData()
         
         
     }
     
     
+    func loadData(){
+    
+        Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?format=json")
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    self.populateData(JSON as! NSMutableArray)
+                    
+                                        
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                   
+                }
+        }
+    }
+    
+    
+    func populateData(jsonData: NSMutableArray){
+        
+        if(jsonData.count>0){
+            
+            // let jsonArray = response.result.value as! NSMutableArray
+            for item in jsonData{
+                
+                let dict = item as! NSMutableDictionary
+                
+                let url = dict["offer_img_url"] as? String
+                
+                self.data.append(url!)
+                
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.collectionView.reloadData()
+                
+                
+            };
+            
+            
+        }
+        
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,6 +115,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! CollectionViewCell
         
+        cell.contentView.frame = cell.bounds
+        cell.contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         let url = NSURL(string: "\(self.data[indexPath.row])")
         let imageData: NSData = NSData(contentsOfURL: url!)!
@@ -98,9 +126,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             let bgImage = UIImage(data:imageData)
             
-            
             cell.imgView.image = bgImage
-            
             
             
         }
@@ -109,4 +135,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+       
+        /*let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+
+        var size = flowLayout.itemSize ;
+        
+        size.height = size.height * 2;
+        
+        return size;*/
+        
+        return CGSize(width: collectionView.frame.size.width/1.5, height: 200)
+    }
+
 }
