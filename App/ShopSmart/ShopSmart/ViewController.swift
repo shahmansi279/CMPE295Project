@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  ShopSmart
@@ -132,6 +133,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         return cell
+        
+        
+    }
+    
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
         
         
     }
