@@ -163,6 +163,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4o-Ri-reu">
                                 <rect key="frame" x="79" y="510" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutBtn:" destination="VHD-0b-DaS" eventType="touchUpInside" id="uGm-Tm-pBI"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-jy-Pab">
                                 <rect key="frame" x="142" y="153" width="136" height="30"/>
@@ -212,6 +215,15 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Menu" destination="W2d-Hk-W5O" id="jSr-UA-qhQ"/>
+                        <outlet property="addressField" destination="bOY-YM-8se" id="6Sw-dR-So0"/>
+                        <outlet property="dobField" destination="Dwg-W5-yce" id="mAk-zx-5eN"/>
+                        <outlet property="emailField" destination="eUL-kY-WgS" id="B35-H0-ApH"/>
+                        <outlet property="genderField" destination="OF6-fL-f7b" id="Ood-6t-dyQ"/>
+                        <outlet property="passwordField" destination="tjp-H2-63B" id="9Dh-My-icr"/>
+                        <outlet property="phoneField" destination="vZD-7z-pFM" id="5Kw-56-e3Y"/>
+                        <outlet property="usernameField" destination="Vgl-jy-Pab" id="y6m-BW-msR"/>
+                        <outlet property="zipcodeField" destination="agF-MS-w0D" id="zaW-yv-oTL"/>
+                        <segue destination="Kx0-7Y-kys" kind="show" identifier="goto_login" id="iZb-vR-4Tn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3g-Zf-TjY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,16 +256,23 @@
                                 <rect key="frame" x="189" y="241" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <action selector="loginButton:" destination="Kx0-7Y-kys" eventType="touchUpInside" id="7Az-1H-HNM"/>
+                                    <action selector="loginBtn:" destination="Kx0-7Y-kys" eventType="touchUpInside" id="BTf-TS-Mtc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFt-ab-NUu">
                                 <rect key="frame" x="160" y="285" width="109" height="30"/>
                                 <state key="normal" title="Reset Password"/>
-                                <connections>
-                                    <action selector="resetPasswordButton:" destination="Kx0-7Y-kys" eventType="touchUpInside" id="5Mr-cN-0dC"/>
-                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3Q-OB-Wzv">
+                                <rect key="frame" x="189" y="401" width="57" height="30"/>
+                                <state key="normal" title="Register"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New User?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esK-O8-XhO">
+                                <rect key="frame" x="97" y="405" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -261,14 +280,15 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="zRz-vW-7ua"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="Menu" destination="zRz-vW-7ua" id="7Vf-jx-xbL"/>
-                        <outlet property="password" destination="Ec3-8c-X5H" id="zAn-T5-u2X"/>
-                        <outlet property="username" destination="Dbn-sv-jHx" id="4L0-Bs-qZe"/>
+                        <outlet property="Menu" destination="zRz-vW-7ua" id="VVy-eX-0W0"/>
+                        <outlet property="passwordField" destination="Ec3-8c-X5H" id="MDc-dM-E6v"/>
+                        <outlet property="usernameField" destination="Dbn-sv-jHx" id="mwo-oq-sYQ"/>
+                        <segue destination="VHD-0b-DaS" kind="show" identifier="LoggedIn" id="1nh-pQ-l4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0e3-Sv-VgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3560" y="-432"/>
+            <point key="canvasLocation" x="3567" y="-432"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jAo-zR-i6L">
@@ -731,5 +751,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="sfU-Xn-nWO"/>
         <segue reference="rFz-Zf-C8i"/>
+        <segue reference="1nh-pQ-l4v"/>
     </inferredMetricsTieBreakers>
 </document>
