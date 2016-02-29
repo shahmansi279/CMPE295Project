@@ -2,7 +2,7 @@
 //  RegisterViewController.swift
 //  ShopSmart
 //
-//  Created by Macintosh User on 2/14/16.
+//  Created by Jessie Deot on 2/14/16.
 //  Copyright © 2016 Mansi Modi. All rights reserved.
 //
 

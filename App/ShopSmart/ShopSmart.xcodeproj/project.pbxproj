@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3BC333381C714FD8002CCC48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333371C714FD8002CCC48 /* RegisterViewController.swift */; };
 		3BC333C01C83C7F8002CCC48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */; };
+		3BC333C91C84C2E0002CCC48 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */; };
 		B10411471C30ECEE00B416F6 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10411461C30ECEE00B416F6 /* CartViewController.swift */; };
 		B13FF5E21C26269400D0FDF1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5E11C26269400D0FDF1 /* SWRevealViewController.m */; };
 		B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */; };
@@ -149,6 +150,7 @@
 /* Begin PBXFileReference section */
 		3BC333371C714FD8002CCC48 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		B10411461C30ECEE00B416F6 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B13FF5DF1C26269400D0FDF1 /* ShopSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShopSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		B13FF5E01C26269400D0FDF1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -407,9 +409,10 @@
 				B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */,
 				B10411461C30ECEE00B416F6 /* CartViewController.swift */,
 				3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */,
-				B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */,
-				B1E7DE7E1C8152EE00BEE9EC /* OfferInfoController.swift */,
 				3BC333371C714FD8002CCC48 /* RegisterViewController.swift */,
+				B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */,
+				3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */,
+				B1E7DE7E1C8152EE00BEE9EC /* OfferInfoController.swift */,
 				B1AB340F1C7BA724003A8B8F /* CollectionViewCell.swift */,
 				B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */,
 				B13FF5E81C26306D00D0FDF1 /* Images */,
@@ -741,6 +744,7 @@
 				3BC333C01C83C7F8002CCC48 /* LoginViewController.swift in Sources */,
 				B16E59921C7C3168005765CE /* Error.swift in Sources */,
 				B13FF5F21C26474700D0FDF1 /* ContactViewController.swift in Sources */,
+				3BC333C91C84C2E0002CCC48 /* ResetPasswordViewController.swift in Sources */,
 				B1E7DE8F1C81557400BEE9EC /* Offer.swift in Sources */,
 				B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */,
 				B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */,
