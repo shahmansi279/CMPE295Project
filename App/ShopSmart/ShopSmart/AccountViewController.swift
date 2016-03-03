@@ -8,10 +8,24 @@
 
 import UIKit
 
+var loggedIn:Bool = false
+
 class AccountViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var addressField: UITextField!
+    @IBOutlet weak var zipcodeField: UITextField!
+    @IBOutlet weak var phoneField: UITextField!
+    @IBOutlet weak var dobField: UITextField!
+    @IBOutlet weak var genderField: UITextField!
+    
+    
+    var username:String!
+    var password:String!
+    
+    
     
     enum JSONError: String, ErrorType {
         case NoData = "ERROR: no data"
@@ -19,37 +33,18 @@ class AccountViewController: UIViewController {
     }
 
     
-    @IBAction func loginButton(sender: UIButton) {
+   
+    @IBAction func logoutBtn(sender: UIButton) {
         
-        var usernameText = username.text
-        var passwordText = password.text
+        loggedIn = false
         
-        
-        let urlPath = "http://127.0.0.1:8000/smartretailapp/login/?username=Cust_0002&password=123"
-        guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
-        let request = NSMutableURLRequest(URL:endpoint)
-        NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-            do {
-                guard let dat = data else { throw JSONError.NoData }
-                guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
-                print(json)
-                guard let item = json[0] as? [String: AnyObject],
-                    let result = item["Response"] as? [String: AnyObject] else {
-                        return;
-                }
-                
-                print("Response is \(result)")
-            } catch let error as JSONError {
-                print(error.rawValue)
-            } catch {
-                print(error)
-            }
-            }.resume()
+        viewDidLoad()
         
         
     }
-    @IBAction func resetPasswordButton(sender: UIButton) {
-    }
+    
+    
+    
     @IBOutlet var Menu: UIBarButtonItem!{
         
         
@@ -73,6 +68,62 @@ class AccountViewController: UIViewController {
            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
 
         // Do any additional setup after loading the view.
+        
+        
+        if loggedIn == false{
+            self.performSegueWithIdentifier("goto_login", sender: nil)
+            
+        } else {
+            
+            
+            usernameField.text = username
+            passwordField.text = password
+            
+            
+            let urlPath = "http://127.0.0.1:8000/smartretailapp/api/customer/13/?format=json"
+            print(urlPath)
+            guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
+            let request = NSMutableURLRequest(URL:endpoint)
+            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+                do {
+                    guard let dat = data else { throw JSONError.NoData }
+                    guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
+                    print(json)
+                    
+                    
+                    let addr = json["address1"] as? String
+                    let zipcode = json["postal_code"] as? String
+                    let phone = json["phone1"] as? String
+                    let dob = json["birthdate"] as? String
+                    let gender = json["gender"] as? String
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                        self.addressField.text = addr
+                        self.zipcodeField.text = zipcode
+                        self.phoneField.text = phone
+                        self.dobField.text = dob
+                        self.genderField.text = gender
+                    })
+                    
+                } catch let error as JSONError {
+                    print(error.rawValue)
+                } catch {
+                    print(error)
+                }
+                }.resume()
+            
+            
+        }
+
+
+        
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
