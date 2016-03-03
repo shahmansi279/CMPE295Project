@@ -14,7 +14,7 @@ import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var data: [String] = []
+    var data: [Offer] = []
    
     
     @IBOutlet var collectionView: UICollectionView!
@@ -74,9 +74,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 
                 let dict = item as! NSMutableDictionary
                 
-                let url = dict["offer_img_url"] as? String
-                
-                self.data.append(url!)
+               // let url = dict["offer_img_url"] as? String
+               
+                let offerItem = Offer(data: dict)
+                self.data.append(offerItem)
+             
                 
             }
             
@@ -119,8 +121,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.contentView.frame = cell.bounds
         cell.contentView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-        let url = NSURL(string: "\(self.data[indexPath.row])")
-        let imageData: NSData = NSData(contentsOfURL: url!)!
+        let url = NSURL(string: "\(self.data[indexPath.row].offerImgUrl)")
+        
+        let imageData: NSData = NSData(contentsOfURL: (url!))!
         
         
         dispatch_async(dispatch_get_main_queue()){
@@ -139,12 +142,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        
-        
-        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
+        if(segue.identifier == "offer_detail"){
+            let indexPath = self.collectionView.indexPathForCell(sender as! CollectionViewCell)
+            let offer = self.data[indexPath!.row]
+         
+            let dvc = segue.destinationViewController as! OfferDetailViewController
+            
+      
+            dvc.offer = offer
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
