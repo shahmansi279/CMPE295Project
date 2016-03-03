@@ -1,54 +1,33 @@
 //
-//  RegisterViewController.swift
+//  LoginViewController.swift
 //  ShopSmart
 //
-//  Created by Jessie Deot on 2/14/16.
+//  Created by Jessie Deot on 2/28/16.
 //  Copyright © 2016 Mansi Modi. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class LoginViewController: UIViewController {
     
-    
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var verifyPasswordField: UITextField!
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var addressField: UITextField!
-    @IBOutlet weak var zipcodeField: UITextField!
-    @IBOutlet weak var phoneField: UITextField!
-    @IBOutlet weak var dobField: UITextField!
-    @IBOutlet weak var genderField: UITextField!
     
     enum JSONError: String, ErrorType {
         case NoData = "ERROR: no data"
         case ConversionFailed = "ERROR: conversion from JSON failed"
     }
     
-    @IBAction func RegisterBtn(sender: UIButton) {
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+
+    @IBAction func loginBtn(sender: UIButton) {
         
         
         let usernameText = usernameField.text!
         let passwordText = passwordField.text!
-        let verifyPasswordText = verifyPasswordField.text!
-        let emailText = emailField.text!
-        let addressText = addressField.text!
-        let zipcodeText = zipcodeField.text!
-        let phoneText = phoneField.text!
-        let dobText = dobField.text!
-        let genderText = genderField.text!
         
-        if ( usernameText == "" || passwordText == "" || verifyPasswordText == "" ) {
+        if ( usernameText == "" || passwordText == "" ) {
             
-            let alert = UIAlertController(title: "Register Failed!", message:"Please enter the required fields", preferredStyle: .Alert)
-            let action = UIAlertAction(title: "OK", style: .Default) { _ in}
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true){}
-            
-            
-        } else if (passwordText != verifyPasswordText) {
-            let alert = UIAlertController(title: "Register Failed!", message:"The passwords do not match. Try again!", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Login Failed!", message:"Please enter a valid Username and Password", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default) { _ in}
             alert.addAction(action)
             self.presentViewController(alert, animated: true){}
@@ -57,10 +36,8 @@ class RegisterViewController: UIViewController {
         } else {
             
             
-            let urlPath = "http://127.0.0.1:8000/smartretailapp/register/?username=\(usernameText)&password=\(passwordText)&email=\(emailText)&user_addr=\(addressText)&user_zip=\(zipcodeText)&user_phone=\(phoneText)&user_dob=\(dobText)&user_gender=\(genderText)"
-            
+            let urlPath = "http://127.0.0.1:8000/smartretailapp/login/?username=\(usernameText)&password=\(passwordText)"
             print(urlPath)
-            
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)
             NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
@@ -75,17 +52,26 @@ class RegisterViewController: UIViewController {
                         print("Redirecting to Account Screen")
                         dispatch_async(dispatch_get_main_queue(), {
                             loggedIn = true
-                            self.performSegueWithIdentifier("Registered", sender: nil)
+                            self.performSegueWithIdentifier("LoggedIn", sender: nil)
                         })
                         
-                    } else if (result == "error"){
-                        let alert = UIAlertController(title: "Register Failed!", message:"The username is already taken. Try again!", preferredStyle: .Alert)
+                    } else if (result == "error: disabled account"){
+                        print("error: disabled account")
+                        let alert = UIAlertController(title: "Login Failed!", message:"The Account has been Disabled", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "OK", style: .Default) { _ in}
                         alert.addAction(action)
                         dispatch_async(dispatch_get_main_queue(), {
                             self.presentViewController(alert, animated: true){}
                         })
                         
+                    } else if (result == "error: invalid credentials"){
+                        print("error: invalid credentials")
+                        let alert = UIAlertController(title: "Login Failed!", message:"Invalid Credentials", preferredStyle: .Alert)
+                        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.presentViewController(alert, animated: true){}
+                        })
                     }
                 } catch let error as JSONError {
                     print(error.rawValue)
@@ -93,11 +79,8 @@ class RegisterViewController: UIViewController {
                     print(error)
                 }
                 }.resume()
-            
         }
 
-
-        
         
         
         
@@ -106,7 +89,7 @@ class RegisterViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if(segue.identifier == "Registered") {
+        if(segue.identifier == "LoggedIn") {
             
             let destination = (segue.destinationViewController as! AccountViewController)
             destination.username = usernameField.text
@@ -115,7 +98,19 @@ class RegisterViewController: UIViewController {
     }
     
     
-
+    
+    @IBOutlet weak var Menu: UIBarButtonItem!{
+        didSet{
+            
+            Menu.target = self.revealViewController()
+            Menu.action = Selector("revealToggle:")
+            
+        }
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
