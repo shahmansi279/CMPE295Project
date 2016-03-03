@@ -9,3 +9,23 @@
 import Foundation
 
 
+class Offer {
+
+
+
+        var offerId:String?
+        var offerTitle:String?
+        var offerDesc:String?
+        var offerImgUrl:String?
+        var offerExpiry:String?
+    
+    
+    
+            init(){
+    
+     
+                self.offerId=""
+    
+            }
+    
+        }
