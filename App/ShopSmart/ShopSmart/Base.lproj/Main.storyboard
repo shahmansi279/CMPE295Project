@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEb-Og-1Zg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="1832"/>
+            <point key="canvasLocation" x="98" y="1829"/>
         </scene>
         <!--OfferInfo-->
         <scene sceneID="xKH-ZY-bWg">
@@ -801,13 +801,24 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Dept" id="q0N-8c-xpe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Dept" id="q0N-8c-xpe" customClass="TableViewCell" customModule="ShopSmart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q0N-8c-xpe" id="csR-On-2Gn">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uiv-sV-S1s">
+                                                    <rect key="frame" x="15" y="14" width="247" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myLabel" destination="Uiv-sV-S1s" id="xA7-uG-bzS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -828,12 +839,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Menu" destination="zn3-X2-mPu" id="L8l-Ke-Tif"/>
-                        <outlet property="tableView" destination="dPJ-xi-CqI" id="TIa-Ar-UVO"/>
+                        <outlet property="depttableView" destination="dPJ-xi-CqI" id="Fcs-1l-3Fu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkj-KI-A41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-813" y="1732"/>
+            <point key="canvasLocation" x="-687" y="1750"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Szm-ds-LJB">

@@ -9,8 +9,10 @@
 import UIKit
 import Alamofire
 
-class ProductsViewController : UITableViewController {
+class ProductsViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var depttableView: UITableView!
+   
     
     //ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
     
@@ -42,8 +44,8 @@ class ProductsViewController : UITableViewController {
         
         //Add the pan gesture to the view.
         
-        self.tableView.delegate=self
-        self.tableView.dataSource=self
+        self.depttableView.delegate=self
+        self.depttableView.dataSource=self
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
     
@@ -61,20 +63,20 @@ class ProductsViewController : UITableViewController {
     }
     
     // Step5
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return DeptArray.count
     }
     
     
     //Step6
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let Dept = self.tableView.dequeueReusableCellWithIdentifier("Dept", forIndexPath: indexPath) as UITableViewCell
+        let Dept = self.depttableView.dequeueReusableCellWithIdentifier("Dept", forIndexPath: indexPath) as! TableViewCell
         
         //Step 8
         
   // this needs to be modified
-        // Dept.pdtTitle.text = DeptArray[indexPath.row]
+         Dept.myLabel.text = DeptArray[indexPath.row]
         
         
         return Dept
@@ -82,6 +84,10 @@ class ProductsViewController : UITableViewController {
         
     }
     
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
 
     
     
@@ -109,14 +115,14 @@ class ProductsViewController : UITableViewController {
             // let jsonArray = response.result.value as! NSMutableArray
             for item in jsonData{
                 
-                self.DeptArray.append(item as! String)
+                self.DeptArray.append(item[0] as! String)
                 
                 
             }
             
             dispatch_async(dispatch_get_main_queue()) {
                 
-                self.tableView.reloadData()
+                self.depttableView.reloadData()
                 
                 
             };
