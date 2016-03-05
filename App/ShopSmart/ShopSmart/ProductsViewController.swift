@@ -49,7 +49,7 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
     
-    //    DeptArray = [" "," "," "]
+  
         
         loadData()
 
@@ -131,6 +131,20 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         }
         
         
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "category_detail"){
+            let indexPath = self.depttableView.indexPathForCell(sender as! TableViewCell)
+            let category = self.DeptArray[indexPath!.row]
+            
+            let dvc = segue.destinationViewController as! CategoryViewController
+            
+            
+            dvc.categoryName = category
+        }
     }
     
     
