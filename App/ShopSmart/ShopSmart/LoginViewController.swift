@@ -49,9 +49,21 @@ class LoginViewController: UIViewController {
                     let result = json["status"] as? String
                     
                     if (result == "success"){
-                        print("Redirecting to Account Screen")
+                        
+                        print("Login Successful")
+                        
+                        let id = json["id"] as! Int
+                        let username = json["username"] as! String
+                        let email = json["email"] as! String
+                        
                         dispatch_async(dispatch_get_main_queue(), {
-                            loggedIn = true
+                            
+                            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                            prefs.setObject(id, forKey: "id")
+                            prefs.setObject(username, forKey: "username")
+                            prefs.setObject(email, forKey: "email")
+                            prefs.setInteger(1, forKey: "isLoggedIn")
+                            prefs.synchronize()
                             self.performSegueWithIdentifier("LoggedIn", sender: nil)
                         })
                         
@@ -86,7 +98,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+ /*
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "LoggedIn") {
@@ -96,7 +108,7 @@ class LoginViewController: UIViewController {
             destination.password = passwordField.text
         }
     }
-    
+    */
     
     
     @IBOutlet weak var Menu: UIBarButtonItem!{

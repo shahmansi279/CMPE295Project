@@ -8,8 +8,6 @@
 
 import UIKit
 
-var loggedIn:Bool = false
-
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
@@ -22,11 +20,8 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var genderField: UITextField!
     
     
-    var username:String!
-    var password:String!
     
-    
-    
+
     enum JSONError: String, ErrorType {
         case NoData = "ERROR: no data"
         case ConversionFailed = "ERROR: conversion from JSON failed"
@@ -36,9 +31,11 @@ class AccountViewController: UIViewController {
    
     @IBAction func logoutBtn(sender: UIButton) {
         
-        loggedIn = false
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         
-        viewDidLoad()
+        
+        self.performSegueWithIdentifier("goto_login", sender: self)
         
         
     }
@@ -64,23 +61,24 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
         //Add the pan gesture to the view.
-        
            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
 
         // Do any additional setup after loading the view.
         
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
         
-        if loggedIn == false{
+        if (isLoggedIn != 1){
             self.performSegueWithIdentifier("goto_login", sender: nil)
             
         } else {
             
+            self.usernameField.text = prefs.valueForKey("username") as! String
+            self.emailField.text = prefs.valueForKey("email") as! String
+            let id = prefs.valueForKey("id") as! Int
             
-            usernameField.text = username
-            passwordField.text = password
             
-            
-            let urlPath = "http://127.0.0.1:8000/smartretailapp/api/customer/13/?format=json"
+            let urlPath = "http://127.0.0.1:8000/smartretailapp/api/customer/\(id)/?format=json"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)

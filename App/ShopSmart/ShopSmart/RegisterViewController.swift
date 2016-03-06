@@ -41,14 +41,14 @@ class RegisterViewController: UIViewController {
         
         if ( usernameText == "" || passwordText == "" || verifyPasswordText == "" ) {
             
-            let alert = UIAlertController(title: "Register Failed!", message:"Please enter the required fields", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Registeration Failed!", message:"Please enter the required fields", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default) { _ in}
             alert.addAction(action)
             self.presentViewController(alert, animated: true){}
             
             
         } else if (passwordText != verifyPasswordText) {
-            let alert = UIAlertController(title: "Register Failed!", message:"The passwords do not match. Try again!", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Registeration Failed!", message:"The passwords do not match. Try again!", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default) { _ in}
             alert.addAction(action)
             self.presentViewController(alert, animated: true){}
@@ -72,14 +72,14 @@ class RegisterViewController: UIViewController {
                     let result = json["status"] as? String
                     
                     if (result == "success"){
-                        print("Redirecting to Account Screen")
+                        print("Registeration successful")
                         dispatch_async(dispatch_get_main_queue(), {
-                            loggedIn = true
+                            //self.view.makeToast("Acount created Successfully", duration: 0.5, position: "bottom")
                             self.performSegueWithIdentifier("Registered", sender: nil)
                         })
                         
                     } else if (result == "error"){
-                        let alert = UIAlertController(title: "Register Failed!", message:"The username is already taken. Try again!", preferredStyle: .Alert)
+                        let alert = UIAlertController(title: "Registeration Failed!", message:"The username is already taken. Try again!", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "OK", style: .Default) { _ in}
                         alert.addAction(action)
                         dispatch_async(dispatch_get_main_queue(), {
@@ -104,18 +104,6 @@ class RegisterViewController: UIViewController {
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if(segue.identifier == "Registered") {
-            
-            let destination = (segue.destinationViewController as! AccountViewController)
-            destination.username = usernameField.text
-            destination.password = passwordField.text
-        }
-    }
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
