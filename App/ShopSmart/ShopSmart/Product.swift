@@ -13,16 +13,16 @@ struct Product {
     var productId:Int?
     var productTitle:String?
     var productDesc:String?
-    var prodImgUrl:String?
+    var prodImgUrl:String
     var productCost:Int
   
     
     
     init(data : NSDictionary){
         productId = data["product_id"] as? Int
-        productDesc = data["product_name"] as! String
+        productDesc = data["product_desc"] as! String
         productTitle = data["product_name"] as! String
-        productCost = data["units_per_case"] as! Int
-       // prodImgUrl =  data["product_img1_url"] as! String?
+        productCost = data["product_price"] as! Int
+        prodImgUrl =  data["product_img1_url"] as! String
     }
 }
