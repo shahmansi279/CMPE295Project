@@ -129,15 +129,15 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if(segue.identifier == "product_detail"){
-            let indexPath = self.prodTblView.indexPathForCell(sender as! CategoryTableViewCell)
+        if(segue.identifier == "product_info"){
+            let indexPath = self.prodTblView.indexPathForCell(sender as! ProductListTableViewCell)
             
-            let product = self.prodArray[indexPath!.row].productTitle
+            let product = self.prodArray[indexPath!.row] as! Product
             
-            let dvc = segue.destinationViewController as! ProductListViewController
+            let dvc = segue.destinationViewController as! ProductInfoViewController
             
             
-            //dvc.productLine = pro
+            dvc.product = product
         }
     }
     

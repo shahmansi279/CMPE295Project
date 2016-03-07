@@ -12,16 +12,17 @@ struct Product {
     
     var productId:Int?
     var productTitle:String?
-    //var productDesc:String?
-    //var prodImgUrl:String
+    var productDesc:String?
+    var prodImgUrl:String?
+    var productCost:Int
   
     
     
     init(data : NSDictionary){
-        productId = data["product_id"] as! Int
-       // productDesc = data["product_desc"] as! String
+        productId = data["product_id"] as? Int
+        productDesc = data["product_name"] as! String
         productTitle = data["product_name"] as! String
-        //offerExpiry = (data["offer_end_date"] as! NSDate)
-       // prodImgUrl =  data["prod_img_url"] as! String
+        productCost = data["units_per_case"] as! Int
+       // prodImgUrl =  data["product_img1_url"] as! String?
     }
 }
