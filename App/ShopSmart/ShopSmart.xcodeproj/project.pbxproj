@@ -78,6 +78,8 @@
 		B1A776F41C632122008CFA84 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A776F31C632122008CFA84 /* CoreMotion.framework */; };
 		B1A776F61C632134008CFA84 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A776F51C632134008CFA84 /* libz.tbd */; };
 		B1AB34101C7BA724003A8B8F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB340F1C7BA724003A8B8F /* CollectionViewCell.swift */; };
+		B1AE7CF41C8E4CE300CB9D4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; };
+		B1AE7CF51C8E4CE300CB9D4A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1B8266B1C8B699A00B6B146 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266A1C8B699A00B6B146 /* CategoryViewController.swift */; };
 		B1B8266D1C8B771C00B6B146 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266C1C8B771C00B6B146 /* CategoryTableViewCell.swift */; };
 		B1B8266F1C8B7D9200B6B146 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266E1C8B7D9200B6B146 /* ProductListViewController.swift */; };
@@ -152,7 +154,35 @@
 			remoteGlobalIDString = B18DCC9B1C18BE1D005CFFCE;
 			remoteInfo = ShopSmart;
 		};
+		B1AE7CEB1C8E47B100CB9D4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B16E591D1C7C3168005765CE /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		B1AE7CF61C8E4CE300CB9D4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B16E591D1C7C3168005765CE /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1AE7CF81C8E4CE400CB9D4A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1AE7CF51C8E4CE300CB9D4A /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3BC333371C714FD8002CCC48 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16E59E81C7C317B005765CE /* Alamofire.framework in Frameworks */,
+				B1AE7CF41C8E4CE300CB9D4A /* Alamofire.framework in Frameworks */,
 				B1A776F61C632134008CFA84 /* libz.tbd in Frameworks */,
 				B1A776F41C632122008CFA84 /* CoreMotion.framework in Frameworks */,
 				B1A776F21C632112008CFA84 /* MessageUI.framework in Frameworks */,
@@ -540,10 +571,13 @@
 				B18DCC981C18BE1D005CFFCE /* Sources */,
 				B18DCC991C18BE1D005CFFCE /* Frameworks */,
 				B18DCC9A1C18BE1D005CFFCE /* Resources */,
+				B1AE7CF81C8E4CE400CB9D4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B1AE7CEC1C8E47B100CB9D4A /* PBXTargetDependency */,
+				B1AE7CF71C8E4CE300CB9D4A /* PBXTargetDependency */,
 			);
 			name = ShopSmart;
 			productName = ShopSmart;
@@ -817,6 +851,16 @@
 			target = B18DCC9B1C18BE1D005CFFCE /* ShopSmart */;
 			targetProxy = B18DCCBF1C18BE1D005CFFCE /* PBXContainerItemProxy */;
 		};
+		B1AE7CEC1C8E47B100CB9D4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = B1AE7CEB1C8E47B100CB9D4A /* PBXContainerItemProxy */;
+		};
+		B1AE7CF71C8E4CE300CB9D4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = B1AE7CF61C8E4CE300CB9D4A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -932,12 +976,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShopSmart/EstimoteSDK",
 				);
 				INFOPLIST_FILE = ShopSmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -956,12 +1002,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ShopSmart/EstimoteSDK",
 				);
 				INFOPLIST_FILE = ShopSmart/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

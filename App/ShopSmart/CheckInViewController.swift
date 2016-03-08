@@ -39,7 +39,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
         self.locationManager.delegate = self
         ESTConfig.setupAppID("cmpe297-group5-shopsmart-c0f", andAppToken: "abb0580238d61d0abc69bf8e6204cfcb")
         
-        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "mansi-home")
+        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "nthiagu-s-location-6xe")
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
             if location != nil {
                 self.location = location!
