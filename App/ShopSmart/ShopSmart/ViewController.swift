@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var location: NSString?
     var manager:CLLocationManager!
-    var userLocationZipCode:NSString?
+    var userLocationZipCode:String?
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var Menu: UIBarButtonItem!{
@@ -138,6 +138,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             manager.stopUpdatingLocation()
             self.userLocationZipCode = placemark.postalCode
             
+            self.collectionView.reloadData()
+            
             /*print(placemark.locality)
             print(placemark.postalCode)
             print(placemark.administrativeArea)
@@ -158,8 +160,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
         {
             
+            let url = "http://54.153.9.205:8000/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offernearby/?format=json")
+            let mod_url = url + "?format=json"
+            
+            
+            Alamofire.request(.GET, mod_url)
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
@@ -178,7 +184,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         else{
         
         
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?format=json")
+           
+           // Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?
+            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/offer/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):

@@ -93,7 +93,7 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
     
     func loadData(){
         
-        Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/depts/?format=json")
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/depts/?format=json")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
