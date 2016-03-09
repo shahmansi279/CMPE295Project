@@ -12,9 +12,10 @@ import UIKit
 
 class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
     
+    @IBOutlet var myPosLabel: UILabel!
     let locationManager = EILIndoorLocationManager()
     var location: EILLocation!
-    
+    @IBOutlet var myLocationView: EILIndoorLocationView!
     
     @IBOutlet var Menu: UIBarButtonItem!{
         
@@ -55,6 +56,23 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        if(self.location != nil)
+        {
+        self.myLocationView.backgroundColor=UIColor.clearColor()
+        self.myLocationView.showTrace=true
+        self.myLocationView.showWallLengthLabels=true
+        self.myLocationView.rotateOnPositionUpdate=false
+        self.myLocationView.locationBorderColor=UIColor.blackColor()
+        self.myLocationView.locationBorderThickness=6
+        self.myLocationView.doorColor=UIColor.brownColor()
+        self.myLocationView.traceColor=UIColor.orangeColor()
+        self.myLocationView.drawLocation(location)
+        }
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,20 +83,19 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
             print("failed to update position: \(error)")
     }
     
+  
     func indoorLocationManager(manager: EILIndoorLocationManager!,
         didUpdatePosition position: EILOrientedPoint!,
         withAccuracy positionAccuracy: EILPositionAccuracy,
         inLocation location: EILLocation!) {
-            var accuracy: String!
-            switch positionAccuracy {
-            case .VeryHigh: accuracy = "+/- 1.00m"
-            case .High:     accuracy = "+/- 1.62m"
-            case .Medium:   accuracy = "+/- 2.62m"
-            case .Low:      accuracy = "+/- 4.24m"
-            case .VeryLow:  accuracy = "+/- ? :-("
-            }
-            print(String(format: "x: %5.2f, y: %5.2f, orientation: %3.0f, accuracy: %@",
-                position.x, position.y, position.orientation, accuracy))
+            
+           
+            self.myPosLabel.text = NSString(format: "x: %5.2f, y: %5.2f, orientation: %3.0f",
+                position.x, position.y, position.orientation) as String
+            
+            
+            
+            
     }
     
     
