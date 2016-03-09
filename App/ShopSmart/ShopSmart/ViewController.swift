@@ -42,28 +42,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         // Do any additional setup after loading the view, typically from a nib.
-    
-        
-        //Fetch the location authorization
-        requestLocationAuthorization()
-
-        
-        
-        //Fetch the data from Smart Retail Service
-        loadData()
-        
-        
-    }
-    
-    /* Request Location Authorization from the User */
-    
-    func requestLocationAuthorization(){
-        
         
         manager = CLLocationManager()
+        
+    
+        if(CLLocationManager.authorizationStatus() == .NotDetermined){
+        
+             manager.requestWhenInUseAuthorization()
+
+            
+        }
+        
         manager.delegate = self
-        manager.requestWhenInUseAuthorization()
+       
+
+        //loadData()
     }
+    
     
     /* Check Location Authorization Status */
     
@@ -105,6 +100,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             //if user does not allow access
             print ("Location service disabled")
+            loadData()
+            
             
             
         }
@@ -115,14 +112,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
        /* fetch the user location */
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+       
+         manager.stopUpdatingLocation()
         
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) -> Void in
+        CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks, error) -> Void in
             if (error != nil) {
                 print("Reverse geocoder failed with error" + error!.localizedDescription)
                 return
             }
             
             if (placemarks!.count > 0 ){
+                
+                print("Geocoding");
                 let pm = placemarks![0] as CLPlacemark
                 self.displayLocationInfo(pm)
             } else {
@@ -135,10 +136,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func displayLocationInfo(placemark: CLPlacemark!) {
         if placemark != nil {
             //stop updating location to save battery life
-            manager.stopUpdatingLocation()
+           
             self.userLocationZipCode = placemark.postalCode
+            print(placemark.postalCode)
+            loadData()
             
-            self.collectionView.reloadData()
+                        //self.collectionView.reloadData()
             
             /*print(placemark.locality)
             print(placemark.postalCode)
@@ -156,8 +159,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func loadData(){
         
+        
+        if(self.data.count != 0){
+           
+            self.data.removeAll()
+        }
+       
         if(self.userLocationZipCode != nil)
-    
+            
         {
             
             let url = "http://54.153.9.205:8000/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
@@ -177,10 +186,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                         
                     }
             }
-
+            
             
         }
+
         
+            
         else{
         
         
@@ -202,6 +213,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         }
     }
+    
+    
     
     
     
