@@ -44,6 +44,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate {
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
             if location != nil {
                 self.location = location!
+                print("Location \(self.location)")
                 self.locationManager.startPositionUpdatesForLocation(self.location)
             } else {
                 print("can't fetch location: \(error)")

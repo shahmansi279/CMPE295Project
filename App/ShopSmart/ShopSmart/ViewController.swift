@@ -318,7 +318,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         return size;*/
         
-        return CGSize(width: collectionView.frame.size.width/1.5, height: 200)
+        return CGSize(width: self.collectionView.frame.size.width/2.1, height: self.collectionView.frame.size.height/3.2)
     }
 
 }
