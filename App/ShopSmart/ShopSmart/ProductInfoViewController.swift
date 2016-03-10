@@ -14,6 +14,7 @@ class ProductInfoViewController : UIViewController {
     
     @IBOutlet var imgView: UIImageView!
     
+    @IBOutlet weak var addToCartOutlet: UIButton!
     
     @IBOutlet var prodDesc: UILabel!
     @IBOutlet var prodCost: UILabel!
@@ -31,6 +32,16 @@ class ProductInfoViewController : UIViewController {
         // Do any additional setup after loading the view.
         
         load()
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
+        
+        if (isLoggedIn != 1){
+            
+            addToCartOutlet.hidden = true
+            
+        }        
+
         
         
     }
@@ -72,15 +83,17 @@ class ProductInfoViewController : UIViewController {
         
         let alert = UIAlertController(title: "Add to Cart", message:"Enter Quantity", preferredStyle: .Alert)
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-            textField.text = "Enter Quantity"
+            //textField.text = "Enter Quantity"
         })
         alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
-            print("Text field: \(textField.text)")
+            print("Quantity: \(textField.text)")
         }))
         
         let cancel = UIAlertAction(title: "CANCEL", style: .Default) { _ in}
         alert.addAction(cancel)
+        
+        self.presentViewController(alert, animated: true){}
         
         
         

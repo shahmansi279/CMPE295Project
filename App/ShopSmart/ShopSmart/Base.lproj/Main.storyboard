@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Sl-5m-6ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="2737"/>
+            <point key="canvasLocation" x="900" y="2678"/>
         </scene>
         <!--Check In View Controller-->
         <scene sceneID="vJQ-1u-YPy">
@@ -922,7 +922,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJg-pe-0j6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1111" y="2587"/>
+            <point key="canvasLocation" x="-1110" y="2678"/>
         </scene>
         <!--Product List View Controller-->
         <scene sceneID="gmw-QH-FzV">
@@ -1011,20 +1011,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-hU-NZP">
-                                <rect key="frame" x="41" y="501" width="79" height="30"/>
+                                <rect key="frame" x="104" y="501" width="79" height="30"/>
                                 <state key="normal" title="Add to Cart"/>
                                 <connections>
-                                    <action selector="AddToCartBtn:" destination="P9K-wr-w8K" eventType="touchUpInside" id="tpR-zO-oFI"/>
+                                    <action selector="AddToCartBtn:" destination="P9K-wr-w8K" eventType="touchUpInside" id="O5M-Gi-Qmb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-LE-y3N">
-                                <rect key="frame" x="274" y="501" width="74" height="30"/>
+                                <rect key="frame" x="212" y="501" width="74" height="30"/>
                                 <state key="normal" title="Add to List"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="addToCartOutlet" destination="fbh-hU-NZP" id="sVK-5e-GAN"/>
                         <outlet property="imgView" destination="OdR-dv-OMp" id="Gw8-pI-bWs"/>
                         <outlet property="prodCost" destination="7ed-kC-nGX" id="caK-8j-5Gb"/>
                         <outlet property="prodDesc" destination="Wlh-0x-7bD" id="Sjo-hl-7nu"/>
@@ -1033,7 +1034,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwP-k6-di4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="257" y="2603"/>
+            <point key="canvasLocation" x="274" y="2678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Szm-ds-LJB">
