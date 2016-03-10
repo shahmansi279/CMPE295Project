@@ -64,13 +64,36 @@ class ProductInfoViewController : UIViewController {
             
         }
         
+    }
+    
+    
+    
+    @IBAction func AddToCartBtn(sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Add to Cart", message:"Enter Quantity", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.text = "Enter Quantity"
+        })
+        alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            print("Text field: \(textField.text)")
+        }))
+        
+        let cancel = UIAlertAction(title: "CANCEL", style: .Default) { _ in}
+        alert.addAction(cancel)
+        
+        
+        
         
         
         
     }
+    
+    
+    
 }
 
-    
+
 
 
 
