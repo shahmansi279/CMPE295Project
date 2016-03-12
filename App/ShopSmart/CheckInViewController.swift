@@ -19,7 +19,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     let locationManager = EILIndoorLocationManager()
     var location: EILLocation!
     @IBOutlet var myLocationView: EILIndoorLocationView!
-    
+   // var beaconArray = [AnyObject].self
     
     /* Changes to range beacons*/
     
@@ -90,19 +90,54 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         self.locationManager.delegate = self
         
         
+        let labelArr = ["Produce","Dairy", "Baked Goods","Health"]
+        
         // You will find the identifier on https://cloud.estimote.com/#/locations
         let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "nthiagu-s-location-6xe")
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
             if let location = location {
+                
                 self.location = location
+                               self.myLocationView.drawLocation(location)
+                
+                var beaconArr = self.location.beacons;
+                var i=0;
+                
+                for beacon in beaconArr {
+               
+                var estPB = EILPositionedBeacon()
+                estPB = beacon as! EILPositionedBeacon
+                
+                var estOrientedPointorentation = EILOrientedPoint()
+                estOrientedPointorentation = estPB.position as! EILOrientedPoint;
+                
+                var modestOrientedPointorentation = EILOrientedPoint.init(x: estOrientedPointorentation.x  , y: estOrientedPointorentation.y - 1.0 , orientation: estOrientedPointorentation.orientation)
+                
+                
+                var label1 = UILabel.init(frame: CGRectMake(0, 0, 150, 40))
+                
+                
+              
+                label1.text = labelArr[i]
+                label1.font = UIFont.init(name: "Arial", size: 9.0)
+                
+               
+                var id = labelArr[i++]
+                
+                    self.myLocationView.drawObjectInBackground(label1, withPosition: modestOrientedPointorentation, identifier: id)
+                    self.myLocationView.showTrace = true
+                    self.myLocationView.traceColor = UIColor.greenColor()
+                    self.myLocationView.rotateOnPositionUpdate = true
+
+                }
+                
                 
                 // You can configure the location view to your liking:
-                self.myLocationView.showTrace = true
-                self.myLocationView.rotateOnPositionUpdate = false
+               // self.myLocationView.showTrace = true
+                //self.myLocationView.rotateOnPositionUpdate = false
                 // Consult the full list of properties on:
                 // http://estimote.github.io/iOS-Indoor-SDK/Classes/EILIndoorLocationView.html
                 
-                self.myLocationView.drawLocation(location)
                 self.locationManager.startPositionUpdatesForLocation(self.location)
             } else {
                 print("can't fetch location: \(error)")
@@ -113,9 +148,9 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
         //Setting up ranging
         
-        self.beaconManager.delegate = self
+      //  self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
-        self.beaconManager.requestAlwaysAuthorization()
+      //  self.beaconManager.requestAlwaysAuthorization()
         
     }
     
@@ -149,12 +184,28 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.beaconManager.startRangingBeaconsInRegion(self.beaconRegion)
+        
+        if self.myLocationView.locationDrawn {
+            
+            //some setup
+            
+            self.myLocationView.showWallLengthLabels = true
+            //self.myLocationView.showBeaconOrientation = true
+           // self.myLocationView.positionView = self.positionView
+            self.myLocationView.showTrace = true
+            self.myLocationView.rotateOnPositionUpdate = true
+            
+        }
+
+       // self.beaconManager.startRangingBeaconsInRegion(self.beaconRegion)
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
+        
+        
+        
+        //self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
     }
     
     
@@ -173,7 +224,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
             if let nearestBeacon = beacons.first {
                 let places = placesNearBeacon(nearestBeacon)
                 // TODO: update the UI here
-                print(places) // TODO: remove after implementing the UI
+                
             }
     }
     
