@@ -98,17 +98,7 @@ class LoginViewController: UIViewController {
         
     }
     
- /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if(segue.identifier == "LoggedIn") {
-            
-            let destination = (segue.destinationViewController as! AccountViewController)
-            destination.username = usernameField.text
-            destination.password = passwordField.text
-        }
-    }
-    */
+    
     
     
     @IBOutlet weak var Menu: UIBarButtonItem!{
