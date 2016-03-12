@@ -14,7 +14,7 @@ struct Product {
     var productTitle:String?
     var productDesc:String?
     var prodImgUrl:String
-   var productCost:Int
+    var productCost:String
   
     
     
@@ -22,7 +22,7 @@ struct Product {
         productId = data["product_id"] as? Int
         productDesc = data["product_desc"] as! String
         productTitle = data["product_name"] as! String
-        productCost = data["srp"] as! Int
+        productCost = data["srp"] as! String
         prodImgUrl =  data["product_img1_url"] as! String
     }
 }
