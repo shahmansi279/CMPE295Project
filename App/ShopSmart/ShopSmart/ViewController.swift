@@ -48,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
         if(CLLocationManager.authorizationStatus() == .NotDetermined){
         
-             manager.requestWhenInUseAuthorization()
+             manager.requestAlwaysAuthorization()
 
             
         }
