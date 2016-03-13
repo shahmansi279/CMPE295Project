@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AccountViewController: UIViewController {
 
@@ -101,6 +102,7 @@ class AccountViewController: UIViewController {
                         self.phoneField.text = phone
                         self.dobField.text = dob
                         self.genderField.text = gender
+                        //self.fetchCart()
                     })
                     
                 } catch let error as JSONError {
@@ -109,19 +111,42 @@ class AccountViewController: UIViewController {
                     print(error)
                 }
                 }.resume()
-            
-            
+        }
+        
+        self.fetchCart()
+    }
+    
+    
+    
+    func fetchCart(){
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let id = prefs.valueForKey("id") as! Int
+        let urlPath = "http://127.0.0.1:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/"
+        print(urlPath)
+        
+        let modUrl = urlPath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        
+        Alamofire.request(.GET, modUrl!)
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    print(JSON[0][0])
+                    let cart_id = JSON[0][0] as! Int
+                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setObject(cart_id, forKey: "cart_id")
+                    //print(prefs.valueForKey("cart_id")as! Int)
+                    
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
         }
 
-
-        
-        
-        
-        
-        
-        
-        
     }
+
+    
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

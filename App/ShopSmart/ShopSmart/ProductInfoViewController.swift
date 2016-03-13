@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class ProductInfoViewController : UIViewController {
     
@@ -87,9 +88,34 @@ class ProductInfoViewController : UIViewController {
         })
         alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
-            print("Quantity: \(textField.text)")
+            var quantity = Int(textField.text!)
+            print(quantity)
+            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            let cart_id:Int = prefs.integerForKey("cart_id") as Int
+            
+            //let param = ["cart_id" : cart_id , "cart_desc" : "active" , "product_id" : self.product.productId , "product_qty" : quantity] as! NSDictionary
+            /*
+            Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/cartprd/", parameters: param, encoding:  .JSON)
+                .validate()
+                .responseJSON { [weak self] response in
+                    
+                    switch response.result {
+                    case .Success(let responseContent):
+                        print("Success: \(responseContent)")
+                        break
+                    case .Failure(let error):
+                        print("Request failed with error: \(error)")
+                        break
+                    }
+            }
+            
+
+            */
+            
+            
+            
         }))
-        
+
         let cancel = UIAlertAction(title: "CANCEL", style: .Default) { _ in}
         alert.addAction(cancel)
         
