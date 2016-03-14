@@ -12,8 +12,10 @@ class OfferDetailViewController: UIViewController {
     
     var offer: Offer!
     @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var desc: UILabel!
+   
+    @IBOutlet var offer_desc: UITextView!
     
+    @IBOutlet var offer_exp_date: UILabel!
     @IBOutlet weak var offer_title: UILabel!
     
     override func viewDidLoad() {
@@ -47,7 +49,8 @@ class OfferDetailViewController: UIViewController {
          let imageData: NSData = NSData(contentsOfURL: url!)!
         
         self.offer_title.text=offer.offerTitle
-        self.desc.text=offer.offerDesc
+        self.offer_desc.text=offer.offerDesc
+        self.offer_exp_date.text=String(offer.offerExpiry!)
         
         dispatch_async(dispatch_get_main_queue()){
             
