@@ -59,23 +59,38 @@ class ProductInfoViewController : UIViewController {
         
         
         
-       let url = NSURL(string: "\(product.prodImgUrl)")
-       let imageData: NSData = NSData(contentsOfURL: url!)!
+       
         
-        let cost = String(product.productCost)
+        let cost = String(product.productCost!)
         
-        self.prodTitle.text=product.productTitle
-        self.productDesc.text=product.productDesc
+        self.prodTitle.text=product.productTitle!
+        self.productDesc.text=product.productDesc!
         self.prodCost.text=cost
         
-        dispatch_async(dispatch_get_main_queue()){
+        if(product.prodImgUrl != nil)
+        
+        {
+        
+            let url = NSURL(string: "\(product.prodImgUrl!)")
+            let imageData: NSData = NSData(contentsOfURL: url!)!
+        
+            dispatch_async(dispatch_get_main_queue()){
             
             let bgImage = UIImage(data:imageData)
             
             self.imgView.image = bgImage
             
             
+            }
         }
+        
+        else {
+        
+        
+            self.imgView.image  = UIImage(named: "default")
+        
+        }
+        
         
     }
     

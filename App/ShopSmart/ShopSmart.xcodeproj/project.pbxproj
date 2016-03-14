@@ -82,6 +82,7 @@
 		B1AB34101C7BA724003A8B8F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB340F1C7BA724003A8B8F /* CollectionViewCell.swift */; };
 		B1AE7CF41C8E4CE300CB9D4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; };
 		B1AE7CF51C8E4CE300CB9D4A /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1B457B11C9773D500F796F7 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B457B01C9773D500F796F7 /* default.png */; };
 		B1B8266B1C8B699A00B6B146 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266A1C8B699A00B6B146 /* CategoryViewController.swift */; };
 		B1B8266D1C8B771C00B6B146 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266C1C8B771C00B6B146 /* CategoryTableViewCell.swift */; };
 		B1B8266F1C8B7D9200B6B146 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B8266E1C8B7D9200B6B146 /* ProductListViewController.swift */; };
@@ -285,6 +286,7 @@
 		B1A776F31C632122008CFA84 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B1A776F51C632134008CFA84 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B1AB340F1C7BA724003A8B8F /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		B1B457B01C9773D500F796F7 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		B1B8266A1C8B699A00B6B146 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		B1B8266C1C8B771C00B6B146 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		B1B8266E1C8B7D9200B6B146 /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */,
+				B1B457B01C9773D500F796F7 /* default.png */,
 				B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */,
 			);
 			name = Images;
@@ -752,6 +755,7 @@
 				B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */,
 				B1A776E41C631ED2008CFA84 /* avatar@2x.png in Resources */,
 				B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */,
+				B1B457B11C9773D500F796F7 /* default.png in Resources */,
 				B1A776EA1C631ED2008CFA84 /* beaconIcySmall@2x.png in Resources */,
 				B16E59821C7C3168005765CE /* Alamofire.xcworkspace in Resources */,
 				B1A776E71C631ED2008CFA84 /* beaconBlueberrySmall.png in Resources */,

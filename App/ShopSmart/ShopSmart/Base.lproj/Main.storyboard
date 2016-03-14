@@ -1097,9 +1097,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-kC-nGX">
-                                <rect key="frame" x="95" y="335" width="125" height="21"/>
+                                <rect key="frame" x="83" y="335" width="30.5" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="OrJ-zs-Afb"/>
                                     <constraint firstAttribute="height" constant="21" id="fhQ-xU-3m0"/>
                                 </constraints>
                                 <attributedString key="attributedText">
@@ -1112,18 +1111,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-E9-JwR">
-                                <rect key="frame" x="36" y="373" width="544" height="80"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="9yi-2H-jZR"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wn-3Q-WT4">
-                                <rect key="frame" x="36" y="335" width="30" height="21"/>
+                                <rect key="frame" x="20" y="335" width="30" height="21"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1132,23 +1121,33 @@
                                 <rect key="frame" x="215" y="483" width="74" height="30"/>
                                 <state key="normal" title="Add to List"/>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-E9-JwR">
+                                <rect key="frame" x="20" y="377" width="544" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="9yi-2H-jZR"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r1a-kq-7z5" firstAttribute="top" secondItem="fbh-hU-NZP" secondAttribute="bottom" constant="38" id="215-9q-fdC"/>
-                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="top" secondItem="4Wn-3Q-WT4" secondAttribute="bottom" constant="17" id="5uh-fI-kmY"/>
+                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="top" secondItem="4Wn-3Q-WT4" secondAttribute="bottom" constant="21" id="5uh-fI-kmY"/>
                             <constraint firstItem="7ed-kC-nGX" firstAttribute="baseline" secondItem="4Wn-3Q-WT4" secondAttribute="baseline" id="Afj-Sb-usO"/>
-                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" constant="16" id="CGv-WX-Rh2"/>
+                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" id="CGv-WX-Rh2"/>
                             <constraint firstItem="t7p-LE-y3N" firstAttribute="leading" secondItem="fbh-hU-NZP" secondAttribute="trailing" constant="10" id="Cg2-wO-NnB"/>
                             <constraint firstItem="OdR-dv-OMp" firstAttribute="top" secondItem="9zX-Cu-ySf" secondAttribute="bottom" constant="21" id="DhX-D0-Jgl"/>
                             <constraint firstItem="t7p-LE-y3N" firstAttribute="leading" secondItem="fbh-hU-NZP" secondAttribute="trailing" id="Kdv-V6-lQg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t7p-LE-y3N" secondAttribute="trailing" constant="102" id="PHC-U5-eFF"/>
-                            <constraint firstItem="OdR-dv-OMp" firstAttribute="trailing" secondItem="lrZ-E9-JwR" secondAttribute="trailing" id="Tpv-Ld-hGh"/>
+                            <constraint firstItem="OdR-dv-OMp" firstAttribute="trailing" secondItem="lrZ-E9-JwR" secondAttribute="trailing" constant="16" id="Tpv-Ld-hGh"/>
                             <constraint firstItem="r1a-kq-7z5" firstAttribute="top" secondItem="t7p-LE-y3N" secondAttribute="bottom" constant="38" id="UL9-Do-RCF"/>
                             <constraint firstItem="9zX-Cu-ySf" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" id="a6z-Pz-TkI"/>
                             <constraint firstItem="lrZ-E9-JwR" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="leading" id="bsp-hO-9h8"/>
                             <constraint firstItem="t7p-LE-y3N" firstAttribute="leading" secondItem="fbh-hU-NZP" secondAttribute="trailing" constant="41" id="dCv-MC-g60"/>
-                            <constraint firstItem="7ed-kC-nGX" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="29" id="j2c-pT-cbE"/>
+                            <constraint firstItem="7ed-kC-nGX" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="33" id="j2c-pT-cbE"/>
                             <constraint firstItem="9zX-Cu-ySf" firstAttribute="top" secondItem="jaP-IQ-vFt" secondAttribute="bottom" constant="8" symbolic="YES" id="klf-GZ-OR1"/>
                             <constraint firstItem="OdR-dv-OMp" firstAttribute="trailing" secondItem="sEG-v9-kbe" secondAttribute="trailingMargin" id="nWh-Ha-WOO"/>
                             <constraint firstItem="7ed-kC-nGX" firstAttribute="firstBaseline" secondItem="4Wn-3Q-WT4" secondAttribute="firstBaseline" id="qUd-Gk-DIk"/>
