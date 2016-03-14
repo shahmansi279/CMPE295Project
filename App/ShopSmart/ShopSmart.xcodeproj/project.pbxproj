@@ -55,7 +55,7 @@
 		B16E59E81C7C317B005765CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; };
 		B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCC9F1C18BE1D005CFFCE /* AppDelegate.swift */; };
 		B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCA11C18BE1D005CFFCE /* ViewController.swift */; };
-		B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCA31C18BE1D005CFFCE /* Main.storyboard */; };
+		B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCA31C18BE1D005CFFCE /* Main.storyboard */; settings = {ASSET_TAGS = (text, ); }; };
 		B18DCCA81C18BE1D005CFFCE /* ShopSmart.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCA61C18BE1D005CFFCE /* ShopSmart.xcdatamodeld */; };
 		B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCA91C18BE1D005CFFCE /* Assets.xcassets */; };
 		B18DCCAD1C18BE1D005CFFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCAB1C18BE1D005CFFCE /* LaunchScreen.storyboard */; };
@@ -632,6 +632,9 @@
 		B18DCC941C18BE1D005CFFCE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					text,
+				);
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Mansi Modi";

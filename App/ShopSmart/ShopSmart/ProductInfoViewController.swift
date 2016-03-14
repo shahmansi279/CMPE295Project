@@ -17,10 +17,11 @@ class ProductInfoViewController : UIViewController {
     
     @IBOutlet weak var addToCartOutlet: UIButton!
     
-    @IBOutlet var prodDesc: UILabel!
+   
     @IBOutlet var prodCost: UILabel!
     @IBOutlet var prodTitle: UILabel!
     
+    @IBOutlet var productDesc: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +65,7 @@ class ProductInfoViewController : UIViewController {
         let cost = String(product.productCost)
         
         self.prodTitle.text=product.productTitle
-        self.prodDesc.text=product.productDesc
+        self.productDesc.text=product.productDesc
         self.prodCost.text=cost
         
         dispatch_async(dispatch_get_main_queue()){
