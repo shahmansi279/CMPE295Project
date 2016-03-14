@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB740C41C9730A100142DDD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740C31C9730A100142DDD /* CartTableViewCell.swift */; };
+		3BB740CC1C97335000142DDD /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740CB1C97335000142DDD /* Cart.swift */; };
 		3BC333381C714FD8002CCC48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333371C714FD8002CCC48 /* RegisterViewController.swift */; };
 		3BC333C01C83C7F8002CCC48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */; };
 		3BC333C91C84C2E0002CCC48 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */; };
@@ -185,6 +187,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3BB740C31C9730A100142DDD /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		3BB740CB1C97335000142DDD /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3BC333371C714FD8002CCC48 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 				FB9F27BC1C894CAD00ED26C4 /* TableViewCell.swift */,
 				B1B826721C8B80B800B6B146 /* ProductListTableViewCell.swift */,
 				B1B8266C1C8B771C00B6B146 /* CategoryTableViewCell.swift */,
+				3BB740C31C9730A100142DDD /* CartTableViewCell.swift */,
 				B1AB340F1C7BA724003A8B8F /* CollectionViewCell.swift */,
 				B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */,
 				B13FF5E81C26306D00D0FDF1 /* Images */,
@@ -557,6 +562,7 @@
 			children = (
 				B1E7DE8E1C81557400BEE9EC /* Offer.swift */,
 				B1B826701C8B7E6600B6B146 /* Product.swift */,
+				3BB740CB1C97335000142DDD /* Cart.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -775,6 +781,7 @@
 				B16E59981C7C3168005765CE /* Notifications.swift in Sources */,
 				B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */,
 				B1B826711C8B7E6600B6B146 /* Product.swift in Sources */,
+				3BB740CC1C97335000142DDD /* Cart.swift in Sources */,
 				B16E59831C7C3168005765CE /* CHANGELOG.md in Sources */,
 				B16E59961C7C3168005765CE /* MultipartFormData.swift in Sources */,
 				B18DCCA81C18BE1D005CFFCE /* ShopSmart.xcdatamodeld in Sources */,
@@ -787,6 +794,7 @@
 				B16E59A01C7C3168005765CE /* Timeline.swift in Sources */,
 				B16E599D1C7C3168005765CE /* Result.swift in Sources */,
 				FB9F27BD1C894CAD00ED26C4 /* TableViewCell.swift in Sources */,
+				3BB740C41C9730A100142DDD /* CartTableViewCell.swift in Sources */,
 				B13FF5F01C26472E00D0FDF1 /* CheckInViewController.swift in Sources */,
 				B16E598F1C7C3168005765CE /* README.md in Sources */,
 				B1B8266B1C8B699A00B6B146 /* CategoryViewController.swift in Sources */,
