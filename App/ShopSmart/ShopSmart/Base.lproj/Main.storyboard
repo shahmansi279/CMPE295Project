@@ -612,7 +612,7 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMa-rJ-h1q">
-                                <rect key="frame" x="30" y="151" width="544" height="130"/>
+                                <rect key="frame" x="30" y="151" width="544" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="800" constant="150" id="gTb-oa-MIb"/>
                                 </constraints>
@@ -628,7 +628,7 @@
                                 <state key="normal" title="Avail Offer"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u1E-F5-FLL">
-                                <rect key="frame" x="30" y="289" width="544" height="86"/>
+                                <rect key="frame" x="30" y="364" width="544" height="86"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Yb1-xj-ydw"/>

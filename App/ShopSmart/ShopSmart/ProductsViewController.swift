@@ -97,7 +97,7 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
-                    self.populateData(JSON as! NSMutableArray)
+                    self.populateData(JSON as! NSArray)
                     
                     
                 case .Failure(let error):
@@ -108,7 +108,7 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    func populateData(jsonData: NSMutableArray){
+    func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
             
@@ -131,6 +131,32 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         }
         
         
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        
+        
+        var numOfSection: NSInteger = 0
+        
+        if DeptArray.count > 0 {
+            
+            self.depttableView.backgroundView = nil
+            numOfSection = 1
+            
+            
+        } else {
+            
+            var noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.depttableView.bounds.size.width, self.depttableView.bounds.size.height))
+            noDataLabel.text = "No Data to Display"
+            noDataLabel.textColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            self.depttableView.backgroundView = noDataLabel
+            
+        }
+        return numOfSection
+        
+ 
     }
     
     

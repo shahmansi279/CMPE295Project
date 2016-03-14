@@ -178,7 +178,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
-                        self.populateData(JSON as! NSMutableArray)
+                        self.populateData(JSON as! NSArray)
                         
                         
                     case .Failure(let error):
@@ -218,7 +218,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     
-    func populateData(jsonData: NSMutableArray){
+    func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
             
@@ -245,6 +245,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         }
         
+        else{
+        
+        
+        self.userLocationZipCode = nil
+        loadData()
+            
+        
+        }
+        
         
     }
     
@@ -256,7 +265,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //Collection View methods
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        var numOfSection: NSInteger = 0
+        
+      if data.count > 0 {
+            
+            self.collectionView.backgroundView = nil
+            numOfSection = 1
+            
+            
+        } else {
+            
+            var noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.collectionView.bounds.size.width, self.collectionView.bounds.size.height))
+            noDataLabel.text = "No Offers to Display"
+            noDataLabel.textColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            self.collectionView.backgroundView = noDataLabel
+            
+        }
+        return numOfSection
     }
     
     

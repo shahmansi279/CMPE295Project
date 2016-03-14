@@ -62,6 +62,31 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         
     }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+       
+            var numOfSection: NSInteger = 0
+            
+            if categoryArray.count > 0 {
+                
+                self.categoryTblView.backgroundView = nil
+                numOfSection = 1
+                
+                
+            } else {
+                
+                var noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.categoryTblView.bounds.size.width, self.categoryTblView.bounds.size.height))
+                noDataLabel.text = "No Data to Display"
+                noDataLabel.textColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+                noDataLabel.textAlignment = NSTextAlignment.Center
+                self.categoryTblView.backgroundView = noDataLabel
+                
+            }
+            return numOfSection
+        
+
+    }
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -81,7 +106,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
-                    self.populateData(JSON as! NSMutableArray)
+                    self.populateData(JSON as! NSArray)
                     
                     
                 case .Failure(let error):
@@ -92,7 +117,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
     }
     
     
-    func populateData(jsonData: NSMutableArray){
+    func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
             

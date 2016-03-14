@@ -70,6 +70,31 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
     }
     
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        
+        var numOfSection: NSInteger = 0
+        
+        if prodArray.count > 0 {
+            
+            self.prodTblView.backgroundView = nil
+            numOfSection = 1
+            
+            
+        } else {
+            
+            var noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, self.prodTblView.bounds.size.width, self.prodTblView.bounds.size.height))
+            noDataLabel.text = "No Data to Display"
+            noDataLabel.textColor = UIColor(red: 22.0/255.0, green: 106.0/255.0, blue: 176.0/255.0, alpha: 1.0)
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            self.prodTblView.backgroundView = noDataLabel
+            
+        }
+        return numOfSection
+        
+        
+        
+    }
     
     func loadData(){
         
@@ -86,7 +111,7 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
-                    self.populateData(JSON as! NSMutableArray)
+                    self.populateData(JSON as! NSArray)
                     
                     
                 case .Failure(let error):
@@ -97,7 +122,7 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
     }
     
     
-    func populateData(jsonData: NSMutableArray){
+    func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
             

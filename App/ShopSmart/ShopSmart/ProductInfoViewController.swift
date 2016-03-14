@@ -91,11 +91,15 @@ class ProductInfoViewController : UIViewController {
             let textField = alert.textFields![0] as UITextField
             var quantity = Int(textField.text!)
             print(quantity)
+            let qty_st = String(quantity)
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let cart_id:Int = prefs.integerForKey("cart_id") as Int
+            let cart_id_st = String(cart_id)
+            let cart_desc = "Active"
+            let prod_id_st = String(self.product.productId)
+            let param = ["cart_id" : [cart_id_st] , "cart_desc" : [cart_desc] , "product_id" : [prod_id_st] , "product_qty" : [qty_st]]
+       
             
-            //let param = ["cart_id" : cart_id , "cart_desc" : "active" , "product_id" : self.product.productId , "product_qty" : quantity] as! NSDictionary
-            /*
             Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/cartprd/", parameters: param, encoding:  .JSON)
                 .validate()
                 .responseJSON { [weak self] response in
@@ -111,7 +115,7 @@ class ProductInfoViewController : UIViewController {
             }
             
 
-            */
+            
             
             
             
