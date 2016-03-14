@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var Menu: UIBarButtonItem!{
     
@@ -21,17 +22,97 @@ class CartViewController: UIViewController {
     
     }
     
+    
+    
+    @IBOutlet weak var unavailableCartLabel: UILabel!
+    @IBOutlet weak var cartTableView: UITableView!
+    
+    
+    var CartArray=[String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         //Add the pan gesture to the view.
-
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
+        
+        self.cartTableView.delegate=self
+        self.cartTableView.dataSource=self
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
+        
+        if (isLoggedIn != 1){
+            unavailableCartLabel.text = "Cart Unavailable! Please Log in."
+            
+        } else {
+        
+            let cart_id = prefs.valueForKey("cart_id") as! Int
+            
+            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
+                .responseJSON {  response in
+                    switch response.result {
+                    case .Success(let JSON):
+                        print("Success: \(JSON)")
+                        self.populateData(JSON as! NSMutableArray)
+                        
+                    case .Failure(let error):
+                        print("Request failed with error: \(error)")
+                        
+                    }
+            }
+        }
     }
+    
+    
+    
+    func populateData(jsonData: NSMutableArray){
+        
+        if(jsonData.count>0){
+            
+            for item in jsonData{
+                
+                //self.CartArray.append(item[0] as! String)
+                
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                self.cartTableView.reloadData()
+                
+                
+            };
+            
+        }
+        
+    }
+    
+    
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CartArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let Cart = self.cartTableView.dequeueReusableCellWithIdentifier("Cart", forIndexPath: indexPath) as! CartTableViewCell
+        
+        Cart.cartLabel.text = CartArray[indexPath.row]
+        
+        return Cart
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -77,7 +77,6 @@ class AccountViewController: UIViewController {
             self.emailField.text = prefs.valueForKey("email") as! String
             let id = prefs.valueForKey("id") as! Int
             
-            
             let urlPath = "http://127.0.0.1:8000/smartretailapp/api/customer/\(id)/?format=json"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
@@ -87,7 +86,6 @@ class AccountViewController: UIViewController {
                     guard let dat = data else { throw JSONError.NoData }
                     guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
                     print(json)
-                    
                     
                     let addr = json["address1"] as? String
                     let zipcode = json["postal_code"] as? String
@@ -111,9 +109,10 @@ class AccountViewController: UIViewController {
                     print(error)
                 }
                 }.resume()
+            self.fetchCart()
         }
         
-        self.fetchCart()
+        //self.fetchCart()
     }
     
     
