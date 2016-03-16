@@ -28,7 +28,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var cartTableView: UITableView!
     
     
-    var CartArray=[String]()
+    var CartArray=[Cart]()
     
     
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     switch response.result {
                     case .Success(let JSON):
                         print("Success: \(JSON)")
-                        self.populateData(JSON as! NSMutableArray)
+                        self.populateData(JSON as! NSArray)
                         
                     case .Failure(let error):
                         print("Request failed with error: \(error)")
@@ -69,13 +69,15 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     
-    func populateData(jsonData: NSMutableArray){
+    func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
             
             for item in jsonData{
                 
-                //self.CartArray.append(item[0] as! String)
+                let dict = item as! NSMutableDictionary
+                let cartItem = Cart(data: dict)
+                self.CartArray.append(cartItem)
                 
             }
             
@@ -100,7 +102,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let Cart = self.cartTableView.dequeueReusableCellWithIdentifier("Cart", forIndexPath: indexPath) as! CartTableViewCell
         
-        Cart.cartLabel.text = CartArray[indexPath.row]
+        Cart.cartLabel.text = CartArray[indexPath.row].productTitle
+        Cart.qtyLabel.text = CartArray[indexPath.row].productQty as?String
         
         return Cart
         

@@ -13,6 +13,11 @@ class ProductInfoViewController : UIViewController {
     
     var product: Product!
     
+    enum JSONError: String, ErrorType {
+        case NoData = "ERROR: no data"
+        case ConversionFailed = "ERROR: conversion from JSON failed"
+    }
+    
     @IBOutlet var imgView: UIImageView!
     
     @IBOutlet weak var addToCartOutlet: UIButton!
@@ -106,15 +111,15 @@ class ProductInfoViewController : UIViewController {
             let textField = alert.textFields![0] as UITextField
             var quantity = Int(textField.text!)
             print(quantity)
-            let qty_st = String(quantity)
+            //let qty_st = String(quantity)
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let cart_id:Int = prefs.integerForKey("cart_id") as Int
-            let cart_id_st = String(cart_id)
-            let cart_desc = "Active"
-            let prod_id_st = String(self.product.productId)
-            let param = ["cart_id" : [cart_id_st] , "cart_desc" : [cart_desc] , "product_id" : [prod_id_st] , "product_qty" : [qty_st]]
+            //let cart_id_st = String(cart_id)
+            //let cart_desc = "Active"
+            //let prod_id_st = String(self.product.productId)
+            //let param = ["cart_id" : [cart_id_st] , "cart_desc" : [cart_desc] , "product_id" : [prod_id_st] , "product_qty" : [qty_st]]
        
-            
+            /*
             Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/cartprd/", parameters: param, encoding:  .JSON)
                 .validate()
                 .responseJSON { [weak self] response in
@@ -128,9 +133,37 @@ class ProductInfoViewController : UIViewController {
                         break
                     }
             }
-            
+            */
+            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/cartprd/"
+            print(urlPath)
+            let params = ["cart_id":cart_id, "product_id":self.product.productId, "product_qty":quantity!, "cart_prd_attr1":self.product.productTitle!] as Dictionary<String, AnyObject>
 
+            guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
+            let request = NSMutableURLRequest(URL:endpoint)
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             
+            do {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.init(rawValue: 2))
+            } catch {
+                // Error Handling
+                print("NSJSONSerialization Error")
+                return
+            }
+            
+            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+                do {
+                    guard let dat = data else { throw JSONError.NoData }
+                    guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
+                    print(json)
+                    
+                    
+                } catch let error as JSONError {
+                    print(error.rawValue)
+                } catch {
+                    print(error)
+                }
+                }.resume()
             
             
             
@@ -142,13 +175,7 @@ class ProductInfoViewController : UIViewController {
         self.presentViewController(alert, animated: true){}
         
         
-        
-        
-        
-        
     }
-    
-    
     
 }
 

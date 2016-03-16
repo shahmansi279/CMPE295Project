@@ -12,7 +12,12 @@ class CartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cartLabel: UILabel!
 
+    @IBOutlet weak var qtyLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
+        
         super.awakeFromNib()
         // Initialization code
     }

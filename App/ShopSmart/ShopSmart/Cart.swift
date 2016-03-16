@@ -12,15 +12,15 @@ struct Cart {
     
     var cartProductId:Int?
     var cartId:Int?
-    var cartDesc:String?
     var productId:Int?
     var productQty:Int?
+    var productTitle:String?
     
     
     init(data : NSDictionary){
         cartProductId = data["cart_product_id"] as? Int
         cartId = data["cart_id"] as? Int
-        cartDesc = data["cart_desc"] as? String
+        productTitle = data["cart_prd_attr1"] as? String
         productId = data["product_id"] as? Int
         productQty = data["product_qty"] as? Int
         
