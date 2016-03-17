@@ -26,6 +26,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var unavailableCartLabel: UILabel!
     @IBOutlet weak var cartTableView: UITableView!
+    @IBOutlet weak var checkoutOutlet: UIButton!
     
     
     var CartArray=[Cart]()
@@ -44,13 +45,14 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
+        let cart_id = prefs.valueForKey("cart_id") as! Int
+        print(cart_id)
         
         if (isLoggedIn != 1){
             unavailableCartLabel.text = "Cart Unavailable! Please Log in."
+            checkoutOutlet.hidden = true
             
         } else {
-        
-            let cart_id = prefs.valueForKey("cart_id") as! Int
             
             Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
                 .responseJSON {  response in
@@ -103,7 +105,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let Cart = self.cartTableView.dequeueReusableCellWithIdentifier("Cart", forIndexPath: indexPath) as! CartTableViewCell
         
         Cart.cartLabel.text = CartArray[indexPath.row].productTitle
-        Cart.qtyLabel.text = CartArray[indexPath.row].productQty as?String
+        let qty:Int = (CartArray[indexPath.row].productQty!) as Int
+        Cart.qtyLabel.text = String(qty)
+        Cart.priceLabel.text = CartArray[indexPath.row].productCost
         
         return Cart
         

@@ -769,14 +769,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-vm-0e3">
-                                <rect key="frame" x="93" y="64" width="389" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fvu-eT-7Nk">
-                                <rect key="frame" x="0.0" y="102" width="600" height="449"/>
+                                <rect key="frame" x="0.0" y="102" width="600" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cart" id="9TF-3W-5UX" customClass="CartTableViewCell" customModule="ShopSmart" customModuleProvider="target">
@@ -793,7 +787,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SY2-Nn-7Ai">
-                                                    <rect key="frame" x="308" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="334" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deA-eT-mLr">
+                                                    <rect key="frame" x="314" y="11" width="12" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-bk-EhJ">
+                                                    <rect key="frame" x="264" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -802,11 +808,22 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cartLabel" destination="F4S-ah-dol" id="CpR-RJ-cFo"/>
+                                            <outlet property="priceLabel" destination="fLd-bk-EhJ" id="JPc-p5-EbC"/>
                                             <outlet property="qtyLabel" destination="SY2-Nn-7Ai" id="C22-d4-fsc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-vm-0e3">
+                                <rect key="frame" x="93" y="64" width="389" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byx-Be-1xY">
+                                <rect key="frame" x="134" y="513" width="66" height="30"/>
+                                <state key="normal" title="Checkout"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -816,6 +833,7 @@
                     <connections>
                         <outlet property="Menu" destination="5OP-I3-Xyr" id="cbu-TA-oxa"/>
                         <outlet property="cartTableView" destination="fvu-eT-7Nk" id="XsI-It-kVe"/>
+                        <outlet property="checkoutOutlet" destination="byx-Be-1xY" id="oTa-2Y-r8g"/>
                         <outlet property="unavailableCartLabel" destination="nb1-vm-0e3" id="vbW-vh-xK1"/>
                     </connections>
                 </viewController>
@@ -1174,6 +1192,7 @@
                     </view>
                     <connections>
                         <outlet property="addToCartOutlet" destination="fbh-hU-NZP" id="sVK-5e-GAN"/>
+                        <outlet property="addToListOutlet" destination="t7p-LE-y3N" id="Ad8-8d-zKw"/>
                         <outlet property="imgView" destination="OdR-dv-OMp" id="Gw8-pI-bWs"/>
                         <outlet property="prodCost" destination="7ed-kC-nGX" id="caK-8j-5Gb"/>
                         <outlet property="prodTitle" destination="9zX-Cu-ySf" id="cAZ-pf-UD5"/>
