@@ -43,7 +43,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
             let list_id = prefs.valueForKey("list_id") as! Int
             print(list_id)
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
+            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
@@ -93,8 +93,8 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         let List = self.listTableView.dequeueReusableCellWithIdentifier("List", forIndexPath: indexPath) as! ListTableViewCell
         
         List.listLabel.text = ListArray[indexPath.row].productTitle
-        //let qty:Int = (ListArray[indexPath.row].productQty!) as Int
-        //List.qtyLabel.text = String(qty)
+        let qty:Int = (ListArray[indexPath.row].productQty!) as Int
+        List.qtyLabel.text = String(qty)
         
         return List
         
