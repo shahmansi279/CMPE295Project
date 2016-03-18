@@ -1,24 +1,17 @@
 //
-//  CartTableViewCell.swift
+//  ListTableViewCell.swift
 //  ShopSmart
 //
-//  Created by Jessie Deot on 3/14/16.
+//  Created by Jessie Deot on 3/17/16.
 //  Copyright © 2016 Mansi Modi. All rights reserved.
 //
 
 import UIKit
 
-class CartTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var cartLabel: UILabel!
+class ListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var qtyLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
-    
-    
+    @IBOutlet weak var listLabel: UILabel!
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         // Initialization code
     }

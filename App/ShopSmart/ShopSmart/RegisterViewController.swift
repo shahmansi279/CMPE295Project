@@ -72,10 +72,9 @@ class RegisterViewController: UIViewController {
                     let result = json["status"] as? String
                     
                     if (result == "success"){
-                        print("Registeration successful")
+                        print("Registration successful")
                         dispatch_async(dispatch_get_main_queue(), {
-                            //self.view.makeToast("Acount created Successfully", duration: 0.5, position: "bottom")
-                            self.performSegueWithIdentifier("Registered", sender: nil)
+                            self.registered()
                         })
                         
                     } else if (result == "error"){
@@ -103,7 +102,13 @@ class RegisterViewController: UIViewController {
         
     }
     
-    
+    func registered(){
+        let alert = UIAlertController(title: "Registration successful!", message:"The Account has been Registered", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "LOGIN", style: .Default, handler: { (action) -> Void in
+            self.performSegueWithIdentifier("Registered", sender: nil)
+        }))
+        self.presentViewController(alert, animated: true){}
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
