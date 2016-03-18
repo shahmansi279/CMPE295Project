@@ -2,7 +2,7 @@
 //  AddListItemViewController.swift
 //  ShopSmart
 //
-//  Created by Macintosh User on 3/17/16.
+//  Created by Jessie Deot on 3/17/16.
 //  Copyright © 2016 Mansi Modi. All rights reserved.
 //
 
