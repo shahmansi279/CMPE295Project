@@ -11,6 +11,7 @@
 		3BB740CC1C97335000142DDD /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740CB1C97335000142DDD /* Cart.swift */; };
 		3BB740CF1C9B77A000142DDD /* AddListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740CE1C9B77A000142DDD /* AddListItemViewController.swift */; };
 		3BB740D71C9B980C00142DDD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */; };
+		3BB740D91C9BB44500142DDD /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740D81C9BB44500142DDD /* List.swift */; };
 		3BC333381C714FD8002CCC48 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333371C714FD8002CCC48 /* RegisterViewController.swift */; };
 		3BC333C01C83C7F8002CCC48 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */; };
 		3BC333C91C84C2E0002CCC48 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */; };
@@ -194,6 +195,7 @@
 		3BB740CB1C97335000142DDD /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3BB740CE1C9B77A000142DDD /* AddListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListItemViewController.swift; sourceTree = "<group>"; };
 		3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		3BB740D81C9BB44500142DDD /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		3BC333371C714FD8002CCC48 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BC333C81C84C2E0002CCC48 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				B1E7DE8E1C81557400BEE9EC /* Offer.swift */,
 				B1B826701C8B7E6600B6B146 /* Product.swift */,
 				3BB740CB1C97335000142DDD /* Cart.swift */,
+				3BB740D81C9BB44500142DDD /* List.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				B16E59861C7C3168005765CE /* Alamofire 3.0 Migration Guide.md in Sources */,
 				B16E59A01C7C3168005765CE /* Timeline.swift in Sources */,
 				B16E599D1C7C3168005765CE /* Result.swift in Sources */,
+				3BB740D91C9BB44500142DDD /* List.swift in Sources */,
 				FB9F27BD1C894CAD00ED26C4 /* TableViewCell.swift in Sources */,
 				3BB740C41C9730A100142DDD /* CartTableViewCell.swift in Sources */,
 				B13FF5F01C26472E00D0FDF1 /* CheckInViewController.swift in Sources */,
