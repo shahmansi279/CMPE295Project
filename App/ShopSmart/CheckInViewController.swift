@@ -92,7 +92,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         self.beaconManager.requestAlwaysAuthorization()
         
         self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
-            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
+            proximityUUID: NSUUID(UUIDString: "ABA0D8FA-FEAA-D839-DA19-5261FF80DDA7")!,
             major: 57568, minor: 35499, identifier: "monitored region 2"))
         
         print("Start Region Monitoring")
