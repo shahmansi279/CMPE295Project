@@ -11,6 +11,9 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var listLabel: UILabel!
+    @IBOutlet weak var qtyLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
