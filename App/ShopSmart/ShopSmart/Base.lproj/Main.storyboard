@@ -757,7 +757,7 @@
             </objects>
             <point key="canvasLocation" x="1730" y="1297"/>
         </scene>
-        <!--Cart View Controller-->
+        <!--Shopping Cart-->
         <scene sceneID="i9C-hb-6pw">
             <objects>
                 <viewController id="3nZ-7A-rJr" customClass="CartViewController" customModule="ShopSmart" customModuleProvider="target" sceneMemberID="viewController">
@@ -827,7 +827,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RFD-Zb-Ezw">
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="RFD-Zb-Ezw">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="5OP-I3-Xyr"/>
                     </navigationItem>
                     <connections>
