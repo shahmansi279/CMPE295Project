@@ -23,7 +23,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         
         //Add the pan gesture to the view.
         
-        //self.view.addGestureRecognizer(self.revealViewContro//ller().panGestureRecognizer());
+   // self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         
         
         

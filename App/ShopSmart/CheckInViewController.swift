@@ -92,8 +92,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         self.beaconManager.requestAlwaysAuthorization()
         
         self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
-            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
-            major: 57568, minor: 35499, identifier: "monitored region 2"))
+            proximityUUID: NSUUID(UUIDString: "ABA0D8FA-FEAA-D839-DA19-5261FF80DDA7")!,
+            major: 16358, minor: 55174, identifier: "monitored region 3"))
         
         print("Start Region Monitoring")
         
@@ -230,7 +230,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
   func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
         
-       // print ("In region")
+       print ("In region")
         let notification = UILocalNotification()
         notification.alertBody =
             "Enter Event - Your gate closes in 47 minutes. " +
@@ -242,6 +242,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     func beaconManager(manager: AnyObject,
         didExitRegion region: CLBeaconRegion) {
+            
+            print("Exit");
             let notification = UILocalNotification()
             notification.alertBody =
                 "Exit Event - Your gate closes in 47 minutes. " +

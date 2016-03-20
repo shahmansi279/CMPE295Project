@@ -19,6 +19,7 @@ class OfferDetailViewController: UIViewController {
     @IBOutlet weak var offer_title: UILabel!
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         
         //Add the pan gesture to the view.
