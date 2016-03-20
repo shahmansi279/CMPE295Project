@@ -757,7 +757,7 @@
             </objects>
             <point key="canvasLocation" x="1730" y="1297"/>
         </scene>
-        <!--Cart View Controller-->
+        <!--Shopping Cart-->
         <scene sceneID="i9C-hb-6pw">
             <objects>
                 <viewController id="3nZ-7A-rJr" customClass="CartViewController" customModule="ShopSmart" customModuleProvider="target" sceneMemberID="viewController">
@@ -827,7 +827,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RFD-Zb-Ezw">
+                    <navigationItem key="navigationItem" title="Shopping Cart" id="RFD-Zb-Ezw">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="5OP-I3-Xyr"/>
                     </navigationItem>
                     <connections>
@@ -1158,6 +1158,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-LE-y3N">
                                 <rect key="frame" x="215" y="483" width="74" height="30"/>
                                 <state key="normal" title="Add to List"/>
+                                <connections>
+                                    <action selector="AddToListBtn:" destination="P9K-wr-w8K" eventType="touchUpInside" id="1jZ-wP-qdV"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-E9-JwR">
                                 <rect key="frame" x="20" y="377" width="544" height="80"/>
@@ -1252,7 +1255,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4NA-w8-1BJ" customClass="ListTableViewCell" customModule="ShopSmart" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="List" id="4NA-w8-1BJ" customClass="ListTableViewCell" customModule="ShopSmart" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4NA-w8-1BJ" id="TFc-uF-e86">
@@ -1260,7 +1263,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNO-h5-ajd">
-                                                    <rect key="frame" x="22" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="22" y="11" width="263" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfL-lY-H1T">
+                                                    <rect key="frame" x="302" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1269,6 +1278,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="listLabel" destination="RNO-h5-ajd" id="kEB-E5-upM"/>
+                                            <outlet property="qtyLabel" destination="pfL-lY-H1T" id="eaB-gM-3Fh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1286,6 +1296,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Menu" destination="U6I-bO-e24" id="Dun-4M-6Sq"/>
+                        <outlet property="listTableView" destination="HhL-h4-Zy0" id="Fs6-Ew-O3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nR8-eE-Qe9" userLabel="First Responder" sceneMemberID="firstResponder"/>

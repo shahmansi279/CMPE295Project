@@ -45,8 +45,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
-        let cart_id = prefs.valueForKey("cart_id") as! Int
-        print(cart_id)
+        
         
         if (isLoggedIn != 1){
             unavailableCartLabel.text = "Cart Unavailable! Please Log in."
@@ -54,7 +53,9 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
         } else {
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
+            let cart_id = prefs.valueForKey("cart_id") as! Int
+            print(cart_id)
+            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):

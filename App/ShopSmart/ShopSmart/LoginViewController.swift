@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         } else {
             
             
-            let urlPath = "http://127.0.0.1:8000/smartretailapp/login/?username=\(usernameText)&password=\(passwordText)"
+            let urlPath = "http://54.153.9.205:8000/smartretailapp/login/?username=\(usernameText)&password=\(passwordText)"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)

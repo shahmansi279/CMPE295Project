@@ -77,7 +77,7 @@ class AccountViewController: UIViewController {
             self.emailField.text = prefs.valueForKey("email") as! String
             let id = prefs.valueForKey("id") as! Int
             
-            let urlPath = "http://127.0.0.1:8000/smartretailapp/api/customer/\(id)/?format=json"
+            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/customer/\(id)/?format=json"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)
@@ -110,6 +110,7 @@ class AccountViewController: UIViewController {
                 }
                 }.resume()
             self.fetchCart()
+            self.fetchList()
         }
         
         //self.fetchCart()
@@ -120,7 +121,7 @@ class AccountViewController: UIViewController {
     func fetchCart(){
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
-        let urlPath = "http://127.0.0.1:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/"
+        let urlPath = "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/"
         print(urlPath)
         
         let modUrl = urlPath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
@@ -144,6 +145,32 @@ class AccountViewController: UIViewController {
 
     }
 
+    func fetchList(){
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let id = prefs.valueForKey("id") as! Int
+        let urlPath = "http://54.153.9.205:8000/smartretailapp/api/userlist/?list_customer_id=\(id)/"
+        print(urlPath)
+        
+        let modUrl = urlPath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        
+        Alamofire.request(.GET, modUrl!)
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    print(JSON[0][0])
+                    let list_id = JSON[0][0] as! Int
+                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setObject(list_id, forKey: "list_id")
+                    //print(prefs.valueForKey("list_id")as! Int)
+                    
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+        
+    }
     
   
 
