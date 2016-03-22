@@ -46,12 +46,12 @@ class ProductInfoViewController : UIViewController {
         let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
         
         
-      /*  if (isLoggedIn != 1){
+       if (isLoggedIn != 1){
             
             addToCartOutlet.hidden = true
             addToListOutlet.hidden = true
             
-        }*/
+        }
         
     }
     
@@ -179,7 +179,7 @@ class ProductInfoViewController : UIViewController {
             
             let headers = ["Authorization": "Basic \(base64Credentials)", "Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
             
-                       
+            
             
             Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
                 .responseJSON { response in
