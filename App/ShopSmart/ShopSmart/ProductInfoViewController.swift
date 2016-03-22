@@ -58,7 +58,6 @@ class ProductInfoViewController : UIViewController {
     }
     
     
-    
     func load(){
         
         let cost = String(product.productCost!)
@@ -102,44 +101,33 @@ class ProductInfoViewController : UIViewController {
             print(quantity)
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let cart_id:Int = prefs.integerForKey("cart_id") as Int
-            
-            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/cartprd/"
-            print(urlPath)
             let params = ["cart_id":cart_id, "product_id":self.product.productId, "product_qty":quantity!, "cart_prd_attr1":self.product.productTitle!, "cart_prd_attr2":self.product.productCost!] as Dictionary<String, AnyObject>
-
-            guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
-            let request = NSMutableURLRequest(URL:endpoint)
-            request.HTTPMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let headers = [
+                "Content-Type": "application/json"
+            ]
             
-            do {
-                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.init(rawValue: 2))
-                } catch {
-                // Error Handling
-                print("NSJSONSerialization Error")
-                return
-            }
             
-            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-                do {
-                    guard let dat = data else { throw JSONError.NoData }
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
-                    print(json)
-                    let alert = UIAlertController(title: "Success!", message:"Product has been added to the cart", preferredStyle: .Alert)
-                    let action = UIAlertAction(title: "OK", style: .Default) { _ in}
-                    alert.addAction(action)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.presentViewController(alert, animated: true){}
-                    })
-
+            Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
+                .validate()
+                .responseJSON { response in
                     
-                } catch let error as JSONError {
-                    print(error.rawValue)
-                } catch {
-                    print(error)
-                }
-                }.resume()
-            
+                    switch response.result {
+                    case .Success(let responseContent):
+                        // Handle success case...
+                        print("Success: \(responseContent)")
+                        let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping Cart", preferredStyle: .Alert)
+                        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.presentViewController(alert, animated: true){}
+                        })
+                        break
+                    case .Failure(let error):
+                        // Handle failure case...
+                        print("Request failed with error: \(error)")
+                        break
+                    }
+            }
             
             
         }))
@@ -167,42 +155,34 @@ class ProductInfoViewController : UIViewController {
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let list_id:Int = prefs.integerForKey("list_id") as Int
             
-            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/listprd/"
-            print(urlPath)
             let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!] as Dictionary<String, AnyObject>
             
-            guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
-            let request = NSMutableURLRequest(URL:endpoint)
-            request.HTTPMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let headers = [
+                "Content-Type": "application/json"
+            ]
             
-            do {
-                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.init(rawValue: 2))
-            } catch {
-                // Error Handling
-                print("NSJSONSerialization Error")
-                return
+            
+            Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/listprd/", headers: headers, parameters: params, encoding:  .JSON)
+                .validate()
+                .responseJSON { response in
+                    
+                    switch response.result {
+                    case .Success(let responseContent):
+                        // Handle success case...
+                        print("Success: \(responseContent)")
+                        let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
+                        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action)
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.presentViewController(alert, animated: true){}
+                        })
+                        break
+                    case .Failure(let error):
+                        // Handle failure case...
+                        print("Request failed with error: \(error)")
+                        break
+                    }
             }
-            
-            NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
-                do {
-                    guard let dat = data else { throw JSONError.NoData }
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(dat, options: []) as? NSDictionary else { throw JSONError.ConversionFailed }
-                    print(json)
-                    let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
-                    let action = UIAlertAction(title: "OK", style: .Default) { _ in}
-                    alert.addAction(action)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.presentViewController(alert, animated: true){}
-                    })
-                    
-                    
-                } catch let error as JSONError {
-                    print(error.rawValue)
-                } catch {
-                    print(error)
-                }
-                }.resume()
             
         }))
         
