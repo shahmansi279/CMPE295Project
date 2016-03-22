@@ -166,7 +166,7 @@ class ProductInfoViewController : UIViewController {
             let csrftoken = prefs.objectForKey("csrftoken") as! String
 
             
-            let headers = ["Authorization": "Basic \(base64Credentials)", "Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
+            let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
             
             
             
