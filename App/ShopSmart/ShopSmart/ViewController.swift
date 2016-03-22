@@ -139,16 +139,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
            
             self.userLocationZipCode = placemark.postalCode
             print(placemark.postalCode)
+            
             loadData()
             
                         //self.collectionView.reloadData()
             
-            /*print(placemark.locality)
-            print(placemark.postalCode)
-            print(placemark.administrativeArea)
-            print(placemark.country)
-            print (placemark.subLocality)
-            print (placemark.areasOfInterest)*/
+           
             
            
         }

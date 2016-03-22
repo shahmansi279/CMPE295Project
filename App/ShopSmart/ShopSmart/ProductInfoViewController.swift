@@ -43,12 +43,12 @@ class ProductInfoViewController : UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
         
-        if (isLoggedIn != 1){
+      /*  if (isLoggedIn != 1){
             
             addToCartOutlet.hidden = true
             addToListOutlet.hidden = true
             
-        }
+        }*/
         
     }
     

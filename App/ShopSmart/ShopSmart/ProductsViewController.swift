@@ -14,7 +14,6 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var depttableView: UITableView!
    
     
-    //ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     
     var DeptArray=[String]()
