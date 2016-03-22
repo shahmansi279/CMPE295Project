@@ -106,19 +106,13 @@ class ProductInfoViewController : UIViewController {
             let cart_id:Int = prefs.integerForKey("cart_id") as Int
             let params = ["cart_id":cart_id, "product_id":self.product.productId, "product_qty":quantity!, "cart_prd_attr1":self.product.productTitle!, "cart_prd_attr2":self.product.productCost!] as Dictionary<String, AnyObject>
             
-            
-            let user = "cmpe295"
-            let password = "sjsu"
-            
-            let credentialData = "\(user):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
-            let base64Credentials = credentialData.base64EncodedStringWithOptions([])
             let csrftoken = prefs.objectForKey("csrftoken") as! String
             
 
-            let headers = ["Authorization": "Basic \(base64Credentials)", "Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
+            let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
             
             
-            Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
+            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
                 .validate()
                 .responseJSON { response in
                     
@@ -169,11 +163,6 @@ class ProductInfoViewController : UIViewController {
             let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!] as Dictionary<String, AnyObject>
             
             
-            let user = "cmpe295"
-            let password = "sjsu"
-            
-            let credentialData = "\(user):\(password)".dataUsingEncoding(NSUTF8StringEncoding)!
-            let base64Credentials = credentialData.base64EncodedStringWithOptions([])
             let csrftoken = prefs.objectForKey("csrftoken") as! String
 
             
@@ -181,7 +170,7 @@ class ProductInfoViewController : UIViewController {
             
             
             
-            Alamofire.request(.POST, "http://127.0.0.1:8000/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
+            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
                 .responseJSON { response in
             
                    
@@ -216,16 +205,6 @@ class ProductInfoViewController : UIViewController {
     
     
     
-    static func updateCookies(response: Response<AnyObject, NSError>) {
-        if let
-            headerFields = response.response?.allHeaderFields as? [String: String],
-            URL = response.request?.URL {
-              let cookies = NSHTTPCookie.cookiesWithResponseHeaderFields(headerFields, forURL: URL)
-                print(cookies)
-                // Set the cookies back in our shared instance. They'll be sent back with each subsequent request.
-                Alamofire.Manager.sharedInstance.session.configuration.HTTPCookieStorage?.setCookies(cookies, forURL: URL, mainDocumentURL: nil)
-        }
-    }
     
 }
 
