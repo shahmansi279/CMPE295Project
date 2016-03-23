@@ -39,7 +39,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.listTableView.dataSource=self
                         
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
+           
             let list_id = prefs.valueForKey("list_id") as! Int
             print(list_id)
             
