@@ -121,7 +121,10 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func deleteData(listPrdId: Int){
         
-        Alamofire.request(.DELETE, "http://127.0.0.1:8000/smartretailapp/api/listprd/\(listPrdId)/")
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let csrftoken = prefs.objectForKey("csrftoken") as! String
+        let headers = ["X-CSRFToken" : csrftoken]
+        Alamofire.request(.DELETE, "http://54.153.9.205:8000/smartretailapp/api/listprd/\(listPrdId)/", headers: headers)
             .validate()
             .responseJSON {  response in
                 switch response.result {
