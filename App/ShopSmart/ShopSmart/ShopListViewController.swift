@@ -37,9 +37,9 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
             
             self.listTableView.delegate=self
             self.listTableView.dataSource=self
-            
+                        
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            let isLoggedIn:Int = prefs.integerForKey("isLoggedIn") as Int
+           
             let list_id = prefs.valueForKey("list_id") as! Int
             print(list_id)
             
@@ -101,6 +101,39 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    //Handle Delete
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath){
+        
+        if(editingStyle == UITableViewCellEditingStyle.Delete){
+            print("Delete cell")
+            let listPrdId = ListArray[indexPath.row].listProductId!
+            print(listPrdId)
+            self.deleteData(listPrdId)
+            ListArray.removeAtIndex(indexPath.row)
+            self.listTableView.reloadData()
+        }
+        
+    }
+    
+    func deleteData(listPrdId: Int){
+        
+        Alamofire.request(.DELETE, "http://127.0.0.1:8000/smartretailapp/api/listprd/\(listPrdId)/")
+            .validate()
+            .responseJSON {  response in
+                switch response.result {
+                case .Success:
+                    print("Delete Successful")
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+
         
     }
 

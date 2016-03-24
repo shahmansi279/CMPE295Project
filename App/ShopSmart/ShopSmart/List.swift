@@ -15,6 +15,7 @@ struct List {
     var productId:Int?
     var productQty:Int?
     var productTitle:String?
+
     
     
     init(data : NSDictionary){

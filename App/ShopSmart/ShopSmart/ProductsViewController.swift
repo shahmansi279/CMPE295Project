@@ -14,7 +14,6 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
     @IBOutlet var depttableView: UITableView!
    
     
-    //ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     
     var DeptArray=[String]()
@@ -159,7 +158,7 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
  
     }
     
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if(segue.identifier == "category_detail"){

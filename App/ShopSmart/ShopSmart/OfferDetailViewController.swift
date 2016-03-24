@@ -19,6 +19,7 @@ class OfferDetailViewController: UIViewController {
     @IBOutlet weak var offer_title: UILabel!
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         
         //Add the pan gesture to the view.
@@ -60,9 +61,21 @@ class OfferDetailViewController: UIViewController {
             
             
         }
+    }
 
-    
-    
-    
+
+
+    @IBAction func availOffer(sender: UIButton) {
+        
+        let message = "Save and redeem this coupon code during checkout - " + self.offer.offerCouponCode!
+        
+        let alert = UIAlertController(title: "Coupon Code", message:message, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+        alert.addAction(action)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(alert, animated: true){}
+        })
+
+        
     }
 }

@@ -18,6 +18,7 @@ struct Offer {
     var offerDesc:String?
     var offerImgUrl:String
     var offerExpiry:String?
+    var offerCouponCode : String?
     
 
     init(data : NSDictionary){
@@ -26,5 +27,7 @@ struct Offer {
         offerTitle = data["offer_title"] as? String
         offerExpiry = (data["offer_end_date"] as? String)
         offerImgUrl =  data["offer_img_url"] as! String
+        
+        offerCouponCode = data["offer_attr2"] as! String
     }
 }

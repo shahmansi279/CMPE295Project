@@ -100,7 +100,6 @@ class AccountViewController: UIViewController {
                         self.phoneField.text = phone
                         self.dobField.text = dob
                         self.genderField.text = gender
-                        //self.fetchCart()
                     })
                     
                 } catch let error as JSONError {
@@ -109,11 +108,10 @@ class AccountViewController: UIViewController {
                     print(error)
                 }
                 }.resume()
+            
             self.fetchCart()
             self.fetchList()
         }
-        
-        //self.fetchCart()
     }
     
     
@@ -121,12 +119,8 @@ class AccountViewController: UIViewController {
     func fetchCart(){
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
-        let urlPath = "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/"
-        print(urlPath)
         
-        let modUrl = urlPath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        
-        Alamofire.request(.GET, modUrl!)
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -134,8 +128,6 @@ class AccountViewController: UIViewController {
                     let cart_id = JSON[0][0] as! Int
                     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                     prefs.setObject(cart_id, forKey: "cart_id")
-                    //print(prefs.valueForKey("cart_id")as! Int)
-                    
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -148,12 +140,8 @@ class AccountViewController: UIViewController {
     func fetchList(){
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
-        let urlPath = "http://54.153.9.205:8000/smartretailapp/api/userlist/?list_customer_id=\(id)/"
-        print(urlPath)
         
-        let modUrl = urlPath.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        
-        Alamofire.request(.GET, modUrl!)
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlist/?list_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -161,7 +149,6 @@ class AccountViewController: UIViewController {
                     let list_id = JSON[0][0] as! Int
                     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                     prefs.setObject(list_id, forKey: "list_id")
-                    //print(prefs.valueForKey("list_id")as! Int)
                     
                     
                 case .Failure(let error):
