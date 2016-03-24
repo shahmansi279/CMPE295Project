@@ -109,7 +109,7 @@ class ProductInfoViewController : UIViewController {
             let csrftoken = prefs.objectForKey("csrftoken") as! String
             
 
-            let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
+            let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
             Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
@@ -166,7 +166,7 @@ class ProductInfoViewController : UIViewController {
             let csrftoken = prefs.objectForKey("csrftoken") as! String
 
             
-            let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , " X-CSRF-TOKEN" : csrftoken]
+            let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
             
