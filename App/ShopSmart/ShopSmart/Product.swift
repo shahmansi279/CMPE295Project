@@ -15,6 +15,7 @@ struct Product {
     var productDesc:String?
     var prodImgUrl:String?
     var productCost:String?
+    var productDept:String?
   
     
     
@@ -24,5 +25,6 @@ struct Product {
         productTitle = (data["product_name"] as? String)
         productCost = (data["srp"] as? String)
         prodImgUrl =  (data["product_img1_url"] as? String)
+        productDept = (data["product_department"] as? String)
     }
 }

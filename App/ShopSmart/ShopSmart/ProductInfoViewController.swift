@@ -160,7 +160,7 @@ class ProductInfoViewController : UIViewController {
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let list_id:Int = prefs.integerForKey("list_id") as Int
             
-            let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!] as Dictionary<String, AnyObject>
+            let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!, "list_prd_attr2":self.product.productDept!] as Dictionary<String, AnyObject>
             
             
             let csrftoken = prefs.objectForKey("csrftoken") as! String
