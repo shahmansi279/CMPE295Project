@@ -25,6 +25,7 @@
 		B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */; };
 		B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */; };
 		B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */; };
+		B16C8F621CA6019000916998 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C8F611CA6019000916998 /* Sensor.swift */; };
 		B16E597F1C7C3168005765CE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B16E591A1C7C3168005765CE /* .gitignore */; };
 		B16E59801C7C3168005765CE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B16E591B1C7C3168005765CE /* .travis.yml */; };
 		B16E59811C7C3168005765CE /* Alamofire.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B16E591C1C7C3168005765CE /* Alamofire.podspec */; };
@@ -210,6 +211,7 @@
 		B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
 		B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-25.png"; sourceTree = "<group>"; };
+		B16C8F611CA6019000916998 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		B16E591A1C7C3168005765CE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B16E591B1C7C3168005765CE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		B16E591C1C7C3168005765CE /* Alamofire.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Alamofire.podspec; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				B1B826701C8B7E6600B6B146 /* Product.swift */,
 				3BB740CB1C97335000142DDD /* Cart.swift */,
 				3BB740D81C9BB44500142DDD /* List.swift */,
+				B16C8F611CA6019000916998 /* Sensor.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */,
 				B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */,
 				B16E599E1C7C3168005765CE /* ServerTrustPolicy.swift in Sources */,
+				B16C8F621CA6019000916998 /* Sensor.swift in Sources */,
 				B16E59901C7C3168005765CE /* Alamofire.swift in Sources */,
 				B1AB34101C7BA724003A8B8F /* CollectionViewCell.swift in Sources */,
 				B16E59971C7C3168005765CE /* NetworkReachabilityManager.swift in Sources */,
