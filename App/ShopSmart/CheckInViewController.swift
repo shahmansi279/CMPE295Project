@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import Alamofire
 
 
 class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,ESTBeaconManagerDelegate{
@@ -19,7 +20,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     @IBOutlet var myPosLabel: UILabel!
     let locationManager : EILIndoorLocationManager  = EILIndoorLocationManager()
     var location: EILLocation!
-    var beacons : [Int] = []
+    var sensors : [Sensor] = []
     @IBOutlet var myLocationView: EILIndoorLocationView!
     
  
@@ -52,10 +53,10 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
         // Fetch Beacon ID of interest to user
         
-       //let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-       // let list_id = prefs.valueForKey("list_id") as! Int
+       let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let list_id = prefs.valueForKey("list_id") as! Int
         
-      //  fetchBeaconsofInterest(list_id);
+        fetchBeaconsofInterest(list_id);
        
         
         self.beaconManager.delegate = self
@@ -66,7 +67,6 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
             proximityUUID: NSUUID(UUIDString: "ABA0D8FA-FEAA-D839-DA19-5261FF80DDA7")!,
             major: 57568, minor: 35499, identifier: "monitored region 2"))
         
-        print("Start Region Monitoring")
         
 
         
@@ -121,9 +121,9 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                 
                 self.locationManager.startPositionUpdatesForLocation(self.location)
                 
-                
-                
-            } else {
+                }
+            
+            else {
                 print("can't fetch location: \(error)")
             }
 
@@ -143,18 +143,18 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         // Dispose of any resources that can be recreated.
     }
     
-   /*
+   
     func fetchBeaconsofInterest(list_id: Int)  {
     
         
         
-        
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
+        Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
-                    print("Success: \(JSON)")
+                    
                     self.populateData(JSON as! NSArray)
+                    self.startSensorMonitoring()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -171,16 +171,62 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
             
             for item in jsonData{
                 
-                let dict = item as! NSMutableDictionary
-                let listItem = dict["list_id"] as! Int
-                self.beacons.append(listItem)
+                let dict = item[0] as! NSMutableDictionary
+                let sensor = Sensor(data: dict)
+                self.sensors.append(sensor)
+                
+            }
+            
+       
+
+    
+        }
+    
+    }
+    
+    func startSensorMonitoring(){
+    
+        if(self.sensors.count>0){
+        
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+               
+                self.beaconManager.startMonitoringForRegion(br)
+
+                 print ("Started Region Monitoring for beacon" +  sensor.sensorTag!)
+                
+                
+            }
+        
+        
+        }
+        
+    
+    }
+    
+    func stopSensorMonitoring(){
+        
+        if(self.sensors.count>0){
+            
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+                
+                self.beaconManager.stopMonitoringForRegion(br)
+                
+                print ("Stopped Region Monitoring for beacon - " +  sensor.sensorTag!)
+                
                 
             }
             
             
         }
         
-    }*/
+        
+    }
     
 
    func indoorLocationManager(manager: EILIndoorLocationManager!,
@@ -213,6 +259,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        stopSensorMonitoring()
         
         
         
@@ -227,10 +274,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
        print ("In region")
         let notification = UILocalNotification()
         notification.alertBody =
-            "Enter Event - Your gate closes in 47 minutes. " +
-            "Current security wait time is 15 minutes, " +
-            "and it's a 5 minute walk from security to the gate. " +
-        "Looks like you've got plenty of time!"
+          " Get the item on your list from"
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
     
@@ -251,6 +295,6 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     
     func beaconManager(manager: AnyObject, monitoringDidFailForRegion region: CLBeaconRegion?, withError error: NSError) {
-        //print(error)
+        print(error)
     }
 }
