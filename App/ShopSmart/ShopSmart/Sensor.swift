@@ -19,7 +19,7 @@ struct Sensor {
     var sensorMajor:UInt16?
     var sensorMinor:UInt16?
     var sensorUUID:String?
-   
+    var sensorDesc:String?
     var sensorTag: String?
     var macName : String?
     
@@ -33,7 +33,7 @@ struct Sensor {
         sensorTag = data["sensor_tag"] as? String
         macName = data["sensor_mac_addr"] as? String
         
-        
+        sensorDesc = data["sensor_desc"] as? String
         
         
     }

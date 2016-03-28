@@ -23,7 +23,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     var sensors : [Sensor] = []
     @IBOutlet var myLocationView: EILIndoorLocationView!
     
- 
+    var ListArray=[List]()
+    var notificationItem = [String:String]()
     
     let beaconManager = ESTBeaconManager()
     
@@ -53,11 +54,14 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
         // Fetch Beacon ID of interest to user
         
-       let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let list_id = prefs.valueForKey("list_id") as! Int
         
+        fetchUserShoppingList(list_id);
+        
         fetchBeaconsofInterest(list_id);
-       
+        
+        
         
         self.beaconManager.delegate = self
         self.beaconManager.requestAlwaysAuthorization()
@@ -145,12 +149,56 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func fetchUserShoppingList(list_id:Int){
+    
+        
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    print("Success: \(JSON)")
+                    self.populateListData(JSON as! NSArray)
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+
+    }
    
+    
+    func updateNotificationList(){
+    
+    
+    
+        for list in self.ListArray{
+            
+            if(notificationItem[list.productCategory!]==nil)
+            {
+                notificationItem[list.productCategory!] = list.productTitle
+            }
+            else{
+            
+                var newVal = notificationItem[list.productCategory!]! + " , "
+                newVal += list.productTitle!
+                
+               notificationItem[list.productCategory!] = newVal
+            
+            }
+        }
+        
+        print("NF")
+        print(notificationItem)
+    
+    }
+    
     func fetchBeaconsofInterest(list_id: Int)  {
     
         
         
-        Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -166,7 +214,6 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
 
     }
     
-    
     func populateData(jsonData: NSArray){
         
         if(jsonData.count>0){
@@ -179,11 +226,33 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                 
             }
             
-       
+            
+            
+            
+        }
+        
+    }
+    
 
     
-        }
     
+    func populateListData(jsonData: NSArray){
+        
+        if(jsonData.count>0){
+            
+            for item in jsonData{
+                
+                let dict = item as! NSMutableDictionary
+                let listItem = List(data: dict)
+                self.ListArray.append(listItem)
+                
+                
+            }
+        }
+        
+        updateNotificationList();
+
+        
     }
     
     func startSensorMonitoring(){
@@ -193,7 +262,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
             
             for sensor in self.sensors {
                 
-                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
                
                 self.beaconManager.startMonitoringForRegion(br)
 
@@ -261,7 +330,9 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
+        self.locationManager.stopMonitoringForLocation(location)
         stopSensorMonitoring()
+        
         
         
         
@@ -273,11 +344,16 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
   func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
         
-       print ("In region")
         let notification = UILocalNotification()
-        notification.alertBody =
-          " Get the item on your list from"
+    
+    
+        var note = "Go and Grab " + notificationItem[region.identifier]!
+        note += " that is on your shopping list"
+        notification.alertBody = note
+         
         UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    
+    
     }
     
     func beaconManager(manager: AnyObject,
