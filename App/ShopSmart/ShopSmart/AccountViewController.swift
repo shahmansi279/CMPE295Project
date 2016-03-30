@@ -18,6 +18,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var dobField: UITextField!
     @IBOutlet weak var genderField: UITextField!
+    @IBOutlet weak var cardNoField: UITextField!
     
     
     
@@ -92,14 +93,19 @@ class AccountViewController: UIViewController {
                     let phone = json["phone1"] as? String
                     let dob = json["birthdate"] as? String
                     let gender = json["gender"] as? String
+                    let card = json["account_num"] as? Int
+                    
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         
+                        print("card: \(card)")
                         self.addressField.text = addr
                         self.zipcodeField.text = zipcode
                         self.phoneField.text = phone
                         self.dobField.text = dob
                         self.genderField.text = gender
+                        self.cardNoField.text = String(card)
+                        
                     })
                     
                 } catch let error as JSONError {
