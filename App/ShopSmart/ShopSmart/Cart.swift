@@ -16,6 +16,7 @@ struct Cart {
     var productQty:Int?
     var productTitle:String?
     var productCost:String?
+    var productPrice:Int?
     
     
     init(data : NSDictionary){
@@ -25,6 +26,8 @@ struct Cart {
         productCost = data["cart_prd_attr2"] as? String
         productId = data["product_id"] as? Int
         productQty = data["product_qty"] as? Int
+        
+        
         
     }
 }
