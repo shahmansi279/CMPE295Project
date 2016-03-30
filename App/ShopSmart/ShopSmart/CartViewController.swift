@@ -27,10 +27,11 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var unavailableCartLabel: UILabel!
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var checkoutOutlet: UIButton!
+    @IBOutlet weak var totalLabel: UILabel!
     
     
     var CartArray=[Cart]()
-    
+    var total:Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +99,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return CartArray.count
     }
     
@@ -109,6 +111,17 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let qty:Int = (CartArray[indexPath.row].productQty!) as Int
         Cart.qtyLabel.text = String(qty)
         Cart.priceLabel.text = CartArray[indexPath.row].productCost
+        
+        if let floatVersion:Float = (CartArray[indexPath.row].productCost! as NSString).floatValue {
+            let productPrice = Float(qty) * floatVersion
+            let multipliedString = "\(productPrice)"
+            //print("price: \(productPrice)")
+            Cart.mulPriceLabel.text = multipliedString
+            total = total + productPrice
+            //print(total)
+            totalLabel.text = "\(total)"
+        }
+
         
         return Cart
         
