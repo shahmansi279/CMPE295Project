@@ -140,7 +140,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.userLocationZipCode = placemark.postalCode
             print(placemark.postalCode)
             
-            loadData()
+                       loadData()
             
                         //self.collectionView.reloadData()
             

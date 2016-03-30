@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import Alamofire
 
 class ContactViewController: UIViewController {
 
@@ -21,8 +23,25 @@ class ContactViewController: UIViewController {
         
 
     }
+    var store : Store?
+    
+    var storeAddress : String?
     
     
+    @IBOutlet var storeWebsite: UILabel!
+    
+    @IBOutlet var storeAddr: UILabel!
+    
+ 
+    
+    @IBOutlet var storeEmail: UILabel!
+    
+    
+    @IBOutlet var storePhone: UILabel!
+ 
+    @IBOutlet var storeName: UILabel!
+    
+    @IBOutlet var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +51,10 @@ class ContactViewController: UIViewController {
 
 
         // Do any additional setup after loading the view.
+        
+        loadData()
+        
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,14 +63,70 @@ class ContactViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    func loadData(){
+    
+    
+        
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/store/1")
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    self.populateData(JSON as! NSDictionary)
+                    
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
     }
-    */
-
+    
+    func populateData(jsonData : NSDictionary){
+    
+            self.store = Store(data: jsonData)
+            
+            self.storeAddress = store!.storeAddress
+                
+                
+        
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                
+                self.storeAddr.text = self.store!.storeAddress
+                self.storeName.text = self.store!.storeDesc
+                self.storePhone.text = self.store!.storeContact
+                self.storeEmail.text = self.store!.storeEmail
+                self.storeWebsite.text = self.store!.storeWebsite
+                self.populateMap(self.storeAddress!)
+                
+            };
+        }
+        
+    func  populateMap (storeAddress:String){
+        
+        
+            var geocoder: CLGeocoder = CLGeocoder()
+            geocoder.geocodeAddressString(storeAddress,completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                if (placemarks?.count > 0) {
+                    var topResult: CLPlacemark = (placemarks?[0])!
+                    var placemark: MKPlacemark = MKPlacemark(placemark: topResult)
+                    var region: MKCoordinateRegion = self.mapView.region
+                    
+                    region.center = placemark.coordinate
+                    
+                    region.span = MKCoordinateSpanMake(0.5, 0.5)
+                    self.mapView.setRegion(region, animated: true)
+                    self.mapView.addAnnotation(placemark)
+                }
+            })
+            
+            
+            
+        }
+        
+    
 }
