@@ -66,10 +66,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         self.beaconManager.delegate = self
         self.beaconManager.requestAlwaysAuthorization()
         
-        
-        //self.beaconManager.startMonitoringForRegion(CLBeaconRegion(
-          //  proximityUUID: NSUUID(UUIDString: "ABA0D8FA-FEAA-D839-DA19-5261FF80DDA7")!,
-          //  major: 16358, minor: 55174, identifier: "monitored region 3"))
+      
             
         
         
@@ -79,7 +76,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         let labelArr = ["Produce","Dairy", "Baked Goods","Health" , "Beverages"]
         
         // You will find the identifier on https://cloud.estimote.com/#/locations
-        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "nthiagu-s-location-42j")
+        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "smart-store")
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
            
             
@@ -204,7 +201,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                 case .Success(let JSON):
                     
                     self.populateData(JSON as! NSArray)
-                    self.startSensorMonitoring()
+                    self.startSensorRanging()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -255,49 +252,6 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
     }
     
-    func startSensorMonitoring(){
-    
-        if(self.sensors.count>0){
-        
-            
-            for sensor in self.sensors {
-                
-                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
-               
-                self.beaconManager.startMonitoringForRegion(br)
-
-                 print ("Started Region Monitoring for beacon" +  sensor.sensorTag!)
-                
-                
-            }
-        
-        
-        }
-        
-    
-    }
-    
-    func stopSensorMonitoring(){
-        
-        if(self.sensors.count>0){
-            
-            
-            for sensor in self.sensors {
-                
-                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
-                
-                self.beaconManager.stopMonitoringForRegion(br)
-                
-                print ("Stopped Region Monitoring for beacon - " +  sensor.sensorTag!)
-                
-                
-            }
-            
-            
-        }
-        
-        
-    }
     
 
    func indoorLocationManager(manager: EILIndoorLocationManager!,
@@ -331,8 +285,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         self.locationManager.stopMonitoringForLocation(location)
-        stopSensorMonitoring()
-        
+       // stopSensorMonitoring()
+        stopSensorRanging()
         
         
         
@@ -342,7 +296,54 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
 //Beacon monitoring
     
-  func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+    
+    func startSensorMonitoring(){
+        
+        if(self.sensors.count>0){
+            
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
+                
+                self.beaconManager.startMonitoringForRegion(br)
+                
+                print ("Started Region Monitoring for beacon" +  sensor.sensorTag!)
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    func stopSensorMonitoring(){
+        
+        if(self.sensors.count>0){
+            
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+                
+                self.beaconManager.stopMonitoringForRegion(br)
+                
+                print ("Stopped Region Monitoring for beacon - " +  sensor.sensorTag!)
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
+
+    
+    
+  /*func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
         
         let notification = UILocalNotification()
     
@@ -360,19 +361,135 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         didExitRegion region: CLBeaconRegion) {
             
             print("Exit");
-            let notification = UILocalNotification()
+        /*    let notification = UILocalNotification()
             notification.alertBody =
                 "Exit Event - Your gate closes in 47 minutes. " +
                 "Current security wait time is 15 minutes, " +
                 "and it's a 5 minute walk from security to the gate. " +
             "Looks like you've got plenty of time!"
-            UIApplication.sharedApplication().presentLocalNotificationNow(notification)    }
-    
-
+            UIApplication.sharedApplication().presentLocalNotificationNow(notification) 
+            }
+    */
+    }
     
     
     
     func beaconManager(manager: AnyObject, monitoringDidFailForRegion region: CLBeaconRegion?, withError error: NSError) {
         print(error)
     }
+    
+    
+    */
+    
+    
+    //Beacon Ranging  -- Start
+    
+    
+    let placesByBeacons = [
+        
+        //Produce
+        "16358:55174": [
+            "Produce": 0, // read as: it's 50 meters from
+            // "Heavenly Sandwiches" to the beacon with
+            // major 6574 and minor 54631
+            "Green & Green Salads": 150,
+            "Mini Panini": 325
+        ],
+        
+        
+        //Dairy
+        
+        
+        
+           ]
+    let sensorArr = [51899:"Beverages-Mint",57568:"Canned Foods-Ice",16358:"Produce -BB",34611:"Baked Goods -Ice",63324:"Frozen Foods- BB",18138:"Dairy- Mint"]
+
+    
+    
+    func startSensorRanging(){
+        
+        if(self.sensors.count>0){
+            
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
+                
+                self.beaconManager.startRangingBeaconsInRegion(br)
+                print ("Started Region Ranging for beacon" +  sensor.sensorTag!)
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    
+    func stopSensorRanging(){
+        
+        if(self.sensors.count>0){
+            
+            
+            for sensor in self.sensors {
+                
+                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+                
+                self.beaconManager.stopRangingBeaconsInRegion(br)
+                print ("Stopped Region Ranging for beacon - " +  sensor.sensorTag!)
+                
+                
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    
+ /*   func placesNearBeacon(beacon: CLBeacon) -> [String] {
+        let beaconKey = "\(beacon.major):\(beacon.minor)"
+        if let places = self.placesByBeacons[beaconKey] {
+            let sortedPlaces = Array(places).sorted { $0.1 < $1.1 }.map { $0.0 }
+            return sortedPlaces
+        }
+        return []
+    }*/
+    
+    
+    func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
+        inRegion region: CLBeaconRegion) {
+           
+           
+            if var nearestBeacon = beacons.first {
+                
+               // print nearestBeacon.accuracy
+              //  let places = placesNearBeacon(nearestBeacon)
+                // TODO: update the UI here
+                
+                if(nearestBeacon.accuracy<1.0 && nearestBeacon.accuracy>0)
+                {
+                
+                print(sensorArr[Int(nearestBeacon.major)] );
+                print (nearestBeacon.accuracy)
+                    let notification = UILocalNotification()
+                    
+                    
+                    var note = "Go and Grab " + notificationItem[region.identifier]!
+                    note += " that is on your shopping list"
+                    notification.alertBody = note
+                    
+                    UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+                    
+
+                self.beaconManager.stopRangingBeaconsInRegion(region)
+                
+                }
+                    //TODO: remove after implementing the UI
+            }
+    }
+
 }
