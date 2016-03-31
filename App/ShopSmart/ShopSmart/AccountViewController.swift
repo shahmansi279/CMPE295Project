@@ -99,12 +99,19 @@ class AccountViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue(), {
                         
                         print("card: \(card)")
+                        var cardString: String
+                        if (card != nil){
+                            cardString = String(card!)
+                        } else {
+                            cardString = ""
+                        }
+                        
                         self.addressField.text = addr
                         self.zipcodeField.text = zipcode
                         self.phoneField.text = phone
                         self.dobField.text = dob
                         self.genderField.text = gender
-                        self.cardNoField.text = String(card)
+                        self.cardNoField.text = cardString
                         
                     })
                     
