@@ -57,6 +57,11 @@
 		B16E59A21C7C3168005765CE /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E594B1C7C3168005765CE /* Validation.swift */; };
 		B16E59E81C7C317B005765CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; };
 		B18DA95D1CAC5F8200AC446C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DA95C1CAC5F8200AC446C /* Store.swift */; };
+		B18DA96A1CAF326B00AC446C /* baked_goods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9691CAF326B00AC446C /* baked_goods.jpg */; };
+		B18DA9721CAF327300AC446C /* beverages.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9711CAF327300AC446C /* beverages.jpg */; };
+		B18DA9741CAF327900AC446C /* dairy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9731CAF327900AC446C /* dairy.jpg */; };
+		B18DA9761CAF327F00AC446C /* frozenfood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9751CAF327F00AC446C /* frozenfood.jpg */; };
+		B18DA9781CAF328500AC446C /* produce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9771CAF328500AC446C /* produce.jpg */; };
 		B18DCCA01C18BE1D005CFFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCC9F1C18BE1D005CFFCE /* AppDelegate.swift */; };
 		B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DCCA11C18BE1D005CFFCE /* ViewController.swift */; };
 		B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18DCCA31C18BE1D005CFFCE /* Main.storyboard */; settings = {ASSET_TAGS = (text, ); }; };
@@ -245,6 +250,11 @@
 		B16E594A1C7C3168005765CE /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		B16E594B1C7C3168005765CE /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		B18DA95C1CAC5F8200AC446C /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		B18DA9691CAF326B00AC446C /* baked_goods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baked_goods.jpg; sourceTree = "<group>"; };
+		B18DA9711CAF327300AC446C /* beverages.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beverages.jpg; sourceTree = "<group>"; };
+		B18DA9731CAF327900AC446C /* dairy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dairy.jpg; sourceTree = "<group>"; };
+		B18DA9751CAF327F00AC446C /* frozenfood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = frozenfood.jpg; sourceTree = "<group>"; };
+		B18DA9771CAF328500AC446C /* produce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = produce.jpg; sourceTree = "<group>"; };
 		B18DCC9C1C18BE1D005CFFCE /* ShopSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B18DCC9F1C18BE1D005CFFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B18DCCA11C18BE1D005CFFCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +367,11 @@
 			isa = PBXGroup;
 			children = (
 				B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */,
+				B18DA9711CAF327300AC446C /* beverages.jpg */,
+				B18DA9751CAF327F00AC446C /* frozenfood.jpg */,
+				B18DA9691CAF326B00AC446C /* baked_goods.jpg */,
+				B18DA9771CAF328500AC446C /* produce.jpg */,
+				B18DA9731CAF327900AC446C /* dairy.jpg */,
 				B1B457B01C9773D500F796F7 /* default.png */,
 				B13FF5E61C26305C00D0FDF1 /* btn-toggle-menu.png */,
 			);
@@ -750,6 +765,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18DA96A1CAF326B00AC446C /* baked_goods.jpg in Resources */,
 				B16E597F1C7C3168005765CE /* .gitignore in Resources */,
 				B1A776E81C631ED2008CFA84 /* beaconBlueberrySmall@2x.png in Resources */,
 				B1A776E31C631ED2008CFA84 /* avatar.png in Resources */,
@@ -757,12 +773,16 @@
 				B1A776E61C631ED2008CFA84 /* beacon_grey@2x.png in Resources */,
 				B1A776E91C631ED2008CFA84 /* beaconIcySmall.png in Resources */,
 				B16E59931C7C3168005765CE /* Info-tvOS.plist in Resources */,
+				B18DA9761CAF327F00AC446C /* frozenfood.jpg in Resources */,
 				B18DCCAD1C18BE1D005CFFCE /* LaunchScreen.storyboard in Resources */,
 				B1A776EB1C631ED2008CFA84 /* beaconMintSmall.png in Resources */,
 				B1A776EC1C631ED2008CFA84 /* beaconMintSmall@2x.png in Resources */,
 				B16E59811C7C3168005765CE /* Alamofire.podspec in Resources */,
+				B18DA9721CAF327300AC446C /* beverages.jpg in Resources */,
 				B1A776E51C631ED2008CFA84 /* avatar@3x.png in Resources */,
 				B16E598D1C7C3168005765CE /* LICENSE in Resources */,
+				B18DA9781CAF328500AC446C /* produce.jpg in Resources */,
+				B18DA9741CAF327900AC446C /* dairy.jpg in Resources */,
 				B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */,
 				B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */,
 				B1A776E41C631ED2008CFA84 /* avatar@2x.png in Resources */,

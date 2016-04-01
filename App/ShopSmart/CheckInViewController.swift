@@ -28,6 +28,25 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     let beaconManager = ESTBeaconManager()
     
+    let sensorArr = [51899:"Beverages-Mint",57568:"Canned Foods-Ice",16358:"Produce -BB",34611:"Baked Goods -Ice",63324:"Frozen Foods- BB",18138:"Dairy- Mint"]
+    
+    let sensorLblArr = [51899:"Beverages",57568:"Canned Foods",16358:"Produce",34611:"Baked Goods",63324:"Frozen Foods",18138:"Dairy"]
+    
+    let aisleX = [51899:8.5, 16358:5.0, 34611:1.0, 63324:9.0, 18138:6.0]
+    let aisleY = [51899:-5.0, 16358:-1.0, 34611:-2.0, 63324:-1.0, 18138:-5.0]
+    
+    let aisleLblX = [51899:10.5, 16358:5.0, 34611:3.0, 63324:9.0, 18138:8.5]
+    let aisleLblY = [51899:-7.0, 16358:1.0, 34611:-4.0, 63324:1.0, 18138:-7.0]
+
+    
+    
+    let imgArr = [51899:"beverages.jpg",16358:"produce.jpg",34611:"baked_goods.jpg",63324:"frozenfood.jpg",18138:"dairy.jpg"]
+    
+    
+    let sensorIdArr = ["e0d44001cabb":"Beverages-Mint","ead68aabe0e0":"Canned Foods-Ice","ee61d7863fe6":"Produce -BB","e228a6bc8733":"Baked Goods -Ice","e97e2d2ef75c":"Frozen Foods- BB","d7b72bc746da":"Dairy- Mint"]
+    
+    
+    
     
     @IBOutlet var Menu: UIBarButtonItem!{
         
@@ -66,29 +85,29 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         self.beaconManager.delegate = self
         self.beaconManager.requestAlwaysAuthorization()
         
-      
-            
         
         
         
-
+        
+        
+        
         
         let labelArr = ["Produce","Dairy", "Baked Goods","Health" , "Beverages"]
         
         // You will find the identifier on https://cloud.estimote.com/#/locations
         let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "smart-store")
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
-           
+            
             
             if let location = location {
                 
-               
+                
                 
                 self.location = location
                 self.myLocationView.showTrace = true
                 self.myLocationView.traceColor = UIColor.greenColor()
                 self.myLocationView.rotateOnPositionUpdate = false
-
+                
                 self.myLocationView.drawLocation(location)
                 self.locationManager.startMonitoringForLocation(location)
                 
@@ -96,43 +115,63 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                 var i=0;
                 
                 for beacon in beaconArr {
-               
-                var estPB = EILPositionedBeacon()
-                estPB = beacon as! EILPositionedBeacon
-                
-                var estOrientedPointorentation = EILOrientedPoint()
-                estOrientedPointorentation = estPB.position as! EILOrientedPoint;
-                
-                var modestOrientedPointorentation = EILOrientedPoint.init(x: estOrientedPointorentation.x  , y: estOrientedPointorentation.y - 1.0 , orientation: estOrientedPointorentation.orientation)
-                
-                
-                var label1 = UILabel.init(frame: CGRectMake(0, 0, 150, 40))
-                
-                
-              
-                label1.text = labelArr[i]
-                   
-                label1.font = UIFont.init(name: "Arial", size: 9.0)
-                
-               
-                var id = labelArr[i++]
-                
-                self.myLocationView.drawObjectInBackground(label1, withPosition: modestOrientedPointorentation, identifier: id)
-                   
+                    
+                    var estPB = EILPositionedBeacon()
+                    estPB = beacon as! EILPositionedBeacon
+                    
+                    var estOrientedPointorentation = EILOrientedPoint()
+                    
+                    estOrientedPointorentation = estPB.position as! EILOrientedPoint;
+                    
+                  //  var modestOrientedPointorentation = EILOrientedPoint.init(x: estOrientedPointorentation.x  , y: estOrientedPointorentation.y - 1.0 , orientation: estOrientedPointorentation.orientation)
+                    
+                    
+                    
+                    var modestOrientedPointorentation = EILOrientedPoint.init(x: self.aisleLblX[Int(beacon.major!!.description)!]!, y:self.aisleLblY[Int(beacon.major!!.description)!]!, orientation: 0)
+                    
+                    var label1 = UILabel.init(frame: CGRectMake(0, 0, 150, 40))
+                    
+                    
+                    label1.text = self.sensorLblArr[Int(beacon.major!!.description)!]
+                    label1.font = UIFont.init(name: "Arial", size: 9.0)
+                    
+                    var id = labelArr[i]
+                    
+                    self.myLocationView.drawObjectInBackground(label1, withPosition: modestOrientedPointorentation, identifier: id)
+                    
+                    //Changes for Image Object
+                    
+                    
+                    var imageViewObject :UIImageView
+                    
+                    imageViewObject = UIImageView(frame:CGRectMake(0, 0, 60, 40))
+                    
+                    let imgName = self.imgArr[Int(beacon.major!!.description)!]
+                    
+                    imageViewObject.image = UIImage(named:imgName!)
+                    
+                    
+                    var id_img = labelArr[i++] + "img"
+                    
+                    var imgOrientedPointorentation = EILOrientedPoint.init(x: self.aisleX[Int(beacon.major!!.description)!]!, y:self.aisleY[Int(beacon.major!!.description)!]!, orientation: 0)
+                    
+                    
+                     self.myLocationView.drawObjectInBackground(imageViewObject, withPosition:imgOrientedPointorentation , identifier:id_img )
+                    
                 }
                 
                 
                 self.locationManager.startPositionUpdatesForLocation(self.location)
                 
-                }
-            
+            }
+                
             else {
                 print("can't fetch location: \(error)")
             }
-
-        
-        
-        
+            
+            
+            
+            
         }
         
         
@@ -148,7 +187,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     
     func fetchUserShoppingList(list_id:Int){
-    
+        
         
         Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
             .responseJSON {  response in
@@ -162,14 +201,14 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                     
                 }
         }
-
+        
     }
-   
+    
     
     func updateNotificationList(){
-    
-    
-    
+        
+        
+        
         for list in self.ListArray{
             
             if(notificationItem[list.productCategory!]==nil)
@@ -177,22 +216,22 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                 notificationItem[list.productCategory!] = list.productTitle
             }
             else{
-            
+                
                 var newVal = notificationItem[list.productCategory!]! + " , "
                 newVal += list.productTitle!
                 
-               notificationItem[list.productCategory!] = newVal
-            
+                notificationItem[list.productCategory!] = newVal
+                
             }
         }
         
         print("NF")
         print(notificationItem)
-    
+        
     }
     
     func fetchBeaconsofInterest(list_id: Int)  {
-    
+        
         
         
         Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
@@ -208,7 +247,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                     
                 }
         }
-
+        
     }
     
     func populateData(jsonData: NSArray){
@@ -230,7 +269,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
     }
     
-
+    
     
     
     func populateListData(jsonData: NSArray){
@@ -248,13 +287,13 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         }
         
         updateNotificationList();
-
+        
         
     }
     
     
-
-   func indoorLocationManager(manager: EILIndoorLocationManager!,
+    
+    func indoorLocationManager(manager: EILIndoorLocationManager!,
         didFailToUpdatePositionWithError error: NSError!) {
             print("failed to update position: \(error)")
     }
@@ -279,13 +318,13 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       
+        
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
         self.locationManager.stopMonitoringForLocation(location)
-       // stopSensorMonitoring()
+        // stopSensorMonitoring()
         stopSensorRanging()
         
         
@@ -294,88 +333,74 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     }
     
     
-//Beacon monitoring
+    //Beacon monitoring
     
-    
+    /*
     func startSensorMonitoring(){
-        
-        if(self.sensors.count>0){
-            
-            
-            for sensor in self.sensors {
-                
-                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
-                
-                self.beaconManager.startMonitoringForRegion(br)
-                
-                print ("Started Region Monitoring for beacon" +  sensor.sensorTag!)
-                
-                
-            }
-            
-            
-        }
-        
-        
+    
+    if(self.sensors.count>0){
+    
+    
+    for sensor in self.sensors {
+    
+    let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier:(sensor.sensorDesc!))
+    
+    self.beaconManager.startMonitoringForRegion(br)
+    
+    print ("Started Region Monitoring for beacon" +  sensor.sensorTag!)
+    
+    
+    }
+    
+    
+    }
+    
+    
     }
     
     func stopSensorMonitoring(){
-        
-        if(self.sensors.count>0){
-            
-            
-            for sensor in self.sensors {
-                
-                let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
-                
-                self.beaconManager.stopMonitoringForRegion(br)
-                
-                print ("Stopped Region Monitoring for beacon - " +  sensor.sensorTag!)
-                
-                
-            }
-            
-            
-        }
-        
-        
+    
+    if(self.sensors.count>0){
+    
+    
+    for sensor in self.sensors {
+    
+    let br = CLBeaconRegion(proximityUUID: NSUUID( UUIDString: sensor.sensorUUID!)!, major:  sensor.sensorMajor!, minor: ((sensor.sensorMinor!)), identifier: sensor.sensorName!)
+    
+    self.beaconManager.stopMonitoringForRegion(br)
+    
+    print ("Stopped Region Monitoring for beacon - " +  sensor.sensorTag!)
+    
+    
     }
-
     
     
-  /*func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
-        
-        let notification = UILocalNotification()
+    }
     
     
-        var note = "Go and Grab " + notificationItem[region.identifier]!
-        note += " that is on your shopping list"
-        notification.alertBody = note
-         
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
     
+    */
+    
+    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+    
+        print("Enter")
     
     }
     
     func beaconManager(manager: AnyObject,
-        didExitRegion region: CLBeaconRegion) {
-            
-            print("Exit");
-        /*    let notification = UILocalNotification()
-            notification.alertBody =
-                "Exit Event - Your gate closes in 47 minutes. " +
-                "Current security wait time is 15 minutes, " +
-                "and it's a 5 minute walk from security to the gate. " +
-            "Looks like you've got plenty of time!"
-            UIApplication.sharedApplication().presentLocalNotificationNow(notification) 
-            }
-    */
+    didExitRegion region: CLBeaconRegion) {
+    
+        print("Exit");
+     
     }
+
     
     
     
+   /*
     func beaconManager(manager: AnyObject, monitoringDidFailForRegion region: CLBeaconRegion?, withError error: NSError) {
-        print(error)
+    print(error)
     }
     
     
@@ -401,9 +426,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
         
         
-           ]
-    let sensorArr = [51899:"Beverages-Mint",57568:"Canned Foods-Ice",16358:"Produce -BB",34611:"Baked Goods -Ice",63324:"Frozen Foods- BB",18138:"Dairy- Mint"]
-
+    ]
     
     
     func startSensorRanging(){
@@ -450,31 +473,31 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     }
     
     
- /*   func placesNearBeacon(beacon: CLBeacon) -> [String] {
-        let beaconKey = "\(beacon.major):\(beacon.minor)"
-        if let places = self.placesByBeacons[beaconKey] {
-            let sortedPlaces = Array(places).sorted { $0.1 < $1.1 }.map { $0.0 }
-            return sortedPlaces
-        }
-        return []
+    /*   func placesNearBeacon(beacon: CLBeacon) -> [String] {
+    let beaconKey = "\(beacon.major):\(beacon.minor)"
+    if let places = self.placesByBeacons[beaconKey] {
+    let sortedPlaces = Array(places).sorted { $0.1 < $1.1 }.map { $0.0 }
+    return sortedPlaces
+    }
+    return []
     }*/
     
     
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
         inRegion region: CLBeaconRegion) {
-           
-           
+            
+            
             if var nearestBeacon = beacons.first {
                 
-               // print nearestBeacon.accuracy
-              //  let places = placesNearBeacon(nearestBeacon)
+                //  let places = placesNearBeacon(nearestBeacon)
                 // TODO: update the UI here
                 
                 if(nearestBeacon.accuracy<1.0 && nearestBeacon.accuracy>0)
                 {
-                
-                print(sensorArr[Int(nearestBeacon.major)] );
-                print (nearestBeacon.accuracy)
+                    
+                    print(sensorArr[Int(nearestBeacon.major)]);
+                    print (nearestBeacon.accuracy)
+                    
                     let notification = UILocalNotification()
                     
                     
@@ -484,12 +507,12 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                     
                     UIApplication.sharedApplication().presentLocalNotificationNow(notification)
                     
-
-                self.beaconManager.stopRangingBeaconsInRegion(region)
-                
+                    
+                    self.beaconManager.stopRangingBeaconsInRegion(region)
+                    
                 }
-                    //TODO: remove after implementing the UI
+                //TODO: remove after implementing the UI
             }
     }
-
+    
 }
