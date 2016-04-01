@@ -131,7 +131,14 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //let indexPath = self.depttableView.indexPathForCell(sender as! TableViewCell)
+        let subtotal = self.total
+        let dvc = segue.destinationViewController as! CheckoutViewController
+        dvc.subtotal = subtotal
+        
+    }
     
     
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA5183C1CADF89C0007440C /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5183B1CADF89C0007440C /* CheckoutViewController.swift */; };
 		3BB740C41C9730A100142DDD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740C31C9730A100142DDD /* CartTableViewCell.swift */; };
 		3BB740CC1C97335000142DDD /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740CB1C97335000142DDD /* Cart.swift */; };
 		3BB740D71C9B980C00142DDD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */; };
@@ -192,6 +193,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3BA5183B1CADF89C0007440C /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		3BB740C31C9730A100142DDD /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		3BB740CB1C97335000142DDD /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */,
 				B1B8266A1C8B699A00B6B146 /* CategoryViewController.swift */,
 				B10411461C30ECEE00B416F6 /* CartViewController.swift */,
+				3BA5183B1CADF89C0007440C /* CheckoutViewController.swift */,
 				3BC333BF1C83C7F8002CCC48 /* LoginViewController.swift */,
 				3BC333371C714FD8002CCC48 /* RegisterViewController.swift */,
 				B13FF5ED1C26466C00D0FDF1 /* AccountViewController.swift */,
@@ -813,6 +816,7 @@
 				B16E599C1C7C3168005765CE /* ResponseSerialization.swift in Sources */,
 				B16E59861C7C3168005765CE /* Alamofire 3.0 Migration Guide.md in Sources */,
 				B16E59A01C7C3168005765CE /* Timeline.swift in Sources */,
+				3BA5183C1CADF89C0007440C /* CheckoutViewController.swift in Sources */,
 				B16E599D1C7C3168005765CE /* Result.swift in Sources */,
 				3BB740D91C9BB44500142DDD /* List.swift in Sources */,
 				FB9F27BD1C894CAD00ED26C4 /* TableViewCell.swift in Sources */,
