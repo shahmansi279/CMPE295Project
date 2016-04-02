@@ -12,6 +12,8 @@ import Alamofire
 class CheckoutViewController: UIViewController {
 
     var subtotal:Float = 0.0
+    var total:Float = 0.0
+    var discount:Float = 0.0
     
     @IBOutlet weak var subtotalLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -42,12 +44,16 @@ class CheckoutViewController: UIViewController {
             
         } else {
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offercode/\(offerCode)/?format=json")
+            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offercode/?offercode=\(offerCode)")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
-                        print("Success: \(JSON)")
+                        print("Success: \(JSON[0][0])")
+                        let discount = JSON[0][0] as! Float
                         //self.populateData(JSON as! NSArray)
+                        self.total = self.subtotal - ((discount/100) * self.subtotal)
+                        print("Total: \(self.total)")
+                        self.totalLabel.text = "\(self.total)"
                         
                     case .Failure(let error):
                         print("Request failed with error: \(error)")
