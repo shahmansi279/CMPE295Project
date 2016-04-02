@@ -33,7 +33,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
 
         //Add the pan gesture to the view.
             
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
+            //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
             
             self.listTableView.delegate=self
             self.listTableView.dataSource=self

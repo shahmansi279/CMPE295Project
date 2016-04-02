@@ -48,12 +48,22 @@ class CheckoutViewController: UIViewController {
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
-                        print("Success: \(JSON[0][0])")
-                        let discount = JSON[0][0] as! Float
-                        //self.populateData(JSON as! NSArray)
-                        self.total = self.subtotal - ((discount/100) * self.subtotal)
-                        print("Total: \(self.total)")
-                        self.totalLabel.text = "\(self.total)"
+                        print("Success: \(JSON.count)")
+                        if ((JSON.count) != 0) {
+                            let discount = JSON[0][0] as! Float
+                            self.total = self.subtotal - ((discount/100) * self.subtotal)
+                            print("Total: \(self.total)")
+                            self.totalLabel.text = "\(self.total)"
+                            
+                        } else {
+                            
+                            print ("Not a valid offer code")
+                            let alert = UIAlertController(title: "Failed!", message:"The offer code is invalid", preferredStyle: .Alert)
+                            let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                            alert.addAction(action)
+                            self.presentViewController(alert, animated: true){}
+                        }
+                        
                         
                     case .Failure(let error):
                         print("Request failed with error: \(error)")
@@ -80,11 +90,15 @@ class CheckoutViewController: UIViewController {
             .responseJSON {  response in
                 switch response.result {
                 case .Success:
-                    print("Update Successful")
+                    print("Payment Successful")
                     let alert = UIAlertController(title: "Success!", message:"Payment Successful", preferredStyle: .Alert)
-                    let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: {
+                        [unowned self] (action) -> Void in
+                        self.performSegueWithIdentifier("checkout_done", sender: self)
+                    })
                     alert.addAction(action)
                     self.presentViewController(alert, animated: true){}
+                    self.fetchCart()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -94,7 +108,27 @@ class CheckoutViewController: UIViewController {
 
     }
     
-    
+    func fetchCart(){
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let id = prefs.valueForKey("id") as! Int
+        print("User ID: \(id)")
+        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
+            .responseJSON {  response in
+                switch response.result {
+                case .Success(let JSON):
+                    print(JSON[0][0])
+                    let cart_id = JSON[0][0] as! Int
+                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                    prefs.setObject(cart_id, forKey: "cart_id")
+                    
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+        
+    }
+
     
 
     override func didReceiveMemoryWarning() {

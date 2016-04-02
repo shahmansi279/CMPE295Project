@@ -39,7 +39,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         //Add the pan gesture to the view.
         
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
+        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         
         self.cartTableView.delegate=self
         self.cartTableView.dataSource=self
