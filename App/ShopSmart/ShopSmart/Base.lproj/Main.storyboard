@@ -752,24 +752,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEs-J0-hCc" customClass="EILIndoorLocationView">
-                                <rect key="frame" x="15" y="101" width="317" height="293"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqR-Yz-Lc8">
+                                <rect key="frame" x="25" y="473" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5DI-yf-hcU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smart Store Indoor Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxJ-oB-sfZ">
+                                <rect key="frame" x="20" y="74" width="183" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEs-J0-hCc" customClass="EILIndoorLocationView">
+                                <rect key="frame" x="20" y="120" width="560" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqR-Yz-Lc8">
-                                <rect key="frame" x="15" y="535" width="356" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smart Store Indoor Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxJ-oB-sfZ">
-                                <rect key="frame" x="20" y="72" width="183" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bEs-J0-hCc" firstAttribute="trailing" secondItem="EzQ-7t-SH7" secondAttribute="trailingMargin" id="2ga-gm-dn9"/>
+                            <constraint firstItem="bEs-J0-hCc" firstAttribute="top" secondItem="EzQ-7t-SH7" secondAttribute="top" constant="120" id="2ub-RM-J6u"/>
+                            <constraint firstItem="bEs-J0-hCc" firstAttribute="top" secondItem="yxJ-oB-sfZ" secondAttribute="bottom" constant="25" id="5lX-D5-9LU"/>
+                            <constraint firstItem="bEs-J0-hCc" firstAttribute="leading" secondItem="yxJ-oB-sfZ" secondAttribute="leading" id="UxE-Mf-9s2"/>
+                            <constraint firstItem="fqR-Yz-Lc8" firstAttribute="leading" secondItem="EzQ-7t-SH7" secondAttribute="leadingMargin" constant="5" id="efD-cn-neC"/>
+                            <constraint firstItem="yxJ-oB-sfZ" firstAttribute="top" secondItem="slp-2o-lq7" secondAttribute="bottom" constant="10" id="kIX-Jc-xxe"/>
+                            <constraint firstItem="bEs-J0-hCc" firstAttribute="leading" secondItem="EzQ-7t-SH7" secondAttribute="leadingMargin" id="tsO-pe-Ajo"/>
+                            <constraint firstItem="fqR-Yz-Lc8" firstAttribute="top" secondItem="bEs-J0-hCc" secondAttribute="bottom" constant="65" id="uZR-Tu-nSu"/>
+                            <constraint firstItem="QZc-Np-mXf" firstAttribute="top" secondItem="fqR-Yz-Lc8" secondAttribute="bottom" constant="106" id="wcH-1I-nGB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yeo-G7-iJ0">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="7vW-9V-7pC"/>
