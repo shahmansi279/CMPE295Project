@@ -98,7 +98,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         
         //http://127.0.0.1:8000/smartretailapp/api/subcategory/?dept=Produce
         
-        let url="http://54.153.9.205:8000/smartretailapp/api/subcategory/?dept=" + categoryName
+        let url="\(Constant.baseURL)/smartretailapp/api/subcategory/?dept=" + categoryName
         
         let modUrl = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         

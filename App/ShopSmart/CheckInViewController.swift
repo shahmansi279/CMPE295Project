@@ -189,7 +189,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     func fetchUserShoppingList(list_id:Int){
         
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -234,7 +234,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         
         
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/sensors_of_interest/?list_id=\(list_id)")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):

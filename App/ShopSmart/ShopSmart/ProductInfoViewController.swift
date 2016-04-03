@@ -112,7 +112,7 @@ class ProductInfoViewController : UIViewController {
             let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
-            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
+            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
                 .validate()
                 .responseJSON { response in
                     
@@ -172,7 +172,7 @@ class ProductInfoViewController : UIViewController {
             let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
-            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
+            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
                 .responseJSON { response in
             
                    
