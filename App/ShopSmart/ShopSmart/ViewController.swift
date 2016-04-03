@@ -165,7 +165,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         {
             
-            let url = "http://54.153.9.205:8000/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
+            let url = "\(Constant.baseURL)/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
             
             let mod_url = url + "?format=json"
             
@@ -193,7 +193,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
            
            // Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?
-            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/offer/?format=json")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/offer/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):

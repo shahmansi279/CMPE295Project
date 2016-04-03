@@ -56,7 +56,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let cart_id = prefs.valueForKey("cart_id") as! Int
             print(cart_id)
-            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercartdetail/\(cart_id)/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):

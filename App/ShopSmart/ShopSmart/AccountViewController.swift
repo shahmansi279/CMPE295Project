@@ -78,7 +78,7 @@ class AccountViewController: UIViewController {
             self.emailField.text = prefs.valueForKey("email") as! String
             let id = prefs.valueForKey("id") as! Int
             
-            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/customer/\(id)/?format=json"
+            let urlPath = "\(Constant.baseURL)/smartretailapp/api/customer/\(id)/?format=json"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)
@@ -133,7 +133,7 @@ class AccountViewController: UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -154,7 +154,7 @@ class AccountViewController: UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlist/?list_customer_id=\(id)/")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/userlist/?list_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):

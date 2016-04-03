@@ -49,7 +49,7 @@ class ResetPasswordViewController: UIViewController {
             
         } else {
             
-            let urlPath = "http://54.153.9.205:8000/smartretailapp/reset_password/?username=\(usernameText)&new_password=\(newPasswordText)"
+            let urlPath = "\(Constant.baseURL)/smartretailapp/reset_password/?username=\(usernameText)&new_password=\(newPasswordText)"
             print(urlPath)
             
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }

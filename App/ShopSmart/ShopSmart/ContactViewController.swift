@@ -65,14 +65,11 @@ class ContactViewController: UIViewController {
 
     func loadData(){
     
-    
-        
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/store/1")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/store/1")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
                     self.populateData(JSON as! NSDictionary)
-                    
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")

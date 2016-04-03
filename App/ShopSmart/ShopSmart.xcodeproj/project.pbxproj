@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BA5183C1CADF89C0007440C /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA5183B1CADF89C0007440C /* CheckoutViewController.swift */; };
+		3BA611201CB19C2900AB97D9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA6111F1CB19C2900AB97D9 /* Constant.swift */; };
 		3BB740C41C9730A100142DDD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740C31C9730A100142DDD /* CartTableViewCell.swift */; };
 		3BB740CC1C97335000142DDD /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740CB1C97335000142DDD /* Cart.swift */; };
 		3BB740D71C9B980C00142DDD /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */; };
@@ -199,6 +200,7 @@
 
 /* Begin PBXFileReference section */
 		3BA5183B1CADF89C0007440C /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		3BA6111F1CB19C2900AB97D9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3BB740C31C9730A100142DDD /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		3BB740CB1C97335000142DDD /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		3BB740D61C9B980C00142DDD /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -596,6 +598,7 @@
 				3BB740D81C9BB44500142DDD /* List.swift */,
 				B16C8F611CA6019000916998 /* Sensor.swift */,
 				B18DA95C1CAC5F8200AC446C /* Store.swift */,
+				3BA6111F1CB19C2900AB97D9 /* Constant.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				B13FF5E21C26269400D0FDF1 /* SWRevealViewController.m in Sources */,
 				B16E59A21C7C3168005765CE /* Validation.swift in Sources */,
 				B1B8266F1C8B7D9200B6B146 /* ProductListViewController.swift in Sources */,
+				3BA611201CB19C2900AB97D9 /* Constant.swift in Sources */,
 				B13FF5EC1C2634B300D0FDF1 /* MenuItems.swift in Sources */,
 				B1B826761C8E182400B6B146 /* ProductInfoViewController.swift in Sources */,
 			);

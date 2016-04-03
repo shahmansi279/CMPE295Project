@@ -112,7 +112,7 @@ class CheckoutViewController: UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
         print("User ID: \(id)")
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):

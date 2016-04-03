@@ -102,7 +102,7 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         
         //http://127.0.0.1:8000/smartretailapp/api/products/Nuts/?format=json
         
-        let url = "http://54.153.9.205:8000/smartretailapp/api/products/" + productLine
+        let url = "\(Constant.baseURL)/smartretailapp/api/products/" + productLine
         let prod_url = url + "/?format=json"
         
         let modUrl = prod_url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
