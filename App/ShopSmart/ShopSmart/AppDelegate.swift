@@ -9,6 +9,15 @@
 import UIKit
 import CoreData
 
+extension UIColor {
+    convenience init(hex: Int) {
+        let r = hex / 0x10000
+        let g = (hex - r*0x10000) / 0x100
+        let b = hex - r*0x10000 - g*0x100
+        self.init(red: CGFloat(r)/255, green: CGFloat(g)/255, blue: CGFloat(b)/255, alpha: 1)
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,9 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         
         
-        UINavigationBar.appearance().barTintColor = UIColor.greenColor()
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/255.0, green: 170.0/255.0, blue: 233.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        //UIButton.appearance().
         // Override point for customization after application launch.
         return true
     }
