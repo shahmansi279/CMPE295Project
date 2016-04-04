@@ -59,6 +59,17 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         product.productTitle.text = prodArray[indexPath.row].productTitle
         
         
+        //Change color on cell selection
+        
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        product.selectedBackgroundView = myCustomSelectionColorView
+        product.productTitle.highlightedTextColor = UIColor.whiteColor()
+        
+        
+
+        
+        
         return product
         
         
@@ -66,6 +77,10 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+        
+        self.prodTblView.deselectRowAtIndexPath(indexPath, animated: true)
+
         
     }
     

@@ -38,11 +38,25 @@ class MenuTableViewController: UITableViewController {
         let cellIdentifier = menuArray[indexPath.row]
         
      
-        let cell = tableView.dequeueReusableCellWithIdentifier( cellIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         cell.textLabel?.text = "\(menuArray[indexPath.row])"
         
+        
+        
+        
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        cell.selectedBackgroundView = myCustomSelectionColorView
+        cell.textLabel!.highlightedTextColor = UIColor.whiteColor()
+
+        
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+                      
+       self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -95,7 +95,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
         let labelArr = ["Produce","Dairy", "Baked Goods","Health" , "Beverages"]
         
         // You will find the identifier on https://cloud.estimote.com/#/locations
-        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "smart-store")
+        let fetchLocationRequest = EILRequestFetchLocation(locationIdentifier: "smart-grocery-store")
         fetchLocationRequest.sendRequestWithCompletion { (location, error) in
             
             

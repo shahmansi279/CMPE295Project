@@ -43,6 +43,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         // Do any additional setup after loading the view, typically from a nib.
         
+         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+        
         manager = CLLocationManager()
         
     

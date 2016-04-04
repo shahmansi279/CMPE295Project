@@ -57,6 +57,13 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         category.categoryLbl.text = categoryArray[indexPath.row]
         
         
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        category.selectedBackgroundView = myCustomSelectionColorView
+        category.categoryLbl.highlightedTextColor = UIColor.whiteColor()
+
+        
+        
         return category
         
         
@@ -89,6 +96,8 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+         self.categoryTblView.deselectRowAtIndexPath(indexPath, animated: true)
         
     }
     
