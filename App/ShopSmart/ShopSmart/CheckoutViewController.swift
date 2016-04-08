@@ -44,7 +44,7 @@ class CheckoutViewController: UIViewController {
             
         } else {
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offercode/?offercode=\(offerCode)")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/offercode/?offercode=\(offerCode)")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
@@ -85,7 +85,7 @@ class CheckoutViewController: UIViewController {
         let params = ["cart_status":"processed","cart_customer_id":user_id] as Dictionary<String, AnyObject>
         let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
         
-        Alamofire.request(.PUT, "http://127.0.0.1:8000/smartretailapp/api/cart/\(cart_id)/", headers: headers, parameters: params, encoding:  .JSON)
+        Alamofire.request(.PUT, "\(Constant.baseURL)/smartretailapp/api/cart/\(cart_id)/", headers: headers, parameters: params, encoding:  .JSON)
             .validate()
             .responseJSON {  response in
                 switch response.result {
