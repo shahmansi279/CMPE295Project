@@ -55,6 +55,12 @@ class ProductInfoViewController : UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -186,6 +186,8 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     }
     
     
+    
+    
     func fetchUserShoppingList(list_id:Int){
         
         
@@ -317,6 +319,9 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+
         
         
     }

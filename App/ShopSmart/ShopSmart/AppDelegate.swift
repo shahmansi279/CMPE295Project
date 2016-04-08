@@ -50,7 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         
         
-        UINavigationBar.appearance().barTintColor = UIColor.backgroundColorDark();       UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColorDark();
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         //UIButton.appearance().

@@ -31,6 +31,9 @@ class CheckoutViewController: UIViewController {
     }
     
     
+
+    
+    
     @IBAction func AddOfferBtn(sender: UIButton) {
         
         let offerCode = offerField.text!
