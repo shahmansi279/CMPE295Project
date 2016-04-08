@@ -60,7 +60,7 @@ class RegisterViewController: UIViewController {
         } else {
             
             
-            let urlPath = "http://127.0.0.1:8000/smartretailapp/register/?username=\(usernameText)&password=\(passwordText)&email=\(emailText)&user_addr=\(addressText)&user_zip=\(zipcodeText)&user_phone=\(phoneText)&user_dob=\(dobText)&user_gender=\(genderText)&user_card=\(cardNoText)"
+            let urlPath = "\(Constant.baseURL)/smartretailapp/register/?username=\(usernameText)&password=\(passwordText)&email=\(emailText)&user_addr=\(addressText)&user_zip=\(zipcodeText)&user_phone=\(phoneText)&user_dob=\(dobText)&user_gender=\(genderText)&user_card=\(cardNoText)"
             
             print(urlPath)
             

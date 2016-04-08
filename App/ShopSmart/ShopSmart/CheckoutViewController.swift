@@ -44,7 +44,7 @@ class CheckoutViewController: UIViewController {
             
         } else {
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offercode/?offercode=\(offerCode)")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/offercode/?offercode=\(offerCode)")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
