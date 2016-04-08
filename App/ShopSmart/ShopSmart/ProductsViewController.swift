@@ -47,7 +47,8 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         self.depttableView.dataSource=self
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
-    
+        
+          
   
         
         loadData()
@@ -77,22 +78,27 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
   // this needs to be modified
          Dept.myLabel.text = DeptArray[indexPath.row]
         
+       
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        Dept.selectedBackgroundView = myCustomSelectionColorView
+        Dept.myLabel.highlightedTextColor = UIColor.whiteColor()
         
         return Dept
         
         
     }
     
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         
-    }
+        
+        self.depttableView.deselectRowAtIndexPath(indexPath, animated: true)    }
 
     
     
     func loadData(){
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/depts/?format=json")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/depts/?format=json")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):

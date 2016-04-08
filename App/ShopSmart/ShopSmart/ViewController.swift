@@ -43,6 +43,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         // Do any additional setup after loading the view, typically from a nib.
         
+         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+        
         manager = CLLocationManager()
         
     
@@ -140,7 +142,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             self.userLocationZipCode = placemark.postalCode
             print(placemark.postalCode)
             
-            loadData()
+                       loadData()
             
                         //self.collectionView.reloadData()
             
@@ -165,7 +167,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
         {
             
-            let url = "http://54.153.9.205:8000/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
+            let url = "\(Constant.baseURL)/smartretailapp/api/offernearby/" + self.userLocationZipCode!;
             
             let mod_url = url + "?format=json"
             
@@ -193,7 +195,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
            
            // Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offer/?
-            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/offer/?format=json")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/offer/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):

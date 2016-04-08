@@ -18,6 +18,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var dobField: UITextField!
     @IBOutlet weak var genderField: UITextField!
+    @IBOutlet weak var cardNoField: UITextField!
     
     
     
@@ -77,7 +78,7 @@ class AccountViewController: UIViewController {
             self.emailField.text = prefs.valueForKey("email") as! String
             let id = prefs.valueForKey("id") as! Int
             
-            let urlPath = "http://54.153.9.205:8000/smartretailapp/api/customer/\(id)/?format=json"
+            let urlPath = "\(Constant.baseURL)/smartretailapp/api/customer/\(id)/?format=json"
             print(urlPath)
             guard let endpoint = NSURL(string: urlPath) else { print("Error creating endpoint");return }
             let request = NSMutableURLRequest(URL:endpoint)
@@ -92,14 +93,26 @@ class AccountViewController: UIViewController {
                     let phone = json["phone1"] as? String
                     let dob = json["birthdate"] as? String
                     let gender = json["gender"] as? String
+                    let card = json["account_num"] as? Int
+                    
                     
                     dispatch_async(dispatch_get_main_queue(), {
+                        
+                        print("card: \(card)")
+                        var cardString: String
+                        if (card != nil){
+                            cardString = String(card!)
+                        } else {
+                            cardString = ""
+                        }
                         
                         self.addressField.text = addr
                         self.zipcodeField.text = zipcode
                         self.phoneField.text = phone
                         self.dobField.text = dob
                         self.genderField.text = gender
+                        self.cardNoField.text = cardString
+                        
                     })
                     
                 } catch let error as JSONError {
@@ -120,7 +133,7 @@ class AccountViewController: UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):
@@ -141,7 +154,7 @@ class AccountViewController: UIViewController {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let id = prefs.valueForKey("id") as! Int
         
-        Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlist/?list_customer_id=\(id)/")
+        Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/userlist/?list_customer_id=\(id)/")
             .responseJSON {  response in
                 switch response.result {
                 case .Success(let JSON):

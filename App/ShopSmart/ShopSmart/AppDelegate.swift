@@ -9,6 +9,30 @@
 import UIKit
 import CoreData
 
+extension UIColor
+{
+    class func backgroundColorDark() -> UIColor
+    {
+        return UIColor(red: 0.0/255.0, green: 170.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+    }
+    
+    class func backgroundColorLight() -> UIColor
+    {
+        return UIColor(red: 54.0/255.0, green: 184.0/255.0, blue: 136.0/255.0, alpha:1.0)
+    }
+    
+    class func signInButtonColor() -> UIColor
+    {
+        return UIColor(red: 0/255.0, green: 197.0/255.0, blue: 152.0/255.0, alpha:1.0)
+    }
+    
+    class func myDocumentsBGColor() -> UIColor
+    {
+        return UIColor(red: 108.0/255.0, green: 91.0/255.0, blue: 123.0/255.0, alpha:1.0)
+    }
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,6 +48,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
+        
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColorDark();       UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        //UIButton.appearance().
         // Override point for customization after application launch.
         return true
     }

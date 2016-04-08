@@ -112,7 +112,7 @@ class ProductInfoViewController : UIViewController {
             let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
-            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
+            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
                 .validate()
                 .responseJSON { response in
                     
@@ -121,8 +121,14 @@ class ProductInfoViewController : UIViewController {
                         // Handle success case...
                         print("Success: \(responseContent)")
                         let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping Cart", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action1)
+                        let action = UIAlertAction(title: "View Cart", style: .Default, handler: {
+                            [unowned self] (action) -> Void in
+                            self.performSegueWithIdentifier("addToCart_done", sender: self)
+                            })
                         alert.addAction(action)
+                        
                         dispatch_async(dispatch_get_main_queue(), {
                             self.presentViewController(alert, animated: true){}
                         })
@@ -169,7 +175,7 @@ class ProductInfoViewController : UIViewController {
             let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
             
             
-            Alamofire.request(.POST, "http://54.153.9.205:8000/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
+            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
                 .responseJSON { response in
             
                    
@@ -178,7 +184,12 @@ class ProductInfoViewController : UIViewController {
                         // Handle success case...
                         print("Success: \(responseContent)")
                         let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action1)
+                        let action = UIAlertAction(title: "View List", style: .Default, handler: {
+                            [unowned self] (action) -> Void in
+                            self.performSegueWithIdentifier("addToList_done", sender: self)
+                            })
                         alert.addAction(action)
                         dispatch_async(dispatch_get_main_queue(), {
                             self.presentViewController(alert, animated: true){}

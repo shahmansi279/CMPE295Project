@@ -59,6 +59,17 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         product.productTitle.text = prodArray[indexPath.row].productTitle
         
         
+        //Change color on cell selection
+        
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        product.selectedBackgroundView = myCustomSelectionColorView
+        product.productTitle.highlightedTextColor = UIColor.whiteColor()
+        
+        
+
+        
+        
         return product
         
         
@@ -66,6 +77,10 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+        
+        self.prodTblView.deselectRowAtIndexPath(indexPath, animated: true)
+
         
     }
     
@@ -102,7 +117,7 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         
         //http://127.0.0.1:8000/smartretailapp/api/products/Nuts/?format=json
         
-        let url = "http://54.153.9.205:8000/smartretailapp/api/products/" + productLine
+        let url = "\(Constant.baseURL)/smartretailapp/api/products/" + productLine
         let prod_url = url + "/?format=json"
         
         let modUrl = prod_url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)

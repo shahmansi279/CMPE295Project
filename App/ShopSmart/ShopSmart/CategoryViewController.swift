@@ -57,6 +57,13 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         category.categoryLbl.text = categoryArray[indexPath.row]
         
         
+        let myCustomSelectionColorView = UIView()
+        myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
+        category.selectedBackgroundView = myCustomSelectionColorView
+        category.categoryLbl.highlightedTextColor = UIColor.whiteColor()
+
+        
+        
         return category
         
         
@@ -90,6 +97,8 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+         self.categoryTblView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
     
     
@@ -98,7 +107,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         
         //http://127.0.0.1:8000/smartretailapp/api/subcategory/?dept=Produce
         
-        let url="http://54.153.9.205:8000/smartretailapp/api/subcategory/?dept=" + categoryName
+        let url="\(Constant.baseURL)/smartretailapp/api/subcategory/?dept=" + categoryName
         
         let modUrl = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         

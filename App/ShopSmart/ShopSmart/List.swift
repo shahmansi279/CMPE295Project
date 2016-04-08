@@ -15,7 +15,7 @@ struct List {
     var productId:Int?
     var productQty:Int?
     var productTitle:String?
-
+    var productCategory:String?
     
     
     init(data : NSDictionary){
@@ -24,6 +24,7 @@ struct List {
         productTitle = data["list_prd_attr1"] as? String
         productId = data["product_id"] as? Int
         productQty = data["product_qty"] as? Int
+        productCategory=data["list_prd_attr2"] as? String
         
     }
 }
