@@ -9,6 +9,5 @@
 import Foundation
 
 struct Constant {
-    //static let baseURL = "http://54.153.9.205:8000"
-    static let baseURL = "http://ec2-54-153-9-205.us-west-1.compute.amazonaws.com"
+    static let baseURL = "http://54.153.9.205:8000"
 }
