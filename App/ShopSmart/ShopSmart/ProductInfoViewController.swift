@@ -58,6 +58,9 @@ class ProductInfoViewController : UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+        productDesc.backgroundColor =  UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+       
+
 
     }
     

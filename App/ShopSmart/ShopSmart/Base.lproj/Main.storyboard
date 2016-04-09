@@ -1451,16 +1451,16 @@
                                     <constraint firstAttribute="height" constant="198" id="0rv-5U-ofQ"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-hU-NZP">
-                                <rect key="frame" x="29" y="481" width="87" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbh-hU-NZP">
+                                <rect key="frame" x="32" y="483" width="87" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.66666666666666663" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title=" Add to Cart "/>
                                 <connections>
                                     <action selector="AddToCartBtn:" destination="P9K-wr-w8K" eventType="touchUpInside" id="O5M-Gi-Qmb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-kC-nGX">
-                                <rect key="frame" x="75" y="349" width="31" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ed-kC-nGX">
+                                <rect key="frame" x="75" y="349" width="30.5" height="15"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Cost ">
                                         <attributes>
@@ -1471,8 +1471,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wn-3Q-WT4">
-                                <rect key="frame" x="26" y="349" width="30" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wn-3Q-WT4">
+                                <rect key="frame" x="29" y="349" width="30" height="15"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Price">
                                         <attributes>
@@ -1483,23 +1483,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-E9-JwR">
-                                <rect key="frame" x="20" y="379" width="552" height="59"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="3qV-bb-rBH"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="12" name="ArialMT"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vml-Ya-Kuy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vml-Ya-Kuy">
                                 <rect key="frame" x="105" y="350" width="11" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="11" id="MaT-VL-oh1"/>
@@ -1529,35 +1513,51 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-LE-y3N">
-                                <rect key="frame" x="482" y="481" width="82" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7p-LE-y3N">
+                                <rect key="frame" x="486" y="483" width="82" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title=" Add to List "/>
                                 <connections>
                                     <action selector="AddToListBtn:" destination="P9K-wr-w8K" eventType="touchUpInside" id="1jZ-wP-qdV"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lrZ-E9-JwR">
+                                <rect key="frame" x="20" y="372" width="560" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3qV-bb-rBH"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4Wn-3Q-WT4" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" constant="6" id="2aq-lC-Iy5"/>
+                            <constraint firstItem="4Wn-3Q-WT4" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" constant="9" id="2aq-lC-Iy5"/>
+                            <constraint firstItem="vml-Ya-Kuy" firstAttribute="bottom" secondItem="4Wn-3Q-WT4" secondAttribute="bottom" id="2bR-Xe-D0T"/>
                             <constraint firstItem="9zX-Cu-ySf" firstAttribute="top" secondItem="jaP-IQ-vFt" secondAttribute="bottom" constant="21" id="7MP-sT-3G2"/>
-                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="top" secondItem="4Wn-3Q-WT4" secondAttribute="bottom" constant="15" id="Aci-xu-jdb"/>
-                            <constraint firstItem="fbh-hU-NZP" firstAttribute="top" secondItem="lrZ-E9-JwR" secondAttribute="bottom" constant="24" id="Aoc-1j-YFi"/>
-                            <constraint firstItem="7ed-kC-nGX" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="19" id="BJW-uU-meV"/>
+                            <constraint firstItem="lrZ-E9-JwR" firstAttribute="top" secondItem="4Wn-3Q-WT4" secondAttribute="bottom" constant="8" id="Aci-xu-jdb"/>
+                            <constraint firstItem="7ed-kC-nGX" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="16" id="BJW-uU-meV"/>
                             <constraint firstItem="lrZ-E9-JwR" firstAttribute="leading" secondItem="OdR-dv-OMp" secondAttribute="leading" id="PKz-HE-hKk"/>
                             <constraint firstItem="lrZ-E9-JwR" firstAttribute="trailing" secondItem="OdR-dv-OMp" secondAttribute="trailing" id="Pwa-wt-d1v"/>
                             <constraint firstItem="r1a-kq-7z5" firstAttribute="top" secondItem="fbh-hU-NZP" secondAttribute="bottom" constant="38" id="S8U-jt-0UH"/>
                             <constraint firstItem="lrZ-E9-JwR" firstAttribute="trailing" secondItem="sEG-v9-kbe" secondAttribute="trailingMargin" id="Zys-fl-HxY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t7p-LE-y3N" secondAttribute="trailing" constant="12" id="b4S-Ah-brq"/>
-                            <constraint firstItem="vml-Ya-Kuy" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="49" id="egW-2m-M71"/>
+                            <constraint firstItem="vml-Ya-Kuy" firstAttribute="bottom" secondItem="7ed-kC-nGX" secondAttribute="bottom" id="cYk-av-bGA"/>
+                            <constraint firstItem="vml-Ya-Kuy" firstAttribute="leading" secondItem="4Wn-3Q-WT4" secondAttribute="trailing" constant="46" id="egW-2m-M71"/>
                             <constraint firstItem="lrZ-E9-JwR" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" id="g8g-RJ-nqP"/>
                             <constraint firstItem="r1a-kq-7z5" firstAttribute="top" secondItem="t7p-LE-y3N" secondAttribute="bottom" constant="38" id="gxd-pt-aY0"/>
-                            <constraint firstItem="4Wn-3Q-WT4" firstAttribute="top" secondItem="OdR-dv-OMp" secondAttribute="bottom" constant="33" id="iog-HS-BNN"/>
+                            <constraint firstItem="4Wn-3Q-WT4" firstAttribute="top" secondItem="OdR-dv-OMp" secondAttribute="bottom" constant="26" id="iog-HS-BNN"/>
                             <constraint firstItem="OdR-dv-OMp" firstAttribute="leading" secondItem="9zX-Cu-ySf" secondAttribute="leading" id="kHX-ED-lvV"/>
                             <constraint firstItem="OdR-dv-OMp" firstAttribute="top" secondItem="9zX-Cu-ySf" secondAttribute="bottom" constant="15" id="n9n-qM-vhS"/>
                             <constraint firstItem="fbh-hU-NZP" firstAttribute="leading" secondItem="sEG-v9-kbe" secondAttribute="leadingMargin" constant="12" id="qQS-2J-qKF"/>
-                            <constraint firstItem="t7p-LE-y3N" firstAttribute="top" secondItem="lrZ-E9-JwR" secondAttribute="bottom" constant="24" id="raz-Io-7jh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yG9-42-9Jk"/>
@@ -1789,9 +1789,9 @@
         <image name="product-Small" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rFz-Zf-C8i"/>
         <segue reference="sfU-Xn-nWO"/>
         <segue reference="7YF-Tk-QqE"/>
+        <segue reference="7B9-b1-VY3"/>
         <segue reference="hEZ-HM-Y3k"/>
         <segue reference="iZb-vR-4Tn"/>
         <segue reference="1nh-pQ-l4v"/>
