@@ -45,13 +45,14 @@ class MenuTableViewController: UITableViewController {
         
         
         let image = "\(menuImageArray[indexPath.row])"
-        
-        cell.imageView!.frame = CGRectMake(0,0,32,32);
-        cell.imageView?.image = UIImage(named :image);
-       // cell.imageView?.contentMode = UIViewContentMode.ScaleAspectFill
-        
+        let widthScale = cell.frame.size.width/500;
+        let heightScale = cell.frame.size.height/80;
+        //this line will do it!
+        cell.imageView!.transform = CGAffineTransformMakeScale(widthScale, heightScale);
 
-        cell.imageView!.frame.size.height = cell.frame.size.height-15
+        
+        cell.imageView?.image = UIImage(named :image);
+        
         
         cell.textLabel?.text = "\(menuArray[indexPath.row])"
         
