@@ -798,6 +798,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byx-Be-1xY">
                                 <rect key="frame" x="267" y="513" width="66" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Checkout"/>
                                 <connections>
                                     <segue destination="b0X-lo-ON6" kind="show" id="w06-KC-Hcg"/>
@@ -967,6 +968,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6T-39-1Qx">
                                 <rect key="frame" x="208" y="230" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="AddOfferBtn:" destination="b0X-lo-ON6" eventType="touchUpInside" id="2eU-w3-msM"/>
@@ -974,6 +976,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7f-gs-tov">
                                 <rect key="frame" x="143" y="474" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.66666666669999997" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Pay"/>
                                 <connections>
                                     <action selector="PayBtn:" destination="b0X-lo-ON6" eventType="touchUpInside" id="bfq-qa-DD2"/>
@@ -1790,11 +1793,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sfU-Xn-nWO"/>
-        <segue reference="7YF-Tk-QqE"/>
         <segue reference="7B9-b1-VY3"/>
         <segue reference="hEZ-HM-Y3k"/>
-        <segue reference="iZb-vR-4Tn"/>
+        <segue reference="noO-rV-dHm"/>
         <segue reference="1nh-pQ-l4v"/>
+        <segue reference="iZb-vR-4Tn"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
