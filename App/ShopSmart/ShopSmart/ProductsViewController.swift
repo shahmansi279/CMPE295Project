@@ -49,7 +49,8 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         
           
-  
+        self.depttableView.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+
         
         loadData()
 
@@ -74,6 +75,8 @@ class ProductsViewController : UIViewController, UITableViewDataSource, UITableV
         let Dept = self.depttableView.dequeueReusableCellWithIdentifier("Dept", forIndexPath: indexPath) as! TableViewCell
         
         //Step 8
+        
+        Dept.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
         
   // this needs to be modified
          Dept.myLabel.text = DeptArray[indexPath.row]

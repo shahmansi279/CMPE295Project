@@ -31,6 +31,9 @@ class CheckoutViewController: UIViewController {
     }
     
     
+
+    
+    
     @IBAction func AddOfferBtn(sender: UIButton) {
         
         let offerCode = offerField.text!
@@ -44,7 +47,7 @@ class CheckoutViewController: UIViewController {
             
         } else {
             
-            Alamofire.request(.GET, "http://127.0.0.1:8000/smartretailapp/api/offercode/?offercode=\(offerCode)")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/offercode/?offercode=\(offerCode)")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
@@ -53,7 +56,7 @@ class CheckoutViewController: UIViewController {
                             let discount = JSON[0][0] as! Float
                             self.total = self.subtotal - ((discount/100) * self.subtotal)
                             print("Total: \(self.total)")
-                            self.totalLabel.text = "\(self.total)"
+                            self.totalLabel.text = String(format:"%.2f", self.total)
                             
                         } else {
                             
@@ -85,12 +88,13 @@ class CheckoutViewController: UIViewController {
         let params = ["cart_status":"processed","cart_customer_id":user_id] as Dictionary<String, AnyObject>
         let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
         
-        Alamofire.request(.PUT, "http://127.0.0.1:8000/smartretailapp/api/cart/\(cart_id)/", headers: headers, parameters: params, encoding:  .JSON)
+        Alamofire.request(.PUT, "\(Constant.baseURL)/smartretailapp/api/cart/\(cart_id)/", headers: headers, parameters: params, encoding:  .JSON)
             .validate()
             .responseJSON {  response in
                 switch response.result {
                 case .Success:
                     print("Payment Successful")
+                    self.fetchCart()
                     let alert = UIAlertController(title: "Success!", message:"Payment Successful", preferredStyle: .Alert)
                     let action = UIAlertAction(title: "OK", style: .Default, handler: {
                         [unowned self] (action) -> Void in
@@ -98,7 +102,7 @@ class CheckoutViewController: UIViewController {
                     })
                     alert.addAction(action)
                     self.presentViewController(alert, animated: true){}
-                    self.fetchCart()
+                    //self.fetchCart()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -114,6 +118,10 @@ class CheckoutViewController: UIViewController {
         print("User ID: \(id)")
         Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
+                print("original URL request: \(response.request)")  // original URL request
+                print("URL response: \(response.response)") // URL response
+                print("server data: \(response.data)")     // server data
+                print("response result: \(response.result)")
                 switch response.result {
                 case .Success(let JSON):
                     print(JSON[0][0])

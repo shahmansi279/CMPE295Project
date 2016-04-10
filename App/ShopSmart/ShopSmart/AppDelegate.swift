@@ -13,7 +13,7 @@ extension UIColor
 {
     class func backgroundColorDark() -> UIColor
     {
-        return UIColor(red: 0.0/255.0, green: 170.0/255.0, blue: 233.0/255.0, alpha: 1.0)
+        return UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     }
     
     class func backgroundColorLight() -> UIColor
@@ -48,9 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+                
+        UINavigationBar.appearance().barTintColor = UIColor.backgroundColorDark();
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
-        
-        UINavigationBar.appearance().barTintColor = UIColor.backgroundColorDark();       UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         //UIButton.appearance().

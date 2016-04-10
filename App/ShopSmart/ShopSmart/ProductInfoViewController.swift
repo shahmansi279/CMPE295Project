@@ -55,6 +55,15 @@ class ProductInfoViewController : UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+        productDesc.backgroundColor =  UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+       
+
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -121,7 +130,9 @@ class ProductInfoViewController : UIViewController {
                         // Handle success case...
                         print("Success: \(responseContent)")
                         let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping Cart", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "Goto Cart", style: .Default, handler: {
+                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action1)
+                        let action = UIAlertAction(title: "View Cart", style: .Default, handler: {
                             [unowned self] (action) -> Void in
                             self.performSegueWithIdentifier("addToCart_done", sender: self)
                             })
@@ -181,7 +192,9 @@ class ProductInfoViewController : UIViewController {
                         // Handle success case...
                         print("Success: \(responseContent)")
                         let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
-                        let action = UIAlertAction(title: "Goto List", style: .Default, handler: {
+                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                        alert.addAction(action1)
+                        let action = UIAlertAction(title: "View List", style: .Default, handler: {
                             [unowned self] (action) -> Void in
                             self.performSegueWithIdentifier("addToList_done", sender: self)
                             })

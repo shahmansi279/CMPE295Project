@@ -27,6 +27,7 @@
 		B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */; };
 		B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */; };
 		B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */; };
+		B16989D21CBAC76100BB9A68 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16989D11CBAC76100BB9A68 /* CustomButton.swift */; };
 		B16C8F621CA6019000916998 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C8F611CA6019000916998 /* Sensor.swift */; };
 		B16E597F1C7C3168005765CE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B16E591A1C7C3168005765CE /* .gitignore */; };
 		B16E59801C7C3168005765CE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B16E591B1C7C3168005765CE /* .travis.yml */; };
@@ -101,6 +102,12 @@
 		B1B826731C8B80B800B6B146 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B826721C8B80B800B6B146 /* ProductListTableViewCell.swift */; };
 		B1B826761C8E182400B6B146 /* ProductInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B826751C8E182400B6B146 /* ProductInfoViewController.swift */; };
 		B1E7DE8F1C81557400BEE9EC /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E7DE8E1C81557400BEE9EC /* Offer.swift */; };
+		B1F357001CB8D1570017AB12 /* shop.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F356FF1CB8D1570017AB12 /* shop.png */; };
+		B1F357081CB8D4660017AB12 /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F357071CB8D4660017AB12 /* contact.png */; };
+		B1F3570A1CB8D46E0017AB12 /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F357091CB8D46E0017AB12 /* account.png */; };
+		B1F3570C1CB8D4760017AB12 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F3570B1CB8D4760017AB12 /* list.png */; };
+		B1F3570E1CB8D4810017AB12 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F3570D1CB8D4810017AB12 /* cart.png */; };
+		B1F357101CB8D49F0017AB12 /* checkin.png in Resources */ = {isa = PBXBuildFile; fileRef = B1F3570F1CB8D49F0017AB12 /* checkin.png */; };
 		B1FE9EF71CB3275B0062D6D1 /* whitebg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B1FE9EF61CB3275B0062D6D1 /* whitebg.jpeg */; };
 		FB9F27BD1C894CAD00ED26C4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F27BC1C894CAD00ED26C4 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -222,6 +229,7 @@
 		B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
 		B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-25.png"; sourceTree = "<group>"; };
+		B16989D11CBAC76100BB9A68 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B16C8F611CA6019000916998 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		B16E591A1C7C3168005765CE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B16E591B1C7C3168005765CE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -317,6 +325,12 @@
 		B1B826721C8B80B800B6B146 /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 		B1B826751C8E182400B6B146 /* ProductInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoViewController.swift; sourceTree = "<group>"; };
 		B1E7DE8E1C81557400BEE9EC /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		B1F356FF1CB8D1570017AB12 /* shop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop.png; sourceTree = "<group>"; };
+		B1F357071CB8D4660017AB12 /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		B1F357091CB8D46E0017AB12 /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
+		B1F3570B1CB8D4760017AB12 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		B1F3570D1CB8D4810017AB12 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		B1F3570F1CB8D49F0017AB12 /* checkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkin.png; sourceTree = "<group>"; };
 		B1FE9EF61CB3275B0062D6D1 /* whitebg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whitebg.jpeg; sourceTree = "<group>"; };
 		FB9F27BC1C894CAD00ED26C4 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,8 +387,14 @@
 			isa = PBXGroup;
 			children = (
 				B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */,
+				B1F356FF1CB8D1570017AB12 /* shop.png */,
 				B18DA9711CAF327300AC446C /* beverages.jpg */,
+				B1F357091CB8D46E0017AB12 /* account.png */,
+				B1F3570D1CB8D4810017AB12 /* cart.png */,
+				B1F3570B1CB8D4760017AB12 /* list.png */,
+				B1F357071CB8D4660017AB12 /* contact.png */,
 				B1FE9EF61CB3275B0062D6D1 /* whitebg.jpeg */,
+				B1F3570F1CB8D49F0017AB12 /* checkin.png */,
 				B18DA9751CAF327F00AC446C /* frozenfood.jpg */,
 				B18DA9691CAF326B00AC446C /* baked_goods.jpg */,
 				B18DA9771CAF328500AC446C /* produce.jpg */,
@@ -512,6 +532,7 @@
 				B18DCCAB1C18BE1D005CFFCE /* LaunchScreen.storyboard */,
 				B13FF5E31C2626B200D0FDF1 /* Supporting Files */,
 				B18DCCA61C18BE1D005CFFCE /* ShopSmart.xcdatamodeld */,
+				B16989D11CBAC76100BB9A68 /* CustomButton.swift */,
 			);
 			path = ShopSmart;
 			sourceTree = "<group>";
@@ -775,6 +796,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B18DA96A1CAF326B00AC446C /* baked_goods.jpg in Resources */,
+				B1F3570E1CB8D4810017AB12 /* cart.png in Resources */,
+				B1F357081CB8D4660017AB12 /* contact.png in Resources */,
 				B16E597F1C7C3168005765CE /* .gitignore in Resources */,
 				B1A776E81C631ED2008CFA84 /* beaconBlueberrySmall@2x.png in Resources */,
 				B1A776E31C631ED2008CFA84 /* avatar.png in Resources */,
@@ -784,13 +807,17 @@
 				B16E59931C7C3168005765CE /* Info-tvOS.plist in Resources */,
 				B1FE9EF71CB3275B0062D6D1 /* whitebg.jpeg in Resources */,
 				B18DA9761CAF327F00AC446C /* frozenfood.jpg in Resources */,
+				B1F3570A1CB8D46E0017AB12 /* account.png in Resources */,
 				B18DCCAD1C18BE1D005CFFCE /* LaunchScreen.storyboard in Resources */,
+				B1F357001CB8D1570017AB12 /* shop.png in Resources */,
 				B1A776EB1C631ED2008CFA84 /* beaconMintSmall.png in Resources */,
 				B1A776EC1C631ED2008CFA84 /* beaconMintSmall@2x.png in Resources */,
+				B1F357101CB8D49F0017AB12 /* checkin.png in Resources */,
 				B16E59811C7C3168005765CE /* Alamofire.podspec in Resources */,
 				B18DA9721CAF327300AC446C /* beverages.jpg in Resources */,
 				B1A776E51C631ED2008CFA84 /* avatar@3x.png in Resources */,
 				B16E598D1C7C3168005765CE /* LICENSE in Resources */,
+				B1F3570C1CB8D4760017AB12 /* list.png in Resources */,
 				B18DA9781CAF328500AC446C /* produce.jpg in Resources */,
 				B18DA9741CAF327900AC446C /* dairy.jpg in Resources */,
 				B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */,
@@ -831,6 +858,7 @@
 				B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */,
 				B1B826711C8B7E6600B6B146 /* Product.swift in Sources */,
 				3BB740CC1C97335000142DDD /* Cart.swift in Sources */,
+				B16989D21CBAC76100BB9A68 /* CustomButton.swift in Sources */,
 				B18DA95D1CAC5F8200AC446C /* Store.swift in Sources */,
 				B16E59831C7C3168005765CE /* CHANGELOG.md in Sources */,
 				3BB740D71C9B980C00142DDD /* ListTableViewCell.swift in Sources */,

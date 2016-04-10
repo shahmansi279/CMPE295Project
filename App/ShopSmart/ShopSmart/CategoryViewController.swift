@@ -26,7 +26,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
    // self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         
         
-        
+        self.categoryTblView.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
         // Do any additional setup after loading the view.
         
         loadData()
@@ -55,7 +55,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource, UITableVi
         
         // this needs to be modified
         category.categoryLbl.text = categoryArray[indexPath.row]
-        
+        category.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
         
         let myCustomSelectionColorView = UIView()
         myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()

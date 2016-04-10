@@ -27,6 +27,8 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         
      //   self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
         
+        self.prodTblView.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+
         
         
         // Do any additional setup after loading the view.
@@ -57,7 +59,8 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         
         // this needs to be modified
         product.productTitle.text = prodArray[indexPath.row].productTitle
-        
+        product.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
+
         
         //Change color on cell selection
         
@@ -65,7 +68,6 @@ class ProductListViewController: UIViewController ,UITableViewDataSource, UITabl
         myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
         product.selectedBackgroundView = myCustomSelectionColorView
         product.productTitle.highlightedTextColor = UIColor.whiteColor()
-        
         
 
         

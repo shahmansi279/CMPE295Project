@@ -44,8 +44,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Do any additional setup after loading the view, typically from a nib.
         
          self.view.backgroundColor = UIColor(patternImage: UIImage(named: "whitebg.jpeg")!)
-        
-        manager = CLLocationManager()
+               manager = CLLocationManager()
         
     
         if(CLLocationManager.authorizationStatus() == .NotDetermined){
@@ -61,8 +60,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //loadData()
     }
     
-    
-    /* Check Location Authorization Status */
+        /* Check Location Authorization Status */
     
     func checkLocationServiceStatus() -> Bool {
         
@@ -144,7 +142,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
                        loadData()
             
-                        //self.collectionView.reloadData()
+                        //self.collectionView.reloadData()  
             
            
             

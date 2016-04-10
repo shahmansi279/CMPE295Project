@@ -12,7 +12,10 @@ class MenuTableViewController: UITableViewController {
     
     var menuArray =  ["Shop","Check in","Account","Contact" ,"List","Cart"]
     
-        
+    
+    var menuImageArray = ["shop.png","checkin.png","account.png","contact.png" ,"list.png","cart.png"]
+    
+
         
     
     override func viewDidLoad() {
@@ -40,16 +43,24 @@ class MenuTableViewController: UITableViewController {
      
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
+        
+        let image = "\(menuImageArray[indexPath.row])"
+        let widthScale = cell.frame.size.width/500;
+        let heightScale = cell.frame.size.height/80;
+        //this line will do it!
+        cell.imageView!.transform = CGAffineTransformMakeScale(widthScale, heightScale);
+
+        
+        cell.imageView?.image = UIImage(named :image);
+        
+        
         cell.textLabel?.text = "\(menuArray[indexPath.row])"
         
-        
-        
-        
-        let myCustomSelectionColorView = UIView()
+            /*  let myCustomSelectionColorView = UIView()
         myCustomSelectionColorView.backgroundColor = UIColor.backgroundColorDark()
         cell.selectedBackgroundView = myCustomSelectionColorView
         cell.textLabel!.highlightedTextColor = UIColor.whiteColor()
-
+*/
         
         return cell
     }
