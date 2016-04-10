@@ -94,6 +94,7 @@ class CheckoutViewController: UIViewController {
                 switch response.result {
                 case .Success:
                     print("Payment Successful")
+                    self.fetchCart()
                     let alert = UIAlertController(title: "Success!", message:"Payment Successful", preferredStyle: .Alert)
                     let action = UIAlertAction(title: "OK", style: .Default, handler: {
                         [unowned self] (action) -> Void in
@@ -101,7 +102,7 @@ class CheckoutViewController: UIViewController {
                     })
                     alert.addAction(action)
                     self.presentViewController(alert, animated: true){}
-                    self.fetchCart()
+                    //self.fetchCart()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
@@ -117,6 +118,10 @@ class CheckoutViewController: UIViewController {
         print("User ID: \(id)")
         Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/usercart/?cart_customer_id=\(id)/")
             .responseJSON {  response in
+                print("original URL request: \(response.request)")  // original URL request
+                print("URL response: \(response.response)") // URL response
+                print("server data: \(response.data)")     // server data
+                print("response result: \(response.result)")
                 switch response.result {
                 case .Success(let JSON):
                     print(JSON[0][0])

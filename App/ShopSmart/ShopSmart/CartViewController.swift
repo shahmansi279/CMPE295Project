@@ -28,6 +28,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var checkoutOutlet: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var subtotalLabel: UILabel!
     
     
     var CartArray=[Cart]()
@@ -35,6 +36,8 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subtotalLabel.hidden = true;
 
         // Do any additional setup after loading the view.
         //Add the pan gesture to the view.
@@ -119,6 +122,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             Cart.mulPriceLabel.text = multipliedString
             total = total + productPrice
             //print(total)
+            subtotalLabel.hidden = false
             totalLabel.text = "\(total)"
         }
 
