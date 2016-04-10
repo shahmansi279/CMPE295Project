@@ -27,6 +27,7 @@
 		B13FF5F41C2A296F00D0FDF1 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */; };
 		B13FF5F61C2A2BA200D0FDF1 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */; };
 		B13FF5F81C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png in Resources */ = {isa = PBXBuildFile; fileRef = B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */; };
+		B16989D21CBAC76100BB9A68 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16989D11CBAC76100BB9A68 /* CustomButton.swift */; };
 		B16C8F621CA6019000916998 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16C8F611CA6019000916998 /* Sensor.swift */; };
 		B16E597F1C7C3168005765CE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B16E591A1C7C3168005765CE /* .gitignore */; };
 		B16E59801C7C3168005765CE /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = B16E591B1C7C3168005765CE /* .travis.yml */; };
@@ -228,6 +229,7 @@
 		B13FF5F31C2A296F00D0FDF1 /* ProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		B13FF5F51C2A2BA200D0FDF1 /* ShopListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopListViewController.swift; sourceTree = "<group>"; };
 		B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Shopping Cart Loaded-25.png"; sourceTree = "<group>"; };
+		B16989D11CBAC76100BB9A68 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B16C8F611CA6019000916998 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
 		B16E591A1C7C3168005765CE /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B16E591B1C7C3168005765CE /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				B18DCCAB1C18BE1D005CFFCE /* LaunchScreen.storyboard */,
 				B13FF5E31C2626B200D0FDF1 /* Supporting Files */,
 				B18DCCA61C18BE1D005CFFCE /* ShopSmart.xcdatamodeld */,
+				B16989D11CBAC76100BB9A68 /* CustomButton.swift */,
 			);
 			path = ShopSmart;
 			sourceTree = "<group>";
@@ -855,6 +858,7 @@
 				B18DCCA21C18BE1D005CFFCE /* ViewController.swift in Sources */,
 				B1B826711C8B7E6600B6B146 /* Product.swift in Sources */,
 				3BB740CC1C97335000142DDD /* Cart.swift in Sources */,
+				B16989D21CBAC76100BB9A68 /* CustomButton.swift in Sources */,
 				B18DA95D1CAC5F8200AC446C /* Store.swift in Sources */,
 				B16E59831C7C3168005765CE /* CHANGELOG.md in Sources */,
 				3BB740D71C9B980C00142DDD /* ListTableViewCell.swift in Sources */,
