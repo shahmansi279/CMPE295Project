@@ -56,7 +56,7 @@ class CheckoutViewController: UIViewController {
                             let discount = JSON[0][0] as! Float
                             self.total = self.subtotal - ((discount/100) * self.subtotal)
                             print("Total: \(self.total)")
-                            self.totalLabel.text = "\(self.total)"
+                            self.totalLabel.text = String(format:"%.2f", self.total)
                             
                         } else {
                             
