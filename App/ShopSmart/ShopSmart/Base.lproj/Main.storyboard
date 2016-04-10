@@ -1711,11 +1711,11 @@
             </objects>
             <point key="canvasLocation" x="3131.9999999999995" y="348"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Products-->
         <scene sceneID="Jwl-Rb-aE7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5j8-Wp-hjG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="product-Small" id="Yjp-7u-MS9"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="product-Small" id="Yjp-7u-MS9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RiN-9e-9dk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1730,11 +1730,11 @@
             </objects>
             <point key="canvasLocation" x="67" y="1112"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Offers-->
         <scene sceneID="Asb-cx-k3B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I2X-GS-qHN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="offer-Small" id="h2J-UR-hmh"/>
+                    <tabBarItem key="tabBarItem" title="Offers" image="offer-Small" id="h2J-UR-hmh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="u95-sD-y2c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1794,9 +1794,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sfU-Xn-nWO"/>
+        <segue reference="7YF-Tk-QqE"/>
         <segue reference="hEZ-HM-Y3k"/>
         <segue reference="7B9-b1-VY3"/>
-        <segue reference="noO-rV-dHm"/>
         <segue reference="iZb-vR-4Tn"/>
         <segue reference="1nh-pQ-l4v"/>
     </inferredMetricsTieBreakers>
