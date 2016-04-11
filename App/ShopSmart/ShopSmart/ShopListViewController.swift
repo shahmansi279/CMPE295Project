@@ -43,7 +43,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
             let list_id = prefs.valueForKey("list_id") as! Int
             print(list_id)
             
-            Alamofire.request(.GET, "http://54.153.9.205:8000/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
+            Alamofire.request(.GET, "\(Constant.baseURL)/smartretailapp/api/userlistdetail/\(list_id)/?format=json")
                 .responseJSON {  response in
                     switch response.result {
                     case .Success(let JSON):
@@ -124,7 +124,7 @@ class ShopListViewController: UIViewController, UITableViewDataSource, UITableVi
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let csrftoken = prefs.objectForKey("csrftoken") as! String
         let headers = ["X-CSRFToken" : csrftoken]
-        Alamofire.request(.DELETE, "http://54.153.9.205:8000/smartretailapp/api/listprd/\(listPrdId)/", headers: headers)
+        Alamofire.request(.DELETE, "\(Constant.baseURL)/smartretailapp/api/listprd/\(listPrdId)/", headers: headers)
             .validate()
             .responseJSON {  response in
                 switch response.result {
