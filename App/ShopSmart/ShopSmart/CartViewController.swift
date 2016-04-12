@@ -38,7 +38,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         subtotalLabel.hidden = true;
-
+        checkoutOutlet.hidden = true;
         // Do any additional setup after loading the view.
         //Add the pan gesture to the view.
         
@@ -123,6 +123,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
             total = total + productPrice
             //print(total)
             subtotalLabel.hidden = false
+            checkoutOutlet.hidden = false
             totalLabel.text = "\(total)"
         }
 
