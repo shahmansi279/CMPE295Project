@@ -44,14 +44,14 @@ class RegisterViewController: UIViewController {
         
         if ( usernameText == "" || passwordText == "" || verifyPasswordText == "" ) {
             
-            let alert = UIAlertController(title: "Registeration Failed!", message:"Please enter the required fields", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Registration Failed!", message:"Please enter the required fields", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default) { _ in}
             alert.addAction(action)
             self.presentViewController(alert, animated: true){}
             
             
         } else if (passwordText != verifyPasswordText) {
-            let alert = UIAlertController(title: "Registeration Failed!", message:"The passwords do not match. Try again!", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Registration Failed!", message:"The passwords do not match. Try again!", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default) { _ in}
             alert.addAction(action)
             self.presentViewController(alert, animated: true){}
@@ -81,7 +81,7 @@ class RegisterViewController: UIViewController {
                         })
                         
                     } else if (result == "error"){
-                        let alert = UIAlertController(title: "Registeration Failed!", message:"The username is already taken. Try again!", preferredStyle: .Alert)
+                        let alert = UIAlertController(title: "Registration Failed!", message:"The username is already taken. Try again!", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "OK", style: .Default) { _ in}
                         alert.addAction(action)
                         dispatch_async(dispatch_get_main_queue(), {
