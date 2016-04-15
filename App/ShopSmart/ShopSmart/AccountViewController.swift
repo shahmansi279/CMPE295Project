@@ -141,6 +141,7 @@ class AccountViewController: UIViewController {
                     let cart_id = JSON[0][0] as! Int
                     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                     prefs.setObject(cart_id, forKey: "cart_id")
+                    prefs.synchronize()
                     
                 case .Failure(let error):
                     print("Request failed with error: \(error)")

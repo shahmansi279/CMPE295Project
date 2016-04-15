@@ -107,7 +107,7 @@ class ProductInfoViewController : UIViewController {
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             //textField.text = "Enter Quantity"
         })
-        alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             let quantity = Int(textField.text!)
             print(quantity)
@@ -151,7 +151,7 @@ class ProductInfoViewController : UIViewController {
             
         }))
 
-        let cancel = UIAlertAction(title: "CANCEL", style: .Default) { _ in}
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { _ in}
         alert.addAction(cancel)
         
         self.presentViewController(alert, animated: true){}
@@ -167,7 +167,7 @@ class ProductInfoViewController : UIViewController {
         alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
             //textField.text = "Enter Quantity"
         })
-        alert.addAction(UIAlertAction(title: "ADD", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             let quantity = Int(textField.text!)
             print(quantity)
@@ -212,7 +212,7 @@ class ProductInfoViewController : UIViewController {
             
         }))
         
-        let cancel = UIAlertAction(title: "CANCEL", style: .Default) { _ in}
+        let cancel = UIAlertAction(title: "Cancel", style: .Default) { _ in}
         alert.addAction(cancel)
         
         self.presentViewController(alert, animated: true){}
