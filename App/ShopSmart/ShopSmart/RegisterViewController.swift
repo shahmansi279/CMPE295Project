@@ -105,7 +105,7 @@ class RegisterViewController: UIViewController {
     
     func registered(){
         let alert = UIAlertController(title: "Registration successful!", message:"The Account has been Registered", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "LOGIN", style: .Default, handler: { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "Login", style: .Default, handler: { (action) -> Void in
             self.performSegueWithIdentifier("Registered", sender: nil)
         }))
         self.presentViewController(alert, animated: true){}
