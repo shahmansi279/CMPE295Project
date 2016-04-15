@@ -63,7 +63,7 @@ class ResetPasswordViewController: UIViewController {
                     let result = json["status"] as? String
                     
                     if (result == "success"){
-                        let alert = UIAlertController(title: "Successful!", message:"The password reset was successfully", preferredStyle: .Alert)
+                        let alert = UIAlertController(title: "Successful!", message:"The password was reset successfully ", preferredStyle: .Alert)
                         let action = UIAlertAction(title: "OK", style: .Default) { _ in}
                         alert.addAction(action)
                         dispatch_async(dispatch_get_main_queue(), {
