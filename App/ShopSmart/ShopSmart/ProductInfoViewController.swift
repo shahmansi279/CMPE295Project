@@ -110,52 +110,61 @@ class ProductInfoViewController : UIViewController {
         alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             let quantity = Int(textField.text!)
-            print(quantity)
-            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            let cart_id:Int = prefs.integerForKey("cart_id") as Int
-            let params = ["cart_id":cart_id, "product_id":self.product.productId, "product_qty":quantity!, "cart_prd_attr1":self.product.productTitle!, "cart_prd_attr2":self.product.productCost!] as Dictionary<String, AnyObject>
-            
-            let csrftoken = prefs.objectForKey("csrftoken") as! String
-            
-
-            let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
-            
-            
-            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
-                .validate()
-                .responseJSON { response in
-                    
-                    switch response.result {
-                    case .Success(let responseContent):
-                        // Handle success case...
-                        print("Success: \(responseContent)")
-                        let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping Cart", preferredStyle: .Alert)
-                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
-                        alert.addAction(action1)
-                        let action = UIAlertAction(title: "View Cart", style: .Default, handler: {
-                            [unowned self] (action) -> Void in
-                            self.performSegueWithIdentifier("addToCart_done", sender: self)
+            if quantity == nil{
+                //String Entered as quantity
+                let alert = UIAlertController(title: "Failed!", message:"Please enter a valid quantity", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true){}
+                
+            } else {
+                
+                //Int Entered as quantity
+                
+                print(quantity)
+                let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                let cart_id:Int = prefs.integerForKey("cart_id") as Int
+                let params = ["cart_id":cart_id, "product_id":self.product.productId, "product_qty":quantity!, "cart_prd_attr1":self.product.productTitle!, "cart_prd_attr2":self.product.productCost!] as Dictionary<String, AnyObject>
+                
+                let csrftoken = prefs.objectForKey("csrftoken") as! String
+                
+                let headers = [ "Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
+                
+                Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/cartprd/", headers: headers, parameters: params, encoding:  .JSON)
+                    .validate()
+                    .responseJSON { response in
+                        
+                        switch response.result {
+                        case .Success(let responseContent):
+                            // Handle success case...
+                            print("Success: \(responseContent)")
+                            let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping Cart", preferredStyle: .Alert)
+                            let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                            alert.addAction(action1)
+                            let action = UIAlertAction(title: "View Cart", style: .Default, handler: {
+                                [unowned self] (action) -> Void in
+                                self.performSegueWithIdentifier("addToCart_done", sender: self)
+                                })
+                            alert.addAction(action)
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.presentViewController(alert, animated: true){}
                             })
-                        alert.addAction(action)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.presentViewController(alert, animated: true){}
-                        })
-                        break
-                    case .Failure(let error):
-                        // Handle failure case...
-                        print("Request failed with error: \(error)")
-                        break
-                    }
+                            break
+                        case .Failure(let error):
+                            // Handle failure case...
+                            print("Request failed with error: \(error)")
+                            break
+                        }
+                }
             }
             
-            
+                
         }))
-
+            
         let cancel = UIAlertAction(title: "Cancel", style: .Default) { _ in}
         alert.addAction(cancel)
         
         self.presentViewController(alert, animated: true){}
-        
         
     }
     
@@ -170,59 +179,63 @@ class ProductInfoViewController : UIViewController {
         alert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
             let quantity = Int(textField.text!)
-            print(quantity)
-            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            let list_id:Int = prefs.integerForKey("list_id") as Int
-            
-            let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!, "list_prd_attr2":self.product.productDept!] as Dictionary<String, AnyObject>
-            
-            
-            let csrftoken = prefs.objectForKey("csrftoken") as! String
-
-            
-            let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
-            
-            
-            Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
-                .responseJSON { response in
-            
-                   
-                    switch response.result {
-                    case .Success(let responseContent):
-                        // Handle success case...
-                        print("Success: \(responseContent)")
-                        let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
-                        let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
-                        alert.addAction(action1)
-                        let action = UIAlertAction(title: "View List", style: .Default, handler: {
-                            [unowned self] (action) -> Void in
-                            self.performSegueWithIdentifier("addToList_done", sender: self)
+            if quantity == nil{
+                //String Entered as quantity
+                let alert = UIAlertController(title: "Failed!", message:"Please enter a valid quantity", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default) { _ in}
+                alert.addAction(action)
+                self.presentViewController(alert, animated: true){}
+                
+            } else {
+                
+                //Int Entered as quantity
+                print(quantity)
+                let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                let list_id:Int = prefs.integerForKey("list_id") as Int
+                
+                let params = ["list_id":list_id, "product_id":self.product.productId, "product_qty":quantity!, "list_prd_attr1":self.product.productTitle!, "list_prd_attr2":self.product.productDept!] as Dictionary<String, AnyObject>
+                
+                let csrftoken = prefs.objectForKey("csrftoken") as! String
+                
+                let headers = ["Accept":"application/json" ,  "Content-Type": "application/json" , "X-CSRFToken" : csrftoken]
+                
+                Alamofire.request(.POST, "\(Constant.baseURL)/smartretailapp/api/listprd/",parameters: params,  encoding: .JSON , headers:headers)
+                    .responseJSON { response in
+                        
+                        
+                        switch response.result {
+                        case .Success(let responseContent):
+                            // Handle success case...
+                            print("Success: \(responseContent)")
+                            let alert = UIAlertController(title: "Success!", message:"Product has been added to the Shopping List", preferredStyle: .Alert)
+                            let action1 = UIAlertAction(title: "OK", style: .Default) { _ in}
+                            alert.addAction(action1)
+                            let action = UIAlertAction(title: "View List", style: .Default, handler: {
+                                [unowned self] (action) -> Void in
+                                self.performSegueWithIdentifier("addToList_done", sender: self)
+                                })
+                            alert.addAction(action)
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.presentViewController(alert, animated: true){}
                             })
-                        alert.addAction(action)
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.presentViewController(alert, animated: true){}
-                        })
-                        break
-                    case .Failure(let error):
-                        // Handle failure case...
-                        print("Request failed with error: \(error)")
-                        break
-                    }
+                            break
+                        case .Failure(let error):
+                            // Handle failure case...
+                            print("Request failed with error: \(error)")
+                            break
+                        }
+                }
+
+                
             }
+            
             
         }))
         
         let cancel = UIAlertAction(title: "Cancel", style: .Default) { _ in}
         alert.addAction(cancel)
-        
         self.presentViewController(alert, animated: true){}
-        
-        
     }
-    
-    
-    
-    
     
 }
 
