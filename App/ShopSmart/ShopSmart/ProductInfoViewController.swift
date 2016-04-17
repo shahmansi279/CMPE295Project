@@ -34,6 +34,10 @@ class ProductInfoViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         //Add the pan gesture to the view.
         
       //  self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer());
@@ -62,6 +66,12 @@ class ProductInfoViewController : UIViewController {
        
 
 
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
