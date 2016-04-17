@@ -40,7 +40,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
 
     
     
-    let imgArr = [51899:"beverages.jpg",16358:"produce.jpg",34611:"baked_goods.jpg",63324:"frozenfood.jpg",18138:"dairy.jpg"]
+    let imgArr = [51899:"beveragesg.png",16358:"produceg.png",34611:"baked_goodsg.png",63324:"frozen_foodsg.png",18138:"dairyg.png"]
     
     
     let sensorIdArr = ["e0d44001cabb":"Beverages-Mint","ead68aabe0e0":"Canned Foods-Ice","ee61d7863fe6":"Produce -BB","e228a6bc8733":"Baked Goods -Ice","e97e2d2ef75c":"Frozen Foods- BB","d7b72bc746da":"Dairy- Mint"]
@@ -146,7 +146,7 @@ class CheckInViewController: UIViewController,EILIndoorLocationManagerDelegate ,
                     
                     var imageViewObject :UIImageView
                     
-                    imageViewObject = UIImageView(frame:CGRectMake(0, 0, 60, 40))
+                    imageViewObject = UIImageView(frame:CGRectMake(0, 0, 40, 40))
                     
                     let imgName = self.imgArr[Int(beacon.major!!.description)!]
                     

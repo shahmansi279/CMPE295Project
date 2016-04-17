@@ -59,6 +59,17 @@
 		B16E59A11C7C3168005765CE /* Upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E594A1C7C3168005765CE /* Upload.swift */; };
 		B16E59A21C7C3168005765CE /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E594B1C7C3168005765CE /* Validation.swift */; };
 		B16E59E81C7C317B005765CE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B16E59D71C7C3169005765CE /* Alamofire.framework */; };
+		B17FEDAB1CC41436007D6D1B /* shopgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDAA1CC41436007D6D1B /* shopgreen.png */; };
+		B17FEDB11CC415AF007D6D1B /* cartgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDAC1CC415AF007D6D1B /* cartgreen.png */; };
+		B17FEDB21CC415AF007D6D1B /* listgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDAD1CC415AF007D6D1B /* listgreen.png */; };
+		B17FEDB31CC415AF007D6D1B /* contactgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDAE1CC415AF007D6D1B /* contactgreen.png */; };
+		B17FEDB41CC415AF007D6D1B /* checkingreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDAF1CC415AF007D6D1B /* checkingreen.png */; };
+		B17FEDB51CC415AF007D6D1B /* accountgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDB01CC415AF007D6D1B /* accountgreen.png */; };
+		B17FEDBB1CC417B3007D6D1B /* dairyg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDB61CC417B3007D6D1B /* dairyg.png */; };
+		B17FEDBC1CC417B3007D6D1B /* beveragesg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDB71CC417B3007D6D1B /* beveragesg.png */; };
+		B17FEDBD1CC417B3007D6D1B /* frozen_foodsg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDB81CC417B3007D6D1B /* frozen_foodsg.png */; };
+		B17FEDBE1CC417B3007D6D1B /* produceg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDB91CC417B3007D6D1B /* produceg.png */; };
+		B17FEDBF1CC417B3007D6D1B /* baked_goodsg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17FEDBA1CC417B3007D6D1B /* baked_goodsg.png */; };
 		B18DA95D1CAC5F8200AC446C /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18DA95C1CAC5F8200AC446C /* Store.swift */; };
 		B18DA96A1CAF326B00AC446C /* baked_goods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9691CAF326B00AC446C /* baked_goods.jpg */; };
 		B18DA9721CAF327300AC446C /* beverages.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B18DA9711CAF327300AC446C /* beverages.jpg */; };
@@ -262,6 +273,17 @@
 		B16E59491C7C3168005765CE /* Timeline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timeline.swift; sourceTree = "<group>"; };
 		B16E594A1C7C3168005765CE /* Upload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Upload.swift; sourceTree = "<group>"; };
 		B16E594B1C7C3168005765CE /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
+		B17FEDAA1CC41436007D6D1B /* shopgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shopgreen.png; sourceTree = "<group>"; };
+		B17FEDAC1CC415AF007D6D1B /* cartgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cartgreen.png; sourceTree = "<group>"; };
+		B17FEDAD1CC415AF007D6D1B /* listgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listgreen.png; sourceTree = "<group>"; };
+		B17FEDAE1CC415AF007D6D1B /* contactgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contactgreen.png; sourceTree = "<group>"; };
+		B17FEDAF1CC415AF007D6D1B /* checkingreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkingreen.png; sourceTree = "<group>"; };
+		B17FEDB01CC415AF007D6D1B /* accountgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accountgreen.png; sourceTree = "<group>"; };
+		B17FEDB61CC417B3007D6D1B /* dairyg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dairyg.png; sourceTree = "<group>"; };
+		B17FEDB71CC417B3007D6D1B /* beveragesg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beveragesg.png; sourceTree = "<group>"; };
+		B17FEDB81CC417B3007D6D1B /* frozen_foodsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frozen_foodsg.png; sourceTree = "<group>"; };
+		B17FEDB91CC417B3007D6D1B /* produceg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = produceg.png; sourceTree = "<group>"; };
+		B17FEDBA1CC417B3007D6D1B /* baked_goodsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baked_goodsg.png; sourceTree = "<group>"; };
 		B18DA95C1CAC5F8200AC446C /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		B18DA9691CAF326B00AC446C /* baked_goods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baked_goods.jpg; sourceTree = "<group>"; };
 		B18DA9711CAF327300AC446C /* beverages.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beverages.jpg; sourceTree = "<group>"; };
@@ -387,9 +409,20 @@
 			isa = PBXGroup;
 			children = (
 				B13FF5F71C2A3ED700D0FDF1 /* Shopping Cart Loaded-25.png */,
+				B17FEDAA1CC41436007D6D1B /* shopgreen.png */,
 				B1F356FF1CB8D1570017AB12 /* shop.png */,
 				B18DA9711CAF327300AC446C /* beverages.jpg */,
 				B1F357091CB8D46E0017AB12 /* account.png */,
+				B17FEDAC1CC415AF007D6D1B /* cartgreen.png */,
+				B17FEDAD1CC415AF007D6D1B /* listgreen.png */,
+				B17FEDAE1CC415AF007D6D1B /* contactgreen.png */,
+				B17FEDAF1CC415AF007D6D1B /* checkingreen.png */,
+				B17FEDB61CC417B3007D6D1B /* dairyg.png */,
+				B17FEDB71CC417B3007D6D1B /* beveragesg.png */,
+				B17FEDB81CC417B3007D6D1B /* frozen_foodsg.png */,
+				B17FEDB91CC417B3007D6D1B /* produceg.png */,
+				B17FEDBA1CC417B3007D6D1B /* baked_goodsg.png */,
+				B17FEDB01CC415AF007D6D1B /* accountgreen.png */,
 				B1F3570D1CB8D4810017AB12 /* cart.png */,
 				B1F3570B1CB8D4760017AB12 /* list.png */,
 				B1F357071CB8D4660017AB12 /* contact.png */,
@@ -795,14 +828,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17FEDB31CC415AF007D6D1B /* contactgreen.png in Resources */,
 				B18DA96A1CAF326B00AC446C /* baked_goods.jpg in Resources */,
 				B1F3570E1CB8D4810017AB12 /* cart.png in Resources */,
 				B1F357081CB8D4660017AB12 /* contact.png in Resources */,
+				B17FEDB51CC415AF007D6D1B /* accountgreen.png in Resources */,
 				B16E597F1C7C3168005765CE /* .gitignore in Resources */,
 				B1A776E81C631ED2008CFA84 /* beaconBlueberrySmall@2x.png in Resources */,
 				B1A776E31C631ED2008CFA84 /* avatar.png in Resources */,
 				B16E59801C7C3168005765CE /* .travis.yml in Resources */,
+				B17FEDBB1CC417B3007D6D1B /* dairyg.png in Resources */,
 				B1A776E61C631ED2008CFA84 /* beacon_grey@2x.png in Resources */,
+				B17FEDB41CC415AF007D6D1B /* checkingreen.png in Resources */,
 				B1A776E91C631ED2008CFA84 /* beaconIcySmall.png in Resources */,
 				B16E59931C7C3168005765CE /* Info-tvOS.plist in Resources */,
 				B1FE9EF71CB3275B0062D6D1 /* whitebg.jpeg in Resources */,
@@ -818,7 +855,13 @@
 				B1A776E51C631ED2008CFA84 /* avatar@3x.png in Resources */,
 				B16E598D1C7C3168005765CE /* LICENSE in Resources */,
 				B1F3570C1CB8D4760017AB12 /* list.png in Resources */,
+				B17FEDBC1CC417B3007D6D1B /* beveragesg.png in Resources */,
+				B17FEDB11CC415AF007D6D1B /* cartgreen.png in Resources */,
+				B17FEDBD1CC417B3007D6D1B /* frozen_foodsg.png in Resources */,
 				B18DA9781CAF328500AC446C /* produce.jpg in Resources */,
+				B17FEDB21CC415AF007D6D1B /* listgreen.png in Resources */,
+				B17FEDBF1CC417B3007D6D1B /* baked_goodsg.png in Resources */,
+				B17FEDBE1CC417B3007D6D1B /* produceg.png in Resources */,
 				B18DA9741CAF327900AC446C /* dairy.jpg in Resources */,
 				B13FF5E71C26305C00D0FDF1 /* btn-toggle-menu.png in Resources */,
 				B18DCCAA1C18BE1D005CFFCE /* Assets.xcassets in Resources */,
@@ -826,6 +869,7 @@
 				B18DCCA51C18BE1D005CFFCE /* Main.storyboard in Resources */,
 				B1B457B11C9773D500F796F7 /* default.png in Resources */,
 				B1A776EA1C631ED2008CFA84 /* beaconIcySmall@2x.png in Resources */,
+				B17FEDAB1CC41436007D6D1B /* shopgreen.png in Resources */,
 				B16E59821C7C3168005765CE /* Alamofire.xcworkspace in Resources */,
 				B1A776E71C631ED2008CFA84 /* beaconBlueberrySmall.png in Resources */,
 				B16E59941C7C3168005765CE /* Info.plist in Resources */,

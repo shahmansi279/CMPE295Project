@@ -13,7 +13,7 @@ class MenuTableViewController: UITableViewController {
     var menuArray =  ["Shop","Check in","Account","Contact" ,"List","Cart"]
     
     
-    var menuImageArray = ["shop.png","checkin.png","account.png","contact.png" ,"list.png","cart.png"]
+    var menuImageArray = ["shopgreen.png","checkingreen.png","accountgreen.png","contactgreen.png" ,"listgreen.png","cartgreen.png"]
     
 
         
