@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResetPasswordViewController: UIViewController {
+class ResetPasswordViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var usernameField: UITextField!
@@ -94,11 +94,17 @@ class ResetPasswordViewController: UIViewController {
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.usernameField.delegate = self;
+        self.newPasswordField.delegate = self;
+        self.verifyPasswordField.delegate = self;
         //Looks for single or multiple taps.
      //   let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
       //  view.addGestureRecognizer(tap)
@@ -106,11 +112,6 @@ class ResetPasswordViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
 
 
     override func didReceiveMemoryWarning() {

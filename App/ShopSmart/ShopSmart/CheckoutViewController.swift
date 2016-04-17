@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CheckoutViewController: UIViewController {
+class CheckoutViewController: UIViewController, UITextFieldDelegate {
 
     var subtotal:Float = 0.0
     var total:Float = 0.0
@@ -22,6 +22,7 @@ class CheckoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.offerField.delegate = self;
         
         //Looks for single or multiple taps.
        // let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
@@ -34,10 +35,9 @@ class CheckoutViewController: UIViewController {
         
     }
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 
     

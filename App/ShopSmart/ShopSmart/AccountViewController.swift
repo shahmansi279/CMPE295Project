@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -60,7 +60,14 @@ class AccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.usernameField.delegate = self;
+        self.emailField.delegate = self;
+        self.addressField.delegate = self;
+        self.zipcodeField.delegate = self;
+        self.phoneField.delegate = self;
+        self.dobField.delegate = self;
+        self.genderField.delegate = self;
+        self.cardNoField.delegate = self;
         //Looks for single or multiple taps.
        // let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
        // view.addGestureRecognizer(tap)
@@ -177,10 +184,9 @@ class AccountViewController: UIViewController {
         
     }
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
   
 

@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     enum JSONError: String, ErrorType {
@@ -144,6 +144,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.usernameField.delegate = self;
+        self.passwordField.delegate = self;
+        
         //Looks for single or multiple taps.
       //  let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
       //  view.addGestureRecognizer(tap)
@@ -151,10 +154,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 
     override func didReceiveMemoryWarning() {
