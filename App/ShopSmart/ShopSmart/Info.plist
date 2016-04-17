@@ -37,6 +37,8 @@
 	<string>Location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location Always</string>
+	<key>UILaunchImageFile</key>
+	<string>mylaunchimage</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
